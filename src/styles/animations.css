@@ -34,7 +34,7 @@
   }
 
   .glitch-intense {
-    position: relative;
+    @apply relative text-2xl font-serif font-bold text-primary;
     text-shadow: 
       0.05em 0 0 rgba(255, 0, 0, 0.85),
       -0.025em -0.05em 0 rgba(0, 255, 0, 0.85),

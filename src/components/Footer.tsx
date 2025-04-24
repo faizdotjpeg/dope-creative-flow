@@ -37,7 +37,8 @@ const Footer = () => {
           <div className="mb-6 md:mb-0">
             <motion.a 
               href="#" 
-              className="text-2xl font-serif font-bold text-primary inline-block"
+              className="glitch-intense inline-block"
+              data-text="PORTFOLIO"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
