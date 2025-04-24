@@ -27,7 +27,7 @@ export const ClientsSection = ({
       once: true,
       amount: 0.3
     }} 
-    className="py-16 overflow-hidden"
+    className="py-16 overflow-hidden border-t border-b border-primary/20 bg-background/30 backdrop-blur-sm"
   >
     <div className="relative w-full">
       <motion.div 
@@ -53,11 +53,13 @@ export const ClientsSection = ({
               rotate: 5
             }}
           >
-            <img 
-              src={client.logo} 
-              alt={client.name} 
-              className="w-24 h-24 object-contain rounded-full" 
-            />
+            <div className="w-24 h-24 rounded-full border-2 border-primary/30 overflow-hidden flex items-center justify-center bg-background/50 backdrop-blur-sm p-2 hover:border-primary transition-colors duration-300">
+              <img 
+                src={client.logo} 
+                alt={client.name} 
+                className="w-full h-full object-contain" 
+              />
+            </div>
           </motion.div>
         ))}
       </motion.div>

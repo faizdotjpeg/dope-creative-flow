@@ -11,7 +11,7 @@ export function ThemeToggle() {
       variant="outline"
       size="icon"
       onClick={toggleTheme}
-      className="bg-transparent border-primary hover:bg-primary/10"
+      className="bg-background/30 backdrop-blur-sm border-primary/40 hover:bg-primary/10 hover:border-primary transition-all duration-300"
     >
       {theme === "dark" ? (
         <Sun className="h-5 w-5 transition-all" />
