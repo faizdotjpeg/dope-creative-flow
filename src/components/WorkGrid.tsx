@@ -70,8 +70,15 @@ const WorkGrid = () => {
   };
   return <section 
     id="work" 
-    className="py-24 px-4 bg-muted/10 dark:bg-secondary/10 transition-colors duration-300"
+    className="py-24 px-4 bg-muted/10 dark:bg-background/30 transition-colors duration-300 relative overflow-hidden"
   >
+    <div 
+      className="absolute inset-0 dark:bg-gradient-to-b dark:from-secondary/20 dark:to-transparent dark:opacity-50 pointer-events-none"
+      style={{
+        backgroundImage: 'linear-gradient(to bottom, rgba(139, 92, 246, 0.1), transparent)',
+      }}
+    />
+    
     <div className="container mx-auto">
       <h2 className="text-4xl font-serif font-bold mb-4 text-center animate-fade-in md:text-xl">
         Featured <span data-text="Work" className="text-gradient glitch text-3xl">Work</span>

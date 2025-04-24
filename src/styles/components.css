@@ -1,4 +1,3 @@
-
 @layer components {
   .text-gradient {
     @apply text-primary;
@@ -22,12 +21,14 @@
     @apply fixed pointer-events-none w-6 h-6 rounded-full border-2 border-primary z-[9999] mix-blend-difference;
     transform: translate(-50%, -50%);
     transition: width 0.2s, height 0.2s, transform 0.1s;
+    box-shadow: 0 0 10px rgba(0, 171, 107, 0.5);
   }
   
   .custom-cursor-dot {
     @apply fixed pointer-events-none w-2 h-2 rounded-full bg-primary z-[9999];
     transform: translate(-50%, -50%);
     transition: transform 0.1s ease;
+    box-shadow: 0 0 15px rgba(0, 171, 107, 0.8);
   }
 
   /* Hide default cursor when custom cursor is enabled */
