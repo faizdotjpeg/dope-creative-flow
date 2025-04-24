@@ -70,7 +70,7 @@ const WorkGrid = () => {
   };
   return <section 
     id="work" 
-    className="py-24 px-4 bg-muted/10 dark:bg-secondary/20 transition-colors duration-300"
+    className="py-24 px-4 bg-muted/10 dark:bg-secondary/10 transition-colors duration-300"
   >
     <div className="container mx-auto">
       <h2 className="text-4xl font-serif font-bold mb-4 text-center animate-fade-in md:text-xl">
