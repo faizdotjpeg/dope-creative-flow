@@ -1,43 +1,44 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
 
 @layer base {
   :root {
-    --background: 195 100% 10%;       // Dark Teal Background
-    --foreground: 0 0% 98%;           // Light text for contrast
-    --card: 195 80% 8%;               // Slightly lighter teal for cards
+    --background: 195 100% 10%;       /* Dark Teal Background */
+    --foreground: 0 0% 98%;           /* Light text for contrast */
+    --card: 195 80% 8%;               /* Slightly lighter teal for cards */
     --card-foreground: 0 0% 98%;
     --popover: 195 80% 8%;
     --popover-foreground: 0 0% 98%;
-    --primary: 142 100% 50%;           // Keep the neon green
+    --primary: 142 100% 50%;          /* Keep the neon green */
     --primary-foreground: 0 0% 98%;
-    --secondary: 262 83% 58%;          // Keep existing secondary color
+    --secondary: 262 83% 58%;         /* Keep existing secondary color */
     --secondary-foreground: 240 5.9% 10%;
-    --muted: 195 50% 15%;              // Muted teal
+    --muted: 195 50% 15%;             /* Muted teal */
     --muted-foreground: 195 20% 70%;
-    --accent: 142 100% 50%;            // Neon green accent
+    --accent: 142 100% 50%;           /* Neon green accent */
     --accent-foreground: 0 0% 98%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 195 80% 20%;             // Teal border
-    --input: 195 50% 20%;              // Teal input
-    --ring: 142 100% 50%;              // Neon green ring
+    --border: 195 80% 20%;            /* Teal border */
+    --input: 195 50% 20%;             /* Teal input */
+    --ring: 142 100% 50%;             /* Neon green ring */
     --radius: 0;
   }
 
   .dark {
-    --background: 195 100% 7%;         // Even darker teal for dark mode
+    --background: 195 100% 7%;        /* Even darker teal for dark mode */
     --foreground: 0 0% 98%;
     --card: 195 80% 10%;
     --card-foreground: 0 0% 98%;
     --popover: 195 80% 10%;
     --popover-foreground: 0 0% 98%;
-    --primary: 142 100% 50%;            // Maintain neon green
+    --primary: 142 100% 50%;          /* Maintain neon green */
     --primary-foreground: 240 5.9% 10%;
     --secondary: 262 83% 58%;
     --secondary-foreground: 0 0% 98%;
     --muted: 195 50% 12%;
     --muted-foreground: 195 20% 80%;
-    --accent: 142 100% 50%;             // Neon green accent
+    --accent: 142 100% 50%;           /* Neon green accent */
     --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
