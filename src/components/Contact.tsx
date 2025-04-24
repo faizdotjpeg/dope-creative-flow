@@ -213,7 +213,7 @@ const Contact = () => {
             </div>
             
             <div className="mt-8 p-4 border border-border rounded-lg bg-secondary">
-              <h4 className="text-lg font-medium mb-2 text-foreground dark:text-gray-300">> online.window</h4>
+              <h4 className="text-lg font-medium mb-2 text-foreground dark:text-gray-300">faiz> status --active</h4>
               <p className="text-foreground dark:text-gray-300">Monday - Friday: 9am - 6pm</p>
               <p className="text-foreground dark:text-gray-300">Weekend: By appointment</p>
             </div>
