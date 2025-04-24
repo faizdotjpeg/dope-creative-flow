@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowDown } from "lucide-react";
@@ -22,7 +21,9 @@ const Hero = () => {
       </div>
       
       <div className="container mx-auto relative z-10 text-center">
-        <p className="text-primary font-mono tracking-wide mb-4">CREATIVE DIRECTOR • PHOTOGRAPHER • DESIGNER</p>
+        <p className="glitch-intense" data-text="CREATIVE DIRECTOR • PHOTOGRAPHER • DESIGNER">
+          CREATIVE DIRECTOR • PHOTOGRAPHER • DESIGNER
+        </p>
         
         <h1 ref={textRef} className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold mb-6 max-w-4xl mx-auto opacity-0">
           Turning <span className="text-gradient">Creative Vision</span> Into Reality
