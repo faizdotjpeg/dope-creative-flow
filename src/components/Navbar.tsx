@@ -33,7 +33,7 @@ const Navbar = () => {
           href="#" 
           className="text-2xl font-mono font-bold tracking-tighter"
         >
-          <span className="glitch-text">PORTFOLIO</span>
+          <span className="glitch" data-text="PORTFOLIO">PORTFOLIO</span>
         </a>
 
         {/* Desktop Navigation */}
