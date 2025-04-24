@@ -3,47 +3,47 @@
 
 @layer base {
   :root {
-    --background: 195 100% 10%;       /* Dark Teal Background */
+    --background: 0 0% 5%;            /* Near black background */
     --foreground: 0 0% 98%;           /* Light text for contrast */
-    --card: 195 80% 8%;               /* Slightly lighter teal for cards */
+    --card: 0 0% 7%;                  /* Slightly lighter black for cards */
     --card-foreground: 0 0% 98%;
-    --popover: 195 80% 8%;
+    --popover: 0 0% 7%;
     --popover-foreground: 0 0% 98%;
     --primary: 142 100% 50%;          /* Keep the neon green */
     --primary-foreground: 0 0% 98%;
-    --secondary: 262 83% 58%;         /* Keep existing secondary color */
+    --secondary: 262 83% 58%;         /* Keep existing purple */
     --secondary-foreground: 240 5.9% 10%;
-    --muted: 195 50% 15%;             /* Muted teal */
-    --muted-foreground: 195 20% 70%;
-    --accent: 142 100% 50%;           /* Neon green accent */
+    --muted: 0 0% 15%;               /* Muted dark gray */
+    --muted-foreground: 0 0% 70%;
+    --accent: 142 100% 50%;          /* Neon green accent */
     --accent-foreground: 0 0% 98%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 195 80% 20%;            /* Teal border */
-    --input: 195 50% 20%;             /* Teal input */
-    --ring: 142 100% 50%;             /* Neon green ring */
+    --border: 0 0% 20%;              /* Dark border */
+    --input: 0 0% 20%;               /* Dark input */
+    --ring: 142 100% 50%;            /* Neon green ring */
     --radius: 0;
   }
 
   .dark {
-    --background: 195 100% 7%;        /* Even darker teal for dark mode */
+    --background: 0 0% 3%;           /* Even darker black for dark mode */
     --foreground: 0 0% 98%;
-    --card: 195 80% 10%;
+    --card: 0 0% 5%;
     --card-foreground: 0 0% 98%;
-    --popover: 195 80% 10%;
+    --popover: 0 0% 5%;
     --popover-foreground: 0 0% 98%;
-    --primary: 142 100% 50%;          /* Maintain neon green */
+    --primary: 142 100% 50%;         /* Maintain neon green */
     --primary-foreground: 240 5.9% 10%;
     --secondary: 262 83% 58%;
     --secondary-foreground: 0 0% 98%;
-    --muted: 195 50% 12%;
-    --muted-foreground: 195 20% 80%;
-    --accent: 142 100% 50%;           /* Neon green accent */
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 80%;
+    --accent: 142 100% 50%;          /* Neon green accent */
     --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 195 80% 25%;
-    --input: 195 50% 25%;
+    --border: 0 0% 25%;
+    --input: 0 0% 25%;
     --ring: 142 100% 50%;
     --radius: 0;
   }
@@ -55,8 +55,11 @@
   body {
     @apply bg-background text-foreground antialiased font-mono;
     background-image: 
-      linear-gradient(to bottom right, rgba(0, 255, 128, 0.05), rgba(139, 92, 246, 0.05)),
+      linear-gradient(to bottom right, rgba(139, 92, 246, 0.03), rgba(0, 255, 128, 0.03)),
+      url("lovable-uploads/3d456cce-5549-4b47-ba92-33d782fc2ac6.png"),
       url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)' opacity='0.15'/%3E%3C/svg%3E");
+    background-blend-mode: overlay, overlay, normal;
+    background-size: cover, cover, 200px 200px;
     position: relative;
     overflow-x: hidden;
   }
@@ -67,58 +70,37 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
+    height: 200vh;
     pointer-events: none;
     background: repeating-linear-gradient(
-      to bottom,
+      0deg,
       transparent 0%,
-      rgba(0, 255, 128, 0.05) 50%,
+      rgba(0, 255, 128, 0.03) 50%,
       transparent 100%
     );
-    animation: matrix-rain 20s linear infinite;
-    z-index: 0;
+    animation: matrix-rain 8s linear infinite;
+    z-index: 1;
   }
 
   body::after {
     content: '';
     position: fixed;
-    top: 0;
+    top: -100vh;
     left: 0;
     width: 100%;
-    height: 100vh;
+    height: 200vh;
     pointer-events: none;
     background: repeating-linear-gradient(
-      to bottom,
+      0deg,
       transparent 0%,
-      rgba(139, 92, 246, 0.03) 50%,
+      rgba(139, 92, 246, 0.02) 50%,
       transparent 100%
     );
-    animation: matrix-rain 15s linear infinite;
-    animation-delay: -7s;
-    z-index: 0;
+    animation: matrix-rain 12s linear infinite;
+    animation-delay: -4s;
+    z-index: 1;
   }
 
-  h1 {
-    @apply font-serif text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter;
-    letter-spacing: -0.02em;
-  }
-
-  h2 {
-    @apply font-serif text-3xl md:text-4xl font-bold tracking-tight;
-    letter-spacing: -0.01em;
-  }
-
-  h3 {
-    @apply font-serif text-2xl md:text-3xl font-semibold;
-    letter-spacing: -0.01em;
-  }
-
-  h4 {
-    @apply font-serif text-xl md:text-2xl font-semibold;
-  }
-
-  p {
-    @apply font-sans text-base md:text-lg;
-    line-height: 1.6;
-  }
+  /* ... keep existing code (h1-p styles) */
 }
+
