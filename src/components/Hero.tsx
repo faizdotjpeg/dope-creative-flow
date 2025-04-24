@@ -4,15 +4,9 @@ import { Button } from "@/components/ui/button";
 import { ArrowDown } from "lucide-react";
 
 const Hero = () => {
-  const textRef = useRef<HTMLHeadingElement>(null);
   const [scrollY, setScrollY] = useState(0);
   
   useEffect(() => {
-    const textElement = textRef.current;
-    if (!textElement) return;
-    
-    textElement.classList.add('animate-fade-in');
-    
     const handleScroll = () => {
       setScrollY(window.scrollY);
     };
@@ -42,10 +36,6 @@ const Hero = () => {
         <p className="glitch-intense" data-text="CREATIVE DIRECTOR • PHOTOGRAPHER • DESIGNER">
           CREATIVE DIRECTOR • PHOTOGRAPHER • DESIGNER
         </p>
-        
-        <h1 ref={textRef} className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold mb-6 max-w-4xl mx-auto opacity-0">
-          Turning <span className="text-gradient">Creative Vision</span> Into Reality
-        </h1>
         
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 font-sans">
           I craft compelling visual stories through creative direction, photography, and design. 
