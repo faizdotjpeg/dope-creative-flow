@@ -18,7 +18,7 @@ const Navbar = () => {
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'py-3 bg-background/80 backdrop-blur-lg border-b border-border/50' : 'py-5'}`}>
       <div className="container mx-auto flex justify-between items-center px-4">
-        <a href="/" className="text-xl font-serif font-bold">faiz.jpeg</a>
+        <a href="/" className="text-xl font-serif font-bold glitch-intense" data-text="faiz.jpeg">faiz.jpeg</a>
         
         <div className="hidden md:flex items-center space-x-8">
           <a href="#home" className="hover:text-primary transition-colors">Home</a>
