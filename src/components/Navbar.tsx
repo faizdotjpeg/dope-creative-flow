@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from '@/components/ThemeToggle';
@@ -22,7 +23,7 @@ const Navbar = () => {
         </a>
         
         <div className="hidden md:flex items-center space-x-8">
-          <a href="#home" className="font-mono hover:text-primary transition-all duration-200 hover:-translate-y-0.5">> root.access</a>
+          <a href="#home" className="font-mono hover:text-primary transition-all duration-200 hover:-translate-y-0.5">{"> "}root.access</a>
           <a href="#work" className="font-mono hover:text-primary transition-all duration-200 hover:-translate-y-0.5">projects.log</a>
           <a href="#about" className="font-mono hover:text-primary transition-all duration-200 hover:-translate-y-0.5">whoami</a>
           <a href="#contact" className="font-mono hover:text-primary transition-all duration-200 hover:-translate-y-0.5">connect.protocol</a>

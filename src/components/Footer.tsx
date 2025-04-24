@@ -1,3 +1,4 @@
+
 import { ArrowUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
@@ -32,7 +33,7 @@ const Footer = () => {
             type: "spring",
             stiffness: 400,
             damping: 10
-          }}>> INITIATE /portfolio</motion.a>
+          }}>{"> "}INITIATE /portfolio</motion.a>
             <p className="text-muted-foreground mt-2">
               Creative Director • Photographer • Designer
             </p>
