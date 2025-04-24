@@ -1,0 +1,33 @@
+
+@layer components {
+  .text-gradient {
+    @apply relative text-3xl md:text-4xl font-serif font-bold;
+    animation: glitch-text 2s infinite, rgb-split 0.5s infinite alternate-reverse;
+    position: relative;
+  }
+
+  .text-gradient::before,
+  .text-gradient::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-text-layer 4s infinite linear alternate-reverse;
+  }
+
+  .text-gradient::before {
+    left: 2px;
+    text-shadow: -2px 0 #ff3f3f;
+    animation: glitch-text-layer-2 3s infinite linear alternate-reverse;
+  }
+
+  .text-gradient::after {
+    left: -2px;
+    text-shadow: 2px 0 #3f3fff;
+    animation: glitch-text-layer-3 2.5s infinite linear alternate-reverse;
+  }
+}
+
