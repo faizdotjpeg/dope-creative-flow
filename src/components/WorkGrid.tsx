@@ -65,9 +65,11 @@ const awards = [{
   organization: "Design Institute",
   icon: Award
 }];
+
 const WorkGrid = () => {
   const [filter, setFilter] = useState("all");
   const filteredItems = filter === "all" ? portfolioItems : portfolioItems.filter(item => item.category === filter);
+
   const containerVariants = {
     hidden: {
       opacity: 0
@@ -92,35 +94,54 @@ const WorkGrid = () => {
       }
     }
   };
-  return <section className="py-32 px-4 bg-muted/10 dark:bg-background/30 transition-colors duration-300 relative overflow-hidden">
+
+  return (
+    <section className="py-32 px-4 bg-muted/10 dark:bg-background/30 transition-colors duration-300 relative overflow-hidden">
       <div className="absolute inset-0 dark:bg-gradient-to-b dark:from-secondary/20 dark:to-transparent dark:opacity-50 pointer-events-none" />
       
       <div className="container mx-auto relative z-10 space-y-24">
         <div className="text-center space-y-6">
           <h2 className="text-4xl font-serif font-bold mb-4 text-center animate-fade-in">
-            highlight.<span className="text-gradient">reel</span>
+            function.<span className="text-gradient">set</span>[]
           </h2>
           <p className="text-center text-muted-foreground max-w-2xl mx-auto font-sans">
             A curated selection of projects spanning creative direction, photography, and design.
           </p>
         </div>
 
-        <motion.div initial={{
-        opacity: 0,
-        y: 20
-      }} whileInView={{
-        opacity: 1,
-        y: 0
-      }} transition={{
-        duration: 0.5
-      }} className="py-16">
-          <h3 className="text-2xl font-serif text-center mb-12">clientchain</h3>
-          <div className="grid grid-cols-3 md:grid-cols-6 gap-8 items-center justify-center">
-            {clientLogos.map((client, index) => <motion.div key={client.name} whileHover={{
-            scale: 1.05
-          }} className="relative grayscale hover:grayscale-0 transition-all duration-300">
-                <img src={client.logo} alt={client.name} className="w-24 h-24 object-contain mx-auto rounded-full" />
-              </motion.div>)}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="py-16 overflow-hidden"
+        >
+          <h3 className="text-2xl font-serif text-center mb-12">auth.past_clients</h3>
+          <div className="relative w-full">
+            <motion.div 
+              className="flex space-x-16"
+              animate={{ x: [0, -1000] }}
+              transition={{
+                x: {
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  duration: 20,
+                  ease: "linear"
+                }
+              }}
+            >
+              {[...clientLogos, ...clientLogos].map((client, index) => (
+                <motion.div
+                  key={`${client.name}-${index}`}
+                  className="relative grayscale hover:grayscale-0 transition-all duration-300 flex-shrink-0"
+                >
+                  <img 
+                    src={client.logo} 
+                    alt={client.name} 
+                    className="w-24 h-24 object-contain rounded-full"
+                  />
+                </motion.div>
+              ))}
+            </motion.div>
           </div>
         </motion.div>
 
@@ -157,20 +178,23 @@ const WorkGrid = () => {
           </TabsContent>
         </Tabs>
 
-        <motion.section initial={{
-        opacity: 0,
-        y: 20
-      }} whileInView={{
-        opacity: 1,
-        y: 0
-      }} transition={{
-        duration: 0.5
-      }} className="py-16">
-          <h3 className="text-2xl font-serif text-center mb-12">certs.unlocked</h3>
+        <motion.section 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="py-16"
+        >
+          <h3 className="text-2xl font-serif text-center mb-12">cert.unlocked</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {awards.map((award, index) => <motion.div key={award.title} whileHover={{
-            scale: 1.02
-          }} className="glass-card p-6">
+            {awards.map((award, index) => (
+              <motion.div
+                key={award.title}
+                whileHover={{ scale: 1.02 }}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
+                className="glass-card p-6"
+              >
                 <div className="flex items-center gap-4">
                   <award.icon className="w-8 h-8 text-primary" />
                   <div>
@@ -178,12 +202,15 @@ const WorkGrid = () => {
                     <p className="text-sm text-muted-foreground">{award.organization}</p>
                   </div>
                 </div>
-              </motion.div>)}
+              </motion.div>
+            ))}
           </div>
         </motion.section>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 interface PortfolioItemProps {
   item: {
     id: number;
@@ -194,6 +221,7 @@ interface PortfolioItemProps {
   };
   variants: any;
 }
+
 const PortfolioItem = ({
   item,
   variants
@@ -237,4 +265,5 @@ const PortfolioItem = ({
       </div>
     </motion.div>;
 };
+
 export default WorkGrid;
