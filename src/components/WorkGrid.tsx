@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
@@ -116,6 +117,7 @@ const WorkGrid = () => {
             className="text-4xl font-serif font-bold mb-4 text-center"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{
               duration: 0.6,
               type: "spring",
@@ -149,25 +151,25 @@ const WorkGrid = () => {
           </TabsList>
 
           <TabsContent value="all" className="mt-12">
-            <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" variants={containerVariants} initial="hidden" animate="show">
+            <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" variants={containerVariants} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.1 }}>
               {filteredItems.map(item => <PortfolioItem key={item.id} item={item} variants={itemVariants} />)}
             </motion.div>
           </TabsContent>
           
           <TabsContent value="direction" className="mt-12">
-            <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" variants={containerVariants} initial="hidden" animate="show">
+            <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" variants={containerVariants} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.1 }}>
               {filteredItems.map(item => <PortfolioItem key={item.id} item={item} variants={itemVariants} />)}
             </motion.div>
           </TabsContent>
           
           <TabsContent value="photography" className="mt-12">
-            <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" variants={containerVariants} initial="hidden" animate="show">
+            <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" variants={containerVariants} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.1 }}>
               {filteredItems.map(item => <PortfolioItem key={item.id} item={item} variants={itemVariants} />)}
             </motion.div>
           </TabsContent>
           
           <TabsContent value="design" className="mt-12">
-            <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" variants={containerVariants} initial="hidden" animate="show">
+            <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" variants={containerVariants} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.1 }}>
               {filteredItems.map(item => <PortfolioItem key={item.id} item={item} variants={itemVariants} />)}
             </motion.div>
           </TabsContent>

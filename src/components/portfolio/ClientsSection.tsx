@@ -14,14 +14,14 @@ export const ClientsSection = ({ clientLogos }: ClientLogosProps) => {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      viewport={{ once: true, margin: "-100px" }}
+      viewport={{ once: true, amount: 0.3 }}
       className="py-16 overflow-hidden"
     >
       <motion.h3 
         className="text-2xl font-serif text-center mb-12"
         initial={{ opacity: 0, scale: 0.9 }}
         whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
+        viewport={{ once: true, amount: 0.5 }}
         transition={{
           duration: 0.5,
           type: "spring",
@@ -30,13 +30,13 @@ export const ClientsSection = ({ clientLogos }: ClientLogosProps) => {
       >
         <span 
           className="glitch-intense" 
-          data-text="auth.past_clients"
+          data-text="turning creative vision into reality"
           style={{ 
             textShadow: '0 0 10px rgba(234, 172, 232, 0.7)', 
             animation: 'glitch 250ms infinite, flicker 2s linear infinite' 
           }}
         >
-          auth.past_clients
+          turning creative vision into reality
         </span>
       </motion.h3>
       <div className="relative w-full">

@@ -14,21 +14,21 @@ const Index = () => {
       className="min-h-screen flex flex-col"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.8 }}
     >
       <Navbar />
       <main className="flex-grow">
         <section id="home">
           <Hero />
         </section>
-        <section id="work">
+        <section id="work" className="scroll-mt-24">
           <WorkGrid />
         </section>
-        <section id="about">
+        <section id="about" className="scroll-mt-24">
           <About />
         </section>
         <Testimonials />
-        <section id="contact">
+        <section id="contact" className="scroll-mt-24">
           <Contact />
         </section>
       </main>
