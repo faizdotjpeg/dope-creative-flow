@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
@@ -6,7 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 const skills = [
   "Creative Direction",
   "Brand Strategy",
-  "Photography",
+  "Photography", 
   "Visual Identity Design",
   "Editorial Design",
   "Typography",
@@ -25,7 +24,7 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6">
+            <h2 className="text-4xl md:text-5xl font-mono font-bold mb-6">
               About <span className="text-gradient">Me</span>
             </h2>
             
