@@ -71,9 +71,9 @@ const CustomCursor = () => {
   const getCursorStyles = () => {
     switch (variant) {
       case 'button':
-        return 'scale-150 border-primary bg-primary/10 mix-blend-difference';
+        return 'scale-150 border-primary bg-primary/20 mix-blend-difference';
       case 'link':
-        return 'scale-150 border-secondary bg-secondary/10 mix-blend-difference';
+        return 'scale-150 border-secondary bg-secondary/20 mix-blend-difference';
       case 'image':
         return 'scale-[2] border-white backdrop-invert backdrop-grayscale';
       case 'text':
@@ -90,13 +90,13 @@ const CustomCursor = () => {
       <div
         className={`custom-cursor transition-all duration-200 ${getCursorStyles()} ${clicking ? 'scale-75' : ''}`}
         style={{
-          transform: `translate(${position.x - 12}px, ${position.y - 12}px) ${clicking ? 'scale(0.8)' : 'scale(1)'}`,
+          transform: `translate(${position.x}px, ${position.y}px) ${clicking ? 'scale(0.8)' : 'scale(1)'}`,
         }}
       />
       <div
         className="custom-cursor-dot"
         style={{
-          transform: `translate(${position.x - 4}px, ${position.y - 4}px)`,
+          transform: `translate(${position.x}px, ${position.y}px)`,
         }}
       />
     </>

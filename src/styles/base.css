@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
 
 @layer base {
@@ -59,14 +60,17 @@
 
   h1 {
     @apply font-serif text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter;
+    letter-spacing: -0.02em;
   }
 
   h2 {
     @apply font-serif text-3xl md:text-4xl font-bold tracking-tight;
+    letter-spacing: -0.01em;
   }
 
   h3 {
     @apply font-serif text-2xl md:text-3xl font-semibold;
+    letter-spacing: -0.01em;
   }
 
   h4 {
@@ -75,5 +79,6 @@
 
   p {
     @apply font-sans text-base md:text-lg;
+    line-height: 1.6;
   }
 }

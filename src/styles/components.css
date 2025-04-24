@@ -1,3 +1,4 @@
+
 @layer components {
   .text-gradient {
     @apply text-primary;
@@ -16,19 +17,17 @@
     @apply absolute inset-0 flex flex-col items-center justify-center bg-background/90 p-4 opacity-0 transition-opacity duration-300 hover:opacity-100 border-2 border-primary;
   }
 
-  .custom-cursor-enabled {
-    @apply cursor-none;
-    * {
-      @apply cursor-none;
-    }
+  /* Custom cursor styling */
+  .custom-cursor {
+    @apply fixed pointer-events-none w-6 h-6 rounded-full border-2 border-primary z-[9999] mix-blend-difference;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s, height 0.2s, transform 0.1s;
   }
   
-  .page-transition {
-    @apply animate-page-in transition-all duration-500;
-  }
-  
-  .glass-card {
-    @apply bg-background/30 backdrop-blur-lg border-2 border-primary/20 rounded-none;
+  .custom-cursor-dot {
+    @apply fixed pointer-events-none w-2 h-2 rounded-full bg-primary z-[9999];
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease;
   }
 
   /* Hide default cursor when custom cursor is enabled */
@@ -46,6 +45,6 @@
   
   /* Glass card effect */
   .glass-card {
-    @apply bg-background/30 backdrop-blur-lg border border-primary/20 rounded-lg shadow-lg;
+    @apply bg-background/30 backdrop-blur-lg border-2 border-primary/20 rounded-none;
   }
 }
