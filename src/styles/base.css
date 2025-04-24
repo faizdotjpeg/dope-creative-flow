@@ -1,40 +1,39 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
 
 @layer base {
   :root {
-    --background: 0 0% 5%;            /* Near black background */
-    --foreground: 0 0% 98%;           /* Light text for contrast */
-    --card: 0 0% 7%;                  /* Slightly lighter black for cards */
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 7%;
-    --popover-foreground: 0 0% 98%;
+    --background: 0 0% 98%;            /* Off-white background */
+    --foreground: 0 0% 5%;            /* Dark text for contrast */
+    --card: 0 0% 100%;                /* Pure white for cards */
+    --card-foreground: 0 0% 5%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 5%;
     --primary: 142 100% 50%;          /* Keep the neon green */
-    --primary-foreground: 0 0% 98%;
+    --primary-foreground: 0 0% 5%;
     --secondary: 262 83% 58%;         /* Keep existing purple */
     --secondary-foreground: 240 5.9% 10%;
-    --muted: 0 0% 15%;               /* Muted dark gray */
-    --muted-foreground: 0 0% 70%;
+    --muted: 0 0% 95%;               /* Light gray */
+    --muted-foreground: 0 0% 30%;
     --accent: 142 100% 50%;          /* Neon green accent */
-    --accent-foreground: 0 0% 98%;
+    --accent-foreground: 0 0% 5%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 20%;              /* Dark border */
-    --input: 0 0% 20%;               /* Dark input */
+    --border: 0 0% 90%;              /* Light border */
+    --input: 0 0% 90%;               /* Light input */
     --ring: 142 100% 50%;            /* Neon green ring */
     --radius: 0;
   }
 
   .dark {
-    --background: 0 0% 3%;           /* Even darker black for dark mode */
+    --background: 0 0% 3%;           /* Near-black for dark mode */
     --foreground: 0 0% 98%;
     --card: 0 0% 5%;
     --card-foreground: 0 0% 98%;
     --popover: 0 0% 5%;
     --popover-foreground: 0 0% 98%;
     --primary: 142 100% 50%;         /* Maintain neon green */
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 262 83% 58%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 262 83% 58%;        /* Keep purple */
     --secondary-foreground: 0 0% 98%;
     --muted: 0 0% 12%;
     --muted-foreground: 0 0% 80%;
@@ -101,6 +100,19 @@
     z-index: 1;
   }
 
-  /* ... keep existing code (h1-p styles) */
-}
+  h1 {
+    @apply text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4 font-serif text-gradient;
+  }
 
+  h2 {
+    @apply text-4xl md:text-5xl font-bold tracking-tight mb-4 font-serif;
+  }
+
+  h3 {
+    @apply text-3xl font-bold tracking-tight mb-4 font-serif;
+  }
+
+  p {
+    @apply leading-7 [&:not(:first-of-type)]:mt-6;
+  }
+}
