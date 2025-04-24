@@ -44,22 +44,30 @@ const portfolioItems = [{
 }];
 
 // Sample client logos
-const clientLogos = [
-  { name: "Client 1", logo: "https://images.unsplash.com/photo-1615729947596-a598e5de0ab3?w=100&h=100&fit=crop" },
-  { name: "Client 2", logo: "https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?w=100&h=100&fit=crop" },
-  { name: "Client 3", logo: "https://images.unsplash.com/photo-1500673922987-e212871fec22?w=100&h=100&fit=crop" },
-];
+const clientLogos = [{
+  name: "Client 1",
+  logo: "https://images.unsplash.com/photo-1615729947596-a598e5de0ab3?w=100&h=100&fit=crop"
+}, {
+  name: "Client 2",
+  logo: "https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?w=100&h=100&fit=crop"
+}, {
+  name: "Client 3",
+  logo: "https://images.unsplash.com/photo-1500673922987-e212871fec22?w=100&h=100&fit=crop"
+}];
 
 // Sample awards
-const awards = [
-  { title: "Best Campaign 2024", organization: "Advertising Awards", icon: Trophy },
-  { title: "Creative Excellence", organization: "Design Institute", icon: Award },
-];
-
+const awards = [{
+  title: "Best Campaign 2024",
+  organization: "Advertising Awards",
+  icon: Trophy
+}, {
+  title: "Creative Excellence",
+  organization: "Design Institute",
+  icon: Award
+}];
 const WorkGrid = () => {
   const [filter, setFilter] = useState("all");
   const filteredItems = filter === "all" ? portfolioItems : portfolioItems.filter(item => item.category === filter);
-  
   const containerVariants = {
     hidden: {
       opacity: 0
@@ -84,42 +92,35 @@ const WorkGrid = () => {
       }
     }
   };
-  
-  return (
-    <section className="py-32 px-4 bg-muted/10 dark:bg-background/30 transition-colors duration-300 relative overflow-hidden">
+  return <section className="py-32 px-4 bg-muted/10 dark:bg-background/30 transition-colors duration-300 relative overflow-hidden">
       <div className="absolute inset-0 dark:bg-gradient-to-b dark:from-secondary/20 dark:to-transparent dark:opacity-50 pointer-events-none" />
       
       <div className="container mx-auto relative z-10 space-y-24">
         <div className="text-center space-y-6">
           <h2 className="text-4xl font-serif font-bold mb-4 text-center animate-fade-in">
-            Featured <span className="text-gradient">Work</span>
+            Featured <span className="text-gradient">ree</span>
           </h2>
           <p className="text-center text-muted-foreground max-w-2xl mx-auto font-sans">
             A curated selection of projects spanning creative direction, photography, and design.
           </p>
         </div>
 
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="py-16"
-        >
+        <motion.div initial={{
+        opacity: 0,
+        y: 20
+      }} whileInView={{
+        opacity: 1,
+        y: 0
+      }} transition={{
+        duration: 0.5
+      }} className="py-16">
           <h3 className="text-2xl font-serif text-center mb-12">Trusted By</h3>
           <div className="grid grid-cols-3 md:grid-cols-6 gap-8 items-center justify-center">
-            {clientLogos.map((client, index) => (
-              <motion.div
-                key={client.name}
-                whileHover={{ scale: 1.05 }}
-                className="relative grayscale hover:grayscale-0 transition-all duration-300"
-              >
-                <img 
-                  src={client.logo} 
-                  alt={client.name}
-                  className="w-24 h-24 object-contain mx-auto rounded-full"
-                />
-              </motion.div>
-            ))}
+            {clientLogos.map((client, index) => <motion.div key={client.name} whileHover={{
+            scale: 1.05
+          }} className="relative grayscale hover:grayscale-0 transition-all duration-300">
+                <img src={client.logo} alt={client.name} className="w-24 h-24 object-contain mx-auto rounded-full" />
+              </motion.div>)}
           </div>
         </motion.div>
 
@@ -132,64 +133,44 @@ const WorkGrid = () => {
           </TabsList>
 
           <TabsContent value="all" className="mt-12">
-            <motion.div 
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-              variants={containerVariants} 
-              initial="hidden" 
-              animate="show"
-            >
+            <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" variants={containerVariants} initial="hidden" animate="show">
               {filteredItems.map(item => <PortfolioItem key={item.id} item={item} variants={itemVariants} />)}
             </motion.div>
           </TabsContent>
           
           <TabsContent value="direction" className="mt-12">
-            <motion.div 
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-              variants={containerVariants} 
-              initial="hidden" 
-              animate="show"
-            >
+            <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" variants={containerVariants} initial="hidden" animate="show">
               {filteredItems.map(item => <PortfolioItem key={item.id} item={item} variants={itemVariants} />)}
             </motion.div>
           </TabsContent>
           
           <TabsContent value="photography" className="mt-12">
-            <motion.div 
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-              variants={containerVariants} 
-              initial="hidden" 
-              animate="show"
-            >
+            <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" variants={containerVariants} initial="hidden" animate="show">
               {filteredItems.map(item => <PortfolioItem key={item.id} item={item} variants={itemVariants} />)}
             </motion.div>
           </TabsContent>
           
           <TabsContent value="design" className="mt-12">
-            <motion.div 
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-              variants={containerVariants} 
-              initial="hidden" 
-              animate="show"
-            >
+            <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" variants={containerVariants} initial="hidden" animate="show">
               {filteredItems.map(item => <PortfolioItem key={item.id} item={item} variants={itemVariants} />)}
             </motion.div>
           </TabsContent>
         </Tabs>
 
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="py-16"
-        >
+        <motion.section initial={{
+        opacity: 0,
+        y: 20
+      }} whileInView={{
+        opacity: 1,
+        y: 0
+      }} transition={{
+        duration: 0.5
+      }} className="py-16">
           <h3 className="text-2xl font-serif text-center mb-12">Awards & Recognition</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {awards.map((award, index) => (
-              <motion.div
-                key={award.title}
-                whileHover={{ scale: 1.02 }}
-                className="glass-card p-6"
-              >
+            {awards.map((award, index) => <motion.div key={award.title} whileHover={{
+            scale: 1.02
+          }} className="glass-card p-6">
                 <div className="flex items-center gap-4">
                   <award.icon className="w-8 h-8 text-primary" />
                   <div>
@@ -197,15 +178,12 @@ const WorkGrid = () => {
                     <p className="text-sm text-muted-foreground">{award.organization}</p>
                   </div>
                 </div>
-              </motion.div>
-            ))}
+              </motion.div>)}
           </div>
         </motion.section>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 interface PortfolioItemProps {
   item: {
     id: number;
@@ -216,30 +194,21 @@ interface PortfolioItemProps {
   };
   variants: any;
 }
-
-const PortfolioItem = ({ item, variants }: PortfolioItemProps) => {
+const PortfolioItem = ({
+  item,
+  variants
+}: PortfolioItemProps) => {
   const [isHovered, setIsHovered] = useState(false);
-  
-  return (
-    <motion.div
-      className="portfolio-item rounded-none overflow-hidden group"
-      variants={variants}
-      whileHover={{
-        y: -8,
-        transition: { duration: 0.2 }
-      }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
+  return <motion.div className="portfolio-item rounded-none overflow-hidden group" variants={variants} whileHover={{
+    y: -8,
+    transition: {
+      duration: 0.2
+    }
+  }} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
       <div className="aspect-square relative">
-        <motion.img
-          src={item.image}
-          alt={item.title}
-          className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-500"
-          animate={{
-            scale: isHovered ? 1.05 : 1
-          }}
-        />
+        <motion.img src={item.image} alt={item.title} className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-500" animate={{
+        scale: isHovered ? 1.05 : 1
+      }} />
         <div className="absolute inset-0 bg-gradient-to-t from-background/95 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-sm flex flex-col justify-end p-6">
           <h3 className="font-mono text-xl font-bold text-foreground mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
             {item.title}
@@ -266,8 +235,6 @@ const PortfolioItem = ({ item, variants }: PortfolioItemProps) => {
           </p>
         </div>
       </div>
-    </motion.div>
-  );
+    </motion.div>;
 };
-
 export default WorkGrid;
