@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Trophy, Award, FileChartLine } from "lucide-react";
@@ -65,9 +65,21 @@ const awards = [{
   organization: "Design Institute",
   icon: Award
 }];
+
 const WorkGrid = () => {
   const [filter, setFilter] = useState("all");
+  const [scrollY, setScrollY] = useState(0);
   const filteredItems = filter === "all" ? portfolioItems : portfolioItems.filter(item => item.category === filter);
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const containerVariants = {
     hidden: {
       opacity: 0
@@ -92,41 +104,73 @@ const WorkGrid = () => {
       }
     }
   };
+
   return <section className="py-32 px-4 bg-muted/10 dark:bg-background/30 transition-colors duration-300 relative overflow-hidden">
       <div className="absolute inset-0 dark:bg-gradient-to-b dark:from-secondary/20 dark:to-transparent dark:opacity-50 pointer-events-none" />
       
       <div className="container mx-auto relative z-10 space-y-24">
         <div className="text-center space-y-6">
-          <h2 className="text-4xl font-serif font-bold mb-4 text-center animate-fade-in">highlight.reel</h2>
+          <motion.h2 
+            className="text-4xl font-serif font-bold mb-4 text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.6,
+              type: "spring",
+              damping: 12
+            }}
+          >
+            <span className="text-gradient glitch relative" data-text="highlight.reel">
+              highlight.reel
+            </span>
+          </motion.h2>
           <p className="text-center text-muted-foreground max-w-2xl mx-auto font-sans">
             A curated selection of projects spanning creative direction, photography, and design.
           </p>
         </div>
 
-        <motion.div initial={{
-        opacity: 0,
-        y: 20
-      }} whileInView={{
-        opacity: 1,
-        y: 0
-      }} transition={{
-        duration: 0.5
-      }} className="py-16 overflow-hidden">
-          <h3 className="text-2xl font-serif text-center mb-12">auth.past_clients</h3>
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="py-16 overflow-hidden"
+        >
+          <motion.h3 
+            className="text-2xl font-serif text-center mb-12"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{
+              duration: 0.5,
+              type: "spring",
+              bounce: 0.4
+            }}
+          >
+            <span className="glitch-intense" data-text="auth.past_clients">auth.past_clients</span>
+          </motion.h3>
           <div className="relative w-full">
-            <motion.div className="flex space-x-16" animate={{
-            x: [0, -1000]
-          }} transition={{
-            x: {
-              repeat: Infinity,
-              repeatType: "loop",
-              duration: 20,
-              ease: "linear"
-            }
-          }}>
-              {[...clientLogos, ...clientLogos].map((client, index) => <motion.div key={`${client.name}-${index}`} className="relative grayscale hover:grayscale-0 transition-all duration-300 flex-shrink-0">
+            <motion.div 
+              className="flex space-x-16" 
+              animate={{
+                x: [0, -1000]
+              }}
+              transition={{
+                x: {
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  duration: 20,
+                  ease: "linear"
+                }
+              }}
+            >
+              {[...clientLogos, ...clientLogos].map((client, index) => (
+                <motion.div
+                  key={`${client.name}-${index}`}
+                  className="relative grayscale hover:grayscale-0 transition-all duration-300 flex-shrink-0"
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                >
                   <img src={client.logo} alt={client.name} className="w-24 h-24 object-contain rounded-full" />
-                </motion.div>)}
+                </motion.div>
+              ))}
             </motion.div>
           </div>
         </motion.div>
@@ -164,29 +208,45 @@ const WorkGrid = () => {
           </TabsContent>
         </Tabs>
 
-        <motion.section initial={{
-        opacity: 0,
-        y: 20
-      }} whileInView={{
-        opacity: 1,
-        y: 0
-      }} transition={{
-        duration: 0.5
-      }} className="py-16">
-          <h3 className="text-2xl font-serif text-center mb-12">cert.unlocked</h3>
+        <motion.section 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="py-16"
+        >
+          <motion.h3 
+            className="text-2xl font-serif text-center mb-12"
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ 
+              opacity: 1, 
+              x: 0,
+              transition: {
+                type: "spring",
+                stiffness: 200,
+                damping: 20
+              }
+            }}
+          >
+            <span className="text-gradient" data-text="cert.unlocked">cert.unlocked</span>
+          </motion.h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {awards.map((award, index) => <motion.div key={award.title} whileHover={{
-            scale: 1.02
-          }} initial={{
-            opacity: 0,
-            x: index % 2 === 0 ? -20 : 20
-          }} whileInView={{
-            opacity: 1,
-            x: 0
-          }} transition={{
-            duration: 0.5,
-            delay: index * 0.2
-          }} className="glass-card p-6">
+            {awards.map((award, index) => (
+              <motion.div
+                key={award.title}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{
+                  duration: 0.5,
+                  delay: index * 0.2,
+                  type: "spring",
+                  stiffness: 100
+                }}
+                whileHover={{
+                  scale: 1.02,
+                  transition: { type: "spring", stiffness: 400 }
+                }}
+                className="glass-card p-6"
+              >
                 <div className="flex items-center gap-4">
                   <award.icon className="w-8 h-8 text-primary" />
                   <div>
@@ -194,12 +254,14 @@ const WorkGrid = () => {
                     <p className="text-sm text-muted-foreground">{award.organization}</p>
                   </div>
                 </div>
-              </motion.div>)}
+              </motion.div>
+            ))}
           </div>
         </motion.section>
       </div>
     </section>;
 };
+
 interface PortfolioItemProps {
   item: {
     id: number;
@@ -210,6 +272,7 @@ interface PortfolioItemProps {
   };
   variants: any;
 }
+
 const PortfolioItem = ({
   item,
   variants
@@ -253,4 +316,5 @@ const PortfolioItem = ({
       </div>
     </motion.div>;
 };
+
 export default WorkGrid;
