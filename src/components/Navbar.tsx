@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from '@/components/ThemeToggle';
@@ -19,7 +18,7 @@ const Navbar = () => {
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'py-3 bg-background/80 backdrop-blur-lg border-b border-border/50' : 'py-5'}`}>
       <div className="container mx-auto flex justify-between items-center px-4">
-        <a href="/" className="text-xl font-serif font-bold">CR<span className="text-primary">8</span>IVE</a>
+        <a href="/" className="text-xl font-serif font-bold">faiz.jpeg</a>
         
         <div className="hidden md:flex items-center space-x-8">
           <a href="#home" className="hover:text-primary transition-colors">Home</a>
