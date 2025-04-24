@@ -29,7 +29,10 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
-        <a href="#" className="text-2xl font-serif font-bold text-primary">
+        <a 
+          href="#" 
+          className="text-2xl font-mono font-bold text-primary tracking-tighter"
+        >
           PORTFOLIO
         </a>
 
