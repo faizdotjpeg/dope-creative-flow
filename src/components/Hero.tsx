@@ -1,26 +1,44 @@
-import { useEffect, useRef } from "react";
+
+import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowDown } from "lucide-react";
 
 const Hero = () => {
   const textRef = useRef<HTMLHeadingElement>(null);
+  const [scrollY, setScrollY] = useState(0);
   
   useEffect(() => {
     const textElement = textRef.current;
     if (!textElement) return;
     
     textElement.classList.add('animate-fade-in');
+    
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
-    <section id="home" className="relative min-h-screen flex flex-col items-center justify-center py-20 px-4">
-      {/* Background pattern */}
+    <section id="home" className="relative min-h-screen flex flex-col items-center justify-center py-20 px-4 overflow-hidden">
+      {/* Background pattern with parallax */}
       <div className="absolute inset-0 z-0 opacity-20">
-        <div className="absolute top-20 left-20 w-40 h-40 rounded-full bg-primary/30 blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-60 h-60 rounded-full bg-primary/20 blur-3xl"></div>
+        <div 
+          className="absolute top-20 left-20 w-40 h-40 rounded-full bg-primary/30 blur-3xl animate-parallax-float"
+          style={{ transform: `translateY(-${scrollY * 0.05}px)` }}
+        ></div>
+        <div 
+          className="absolute bottom-20 right-20 w-60 h-60 rounded-full bg-primary/20 blur-3xl"
+          style={{ transform: `translateY(-${scrollY * 0.08}px)` }}
+        ></div>
       </div>
       
-      <div className="container mx-auto relative z-10 text-center">
+      <div 
+        className="container mx-auto relative z-10 text-center"
+        style={{ transform: `translateY(${scrollY * 0.08}px)` }}
+      >
         <p className="glitch-intense" data-text="CREATIVE DIRECTOR • PHOTOGRAPHER • DESIGNER">
           CREATIVE DIRECTOR • PHOTOGRAPHER • DESIGNER
         </p>
@@ -29,7 +47,7 @@ const Hero = () => {
           Turning <span className="text-gradient">Creative Vision</span> Into Reality
         </h1>
         
-        <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12">
+        <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 font-sans">
           I craft compelling visual stories through creative direction, photography, and design. 
           Let's create something extraordinary together.
         </p>

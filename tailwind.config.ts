@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -19,8 +20,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["JetBrains Mono", "sans-serif"],
-        serif: ["JetBrains Mono", "serif"],
+        sans: ["IBM Plex Sans", "sans-serif"],
+        serif: ["Space Grotesk", "serif"],
         mono: ["JetBrains Mono", "monospace"],
       },
       colors: {
@@ -88,6 +89,22 @@ export default {
           '80%': { transform: 'translate(2px, -2px)' },
           '100%': { transform: 'translate(0)' },
         },
+        "fade-in": {
+          "0%": { opacity: "0", transform: "translateY(10px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        "fade-out": {
+          "0%": { opacity: "1" },
+          "100%": { opacity: "0" },
+        },
+        "page-in": {
+          "0%": { opacity: "0", transform: "translateY(20px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        "parallax-float": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-20px)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -95,6 +112,10 @@ export default {
         cursor: "cursor 2s ease-in-out infinite",
         flicker: 'flicker 2s linear infinite',
         glitch: 'glitch 1s linear infinite',
+        "fade-in": "fade-in 0.6s ease-out",
+        "fade-out": "fade-out 0.6s ease-out",
+        "page-in": "page-in 0.8s ease-out",
+        "parallax-float": "parallax-float 6s ease-in-out infinite",
       },
     },
   },

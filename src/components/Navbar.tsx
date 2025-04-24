@@ -1,55 +1,60 @@
-import { useState, useEffect } from "react";
-import { Menu } from "lucide-react";
+
+import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from '@/components/ThemeToggle';
+
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 20);
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-  return <header className={`fixed top-0 z-50 w-full transition-all duration-300 ${isScrolled ? "bg-background/90 backdrop-blur-md py-3 shadow-md" : "bg-transparent py-5"}`}>
-      <div className="container mx-auto px-4 flex items-center justify-between">
-        <a href="#" className="text-2xl font-mono font-bold tracking-tighter">
-          <span className="glitch" data-text="PORTFOLIO">faiz.jpeg</span>
-        </a>
-
-        {/* Desktop Navigation */}
-        <nav className="hidden md:block">
-          <ul className="flex space-x-8">
-            {["Home", "Work", "About", "Contact"].map(item => <li key={item}>
-                <a href={`#${item.toLowerCase()}`} className="font-medium text-foreground hover:text-primary transition-colors link-underline">
-                  {item}
-                </a>
-              </li>)}
-          </ul>
-        </nav>
-
-        {/* Mobile Menu Button */}
-        <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label="Toggle menu">
-          <Menu className="h-6 w-6" />
-        </Button>
+  
+  return (
+    <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'py-3 bg-background/80 backdrop-blur-lg border-b border-border/50' : 'py-5'}`}>
+      <div className="container mx-auto flex justify-between items-center px-4">
+        <a href="/" className="text-xl font-serif font-bold">CR<span className="text-primary">8</span>IVE</a>
+        
+        <div className="hidden md:flex items-center space-x-8">
+          <a href="#home" className="hover:text-primary transition-colors">Home</a>
+          <a href="#work" className="hover:text-primary transition-colors">Work</a>
+          <a href="#about" className="hover:text-primary transition-colors">About</a>
+          <a href="#contact" className="hover:text-primary transition-colors">Contact</a>
+          <ThemeToggle />
+        </div>
+        
+        <div className="md:hidden flex items-center">
+          <ThemeToggle />
+          <Button 
+            variant="ghost" 
+            className="ml-2"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            <span className={`block w-6 h-0.5 bg-foreground transition-all duration-300 ${mobileMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
+            <span className={`block w-6 h-0.5 bg-foreground mt-1.5 transition-all duration-300 ${mobileMenuOpen ? 'opacity-0' : ''}`}></span>
+            <span className={`block w-6 h-0.5 bg-foreground mt-1.5 transition-all duration-300 ${mobileMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></span>
+          </Button>
+        </div>
       </div>
-
-      {/* Mobile Menu */}
-      {mobileMenuOpen && <div className="absolute top-full left-0 w-full bg-background/95 backdrop-blur-md shadow-lg py-5 md:hidden animate-fade-in">
-          <nav className="container mx-auto px-4">
-            <ul className="space-y-4">
-              {["Home", "Work", "About", "Contact"].map(item => <li key={item}>
-                  <a href={`#${item.toLowerCase()}`} className="block py-2 text-lg font-medium text-foreground hover:text-primary transition-colors" onClick={() => setMobileMenuOpen(false)}>
-                    {item}
-                  </a>
-                </li>)}
-            </ul>
-          </nav>
-        </div>}
-    </header>;
+      
+      {mobileMenuOpen && (
+        <div className="md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-lg border-b border-border/50 animate-fade-in">
+          <div className="container mx-auto py-4 px-4 flex flex-col space-y-4">
+            <a href="#home" className="hover:text-primary transition-colors" onClick={() => setMobileMenuOpen(false)}>Home</a>
+            <a href="#work" className="hover:text-primary transition-colors" onClick={() => setMobileMenuOpen(false)}>Work</a>
+            <a href="#about" className="hover:text-primary transition-colors" onClick={() => setMobileMenuOpen(false)}>About</a>
+            <a href="#contact" className="hover:text-primary transition-colors" onClick={() => setMobileMenuOpen(false)}>Contact</a>
+          </div>
+        </div>
+      )}
+    </nav>
+  );
 };
+
 export default Navbar;

@@ -18,10 +18,28 @@
   }
 
   .portfolio-item {
-    @apply relative block overflow-hidden transition-all duration-300 hover:scale-[1.02];
+    @apply relative block overflow-hidden transition-all duration-300;
   }
 
   .portfolio-item-overlay {
     @apply absolute inset-0 flex flex-col items-center justify-center bg-black/90 p-4 opacity-0 transition-opacity duration-300 hover:opacity-100 border border-primary;
+  }
+  
+  /* Hide default cursor when custom cursor is enabled */
+  .custom-cursor-enabled {
+    @apply cursor-none;
+    * {
+      @apply cursor-none;
+    }
+  }
+  
+  /* Page transition wrapper */
+  .page-transition {
+    @apply animate-page-in transition-all duration-500;
+  }
+  
+  /* Glass card effect */
+  .glass-card {
+    @apply bg-background/30 backdrop-blur-lg border border-primary/20 rounded-lg shadow-lg;
   }
 }

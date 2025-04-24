@@ -3,21 +3,29 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import WorkGrid from "@/components/WorkGrid";
 import About from "@/components/About";
+import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import { motion } from "framer-motion";
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <motion.div 
+      className="min-h-screen flex flex-col"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
       <Navbar />
       <main className="flex-grow">
         <Hero />
         <WorkGrid />
         <About />
+        <Testimonials />
         <Contact />
       </main>
       <Footer />
-    </div>
+    </motion.div>
   );
 };
 

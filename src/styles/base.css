@@ -24,6 +24,28 @@
     --ring: 140 100% 50%;
     --radius: 0;
   }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 140 100% 50%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 30 100% 50%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 140 100% 50%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 140 100% 50%;
+    --input: 240 3.7% 15.9%;
+    --ring: 140 100% 50%;
+  }
 }
 
 @layer base {
@@ -33,10 +55,10 @@
   }
 
   body {
-    @apply bg-background text-foreground antialiased font-mono;
+    @apply bg-background text-foreground antialiased font-sans transition-colors duration-300;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-mono uppercase tracking-tighter;
+    @apply font-serif uppercase tracking-tighter;
   }
 }
