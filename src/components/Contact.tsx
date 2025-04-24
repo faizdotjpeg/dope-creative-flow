@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -7,14 +6,12 @@ import { useToast } from "@/components/ui/use-toast";
 import { Mail, Instagram, Twitter, Linkedin } from "lucide-react";
 import { z } from "zod";
 import { useState } from "react";
-
 const contactSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
   email: z.string().email("Please enter a valid email"),
   subject: z.string().min(3, "Subject must be at least 3 characters"),
   message: z.string().min(10, "Message must be at least 10 characters")
 });
-
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -27,7 +24,6 @@ const Contact = () => {
   const {
     toast
   } = useToast();
-
   const validateField = (name: string, value: string) => {
     try {
       contactSchema.shape[name as keyof typeof contactSchema.shape].parse(value);
@@ -44,7 +40,6 @@ const Contact = () => {
       }
     }
   };
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const {
       name,
@@ -56,7 +51,6 @@ const Contact = () => {
     }));
     validateField(name, value);
   };
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -95,7 +89,6 @@ const Contact = () => {
       setIsSubmitting(false);
     }
   };
-
   return <section id="contact" className="py-24 px-4 bg-secondary">
       <div className="container mx-auto">
         <motion.div initial={{
@@ -220,7 +213,7 @@ const Contact = () => {
             </div>
             
             <div className="mt-8 p-4 border border-border rounded-lg bg-secondary">
-              <h4 className="text-lg font-medium mb-2 text-foreground dark:text-gray-300">Working Hours</h4>
+              <h4 className="text-lg font-medium mb-2 text-foreground dark:text-gray-300">> online.window</h4>
               <p className="text-foreground dark:text-gray-300">Monday - Friday: 9am - 6pm</p>
               <p className="text-foreground dark:text-gray-300">Weekend: By appointment</p>
             </div>
@@ -229,5 +222,4 @@ const Contact = () => {
       </div>
     </section>;
 };
-
 export default Contact;
