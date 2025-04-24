@@ -77,7 +77,24 @@ const WorkGrid = () => {
       style={{
         backgroundImage: 'linear-gradient(to bottom, rgba(139, 92, 246, 0.1), transparent)',
       }}
-    />
+    >
+      <div className="absolute inset-0 animate-float mix-blend-overlay opacity-30">
+        {Array.from({ length: 3 }).map((_, i) => (
+          <div
+            key={i}
+            className="absolute bg-gradient-to-b from-primary/20 to-transparent rounded-full blur-3xl"
+            style={{
+              width: `${Math.random() * 400 + 200}px`,
+              height: `${Math.random() * 400 + 200}px`,
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${i * -5}s`,
+              animationDuration: '15s',
+            }}
+          />
+        ))}
+      </div>
+    </div>
     
     <div className="container mx-auto">
       <h2 className="text-4xl font-serif font-bold mb-4 text-center animate-fade-in md:text-xl">
