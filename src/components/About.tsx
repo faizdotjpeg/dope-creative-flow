@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
@@ -66,7 +67,7 @@ const About = () => {
         
         <div className="mt-24">
           <h3 className="text-2xl font-mono font-bold mb-12 text-center md:text-xl">
-            function <span className="text-gradient glitch glitch-intense" data-text="set[]">set[]</span>
+            witness <span className="text-gradient glitch glitch-intense" data-text="logs">logs</span>
           </h3>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -104,3 +105,4 @@ const About = () => {
     </section>;
 };
 export default About;
+
