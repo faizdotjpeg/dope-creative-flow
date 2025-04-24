@@ -33,10 +33,14 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          muted: "hsl(142 70% 45%)", // Slightly muted neon green
+          hover: "hsl(142 100% 45%)", // Brighter on hover
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
+          muted: "hsl(262 73% 53%)", // Slightly muted purple
+          hover: "hsl(262 83% 63%)", // Brighter on hover
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
@@ -121,3 +125,4 @@ export default {
   },
   plugins: [require("tailwindcss-animate")],
 } satisfies Config;
+

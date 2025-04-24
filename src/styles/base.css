@@ -3,7 +3,7 @@
 @layer base {
   :root {
     --background: 0 0% 98%;            /* Off-white background */
-    --foreground: 0 0% 5%;            /* Dark text for contrast */
+    --foreground: 0 0% 5%;            /* Near-black text */
     --card: 0 0% 100%;                /* Pure white for cards */
     --card-foreground: 0 0% 5%;
     --popover: 0 0% 100%;
@@ -13,10 +13,10 @@
     --secondary: 262 83% 58%;         /* Keep existing purple */
     --secondary-foreground: 240 5.9% 10%;
     --muted: 0 0% 95%;               /* Light gray */
-    --muted-foreground: 0 0% 40%;  /* Darkened from 30% to 40% for better contrast */
+    --muted-foreground: 0 0% 40%;    /* Dark enough for contrast */
     --accent: 142 100% 50%;          /* Neon green accent */
     --accent-foreground: 0 0% 5%;
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84.2% 60.2%;    /* Bright red for errors */
     --destructive-foreground: 0 0% 98%;
     --border: 0 0% 90%;              /* Light border */
     --input: 0 0% 90%;               /* Light input */
@@ -26,8 +26,8 @@
 
   .dark {
     --background: 0 0% 3%;           /* Near-black for dark mode */
-    --foreground: 0 0% 98%;
-    --card: 0 0% 5%;
+    --foreground: 0 0% 98%;          /* Off-white text */
+    --card: 0 0% 5%;                 /* Slightly lighter than background */
     --card-foreground: 0 0% 98%;
     --popover: 0 0% 5%;
     --popover-foreground: 0 0% 98%;
@@ -35,15 +35,15 @@
     --primary-foreground: 0 0% 98%;
     --secondary: 262 83% 58%;        /* Keep purple */
     --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 12%;
-    --muted-foreground: 0 0% 70%;  /* Lightened from 80% to 70% for better readability */
+    --muted: 0 0% 12%;              /* Dark gray for muted areas */
+    --muted-foreground: 0 0% 70%;    /* Light enough for contrast */
     --accent: 142 100% 50%;          /* Neon green accent */
     --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 62.8% 30.6%;    /* Darker red for dark mode */
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 25%;
-    --input: 0 0% 25%;
-    --ring: 142 100% 50%;
+    --border: 0 0% 25%;              /* Darker border */
+    --input: 0 0% 25%;               /* Darker input */
+    --ring: 142 100% 50%;            /* Keep neon green ring */
     --radius: 0;
   }
 
