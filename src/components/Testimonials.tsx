@@ -1,8 +1,6 @@
-
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
-// Sample testimonials (replace with your actual client testimonials)
 const testimonials = [
   {
     id: 1,
@@ -50,7 +48,6 @@ const Testimonials = () => {
   
   return (
     <section className="py-24 px-4 relative overflow-hidden">
-      {/* Parallax background elements */}
       <div 
         className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"
         style={{ transform: `translate(50%, -50%) translateY(-${scrollY * 0.1}px)` }}
@@ -63,7 +60,7 @@ const Testimonials = () => {
       <div className="container mx-auto relative">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-serif font-bold mb-12">
-            Client <span className="text-gradient">Testimonials</span>
+            Client <span className="text-gradient" data-text="Testimonials">Testimonials</span>
           </h2>
           
           <div className="relative h-80">
