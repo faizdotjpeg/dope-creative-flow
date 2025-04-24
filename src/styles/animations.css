@@ -39,7 +39,7 @@
       0.05em 0 0 rgba(255, 0, 0, 0.85),
       -0.025em -0.05em 0 rgba(0, 255, 0, 0.85),
       0.025em 0.05em 0 rgba(0, 0, 255, 0.85);
-    animation: glitch 250ms infinite, flicker 2s linear infinite;
+    animation: glitch 250ms infinite, flicker 2s linear infinite, rgb-split 0.5s infinite alternate-reverse;
   }
 
   .glitch-intense::before,
@@ -58,6 +58,7 @@
     left: 3px;
     text-shadow: -2px 0 #ff3f3f;
     clip: rect(0, 900px, 0, 0);
+    transform: skew(0.15deg);
   }
 
   .glitch-intense::after {
@@ -65,6 +66,24 @@
     text-shadow: 2px 0 #3f3fff;
     animation: glitch-anim2 750ms infinite linear alternate-reverse;
     clip: rect(0, 900px, 0, 0);
+    transform: skew(-0.15deg);
+  }
+
+  @keyframes rgb-split {
+    0% {
+      text-shadow: 
+        0.05em 0 0 rgba(255, 71, 0, 0.75),
+        -0.025em -0.05em 0 rgba(0, 255, 0, 0.75),
+        0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+      transform: translate(0.025em, 0.025em);
+    }
+    100% {
+      text-shadow: 
+        -0.05em 0 0 rgba(255, 71, 0, 0.75),
+        0.025em 0.05em 0 rgba(0, 255, 0, 0.75),
+        -0.025em -0.05em 0 rgba(0, 0, 255, 0.75);
+      transform: translate(-0.025em, -0.025em);
+    }
   }
 
   .text-gradient {
@@ -188,25 +207,26 @@
   80% { transform: translate(2px, -2px); }
 }
 
-@keyframes rgb-split {
-  0% {
-    text-shadow: 
-      0.05em 0 0 rgba(255, 71, 0, 0.75),
-      -0.025em -0.05em 0 rgba(0, 255, 0, 0.75),
-      0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
-  }
-  100% {
-    text-shadow: 
-      -0.05em 0 0 rgba(255, 71, 0, 0.75),
-      0.025em 0.05em 0 rgba(0, 255, 0, 0.75),
-      -0.025em -0.05em 0 rgba(0, 0, 255, 0.75);
-  }
-}
-
 @keyframes glitch-text-layer {
   0% { transform: translate(0); }
   25% { transform: translate(-2px, 2px); clip: rect(20px, 450px, 40px, 0); }
   50% { transform: translate(2px, -2px); clip: rect(40px, 450px, 60px, 0); }
   75% { transform: translate(-2px, -2px); clip: rect(60px, 450px, 80px, 0); }
   100% { transform: translate(2px, 2px); clip: rect(80px, 450px, 100px, 0); }
+}
+
+@keyframes glitch-text-layer-2 {
+  0% { transform: translate(0); }
+  25% { transform: translate(-3px, -3px); clip: rect(30px, 450px, 50px, 0); }
+  50% { transform: translate(3px, 3px); clip: rect(50px, 450px, 70px, 0); }
+  75% { transform: translate(-3px, 3px); clip: rect(70px, 450px, 90px, 0); }
+  100% { transform: translate(3px, -3px); clip: rect(90px, 450px, 110px, 0); }
+}
+
+@keyframes glitch-text-layer-3 {
+  0% { transform: translate(0); }
+  25% { transform: translate(2px, -2px); clip: rect(10px, 450px, 30px, 0); }
+  50% { transform: translate(-2px, 2px); clip: rect(30px, 450px, 50px, 0); }
+  75% { transform: translate(2px, 2px); clip: rect(50px, 450px, 70px, 0); }
+  100% { transform: translate(-2px, -2px); clip: rect(70px, 450px, 90px, 0); }
 }
