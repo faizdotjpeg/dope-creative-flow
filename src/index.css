@@ -48,6 +48,7 @@
 @layer components {
   .text-gradient {
     @apply text-primary;
+    animation: flicker 2s linear infinite;
   }
 
   .link-underline {
@@ -68,6 +69,49 @@
 
   .portfolio-item-overlay {
     @apply absolute inset-0 flex flex-col items-center justify-center bg-black/90 p-4 opacity-0 transition-opacity duration-300 hover:opacity-100 border border-primary;
+  }
+
+  .glitch {
+    position: relative;
+    animation: glitch 1s linear infinite;
+  }
+
+  .glitch::before,
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    text-shadow: 1px 0 blue;
+    width: 100%;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch 5s linear infinite alternate-reverse;
+  }
+
+  .glitch::before {
+    left: 2px;
+    text-shadow: -1px 0 red;
+    animation: glitch 3s linear infinite alternate-reverse;
+  }
+}
+
+@keyframes glitch {
+  2%, 64% {
+    transform: translate(2px,0) skew(0deg);
+  }
+  4%, 60% {
+    transform: translate(-2px,0) skew(0deg);
+  }
+  62% {
+    transform: translate(0,0) skew(5deg); 
+  }
+}
+
+@keyframes flicker {
+  0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
+    opacity: .99;
+  }
+  20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
+    opacity: 0.4;
   }
 }
 
