@@ -16,15 +16,21 @@ const Navbar = () => {
   }, []);
   
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'py-3 bg-background/80 backdrop-blur-lg border-b border-border/50' : 'py-5'}`}>
+    <nav className={`fixed w-full z-50 transition-all duration-300 ${
+      isScrolled 
+        ? 'py-3 bg-background/60 backdrop-blur-xl border-b border-primary/10' 
+        : 'py-5'
+    }`}>
       <div className="container mx-auto flex justify-between items-center px-4">
-        <a href="/" className="text-xl font-serif font-bold glitch-intense" data-text="faiz.jpeg">faiz.jpeg</a>
+        <a href="/" className="text-xl font-mono font-bold glitch-intense" data-text="faiz.jpeg">
+          faiz.jpeg
+        </a>
         
         <div className="hidden md:flex items-center space-x-8">
-          <a href="#home" className="hover:text-primary transition-colors">Home</a>
-          <a href="#work" className="hover:text-primary transition-colors">Work</a>
-          <a href="#about" className="hover:text-primary transition-colors">About</a>
-          <a href="#contact" className="hover:text-primary transition-colors">Contact</a>
+          <a href="#home" className="font-mono hover:text-primary transition-all duration-200 hover:-translate-y-0.5">Home</a>
+          <a href="#work" className="font-mono hover:text-primary transition-all duration-200 hover:-translate-y-0.5">Work</a>
+          <a href="#about" className="font-mono hover:text-primary transition-all duration-200 hover:-translate-y-0.5">About</a>
+          <a href="#contact" className="font-mono hover:text-primary transition-all duration-200 hover:-translate-y-0.5">Contact</a>
           <ThemeToggle />
         </div>
         

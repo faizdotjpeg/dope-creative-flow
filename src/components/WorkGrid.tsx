@@ -40,6 +40,7 @@ const portfolioItems = [{
   image: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=800&q=80",
   description: "Creative direction for indie band"
 }];
+
 const WorkGrid = () => {
   const [filter, setFilter] = useState("all");
   const filteredItems = filter === "all" ? portfolioItems : portfolioItems.filter(item => item.category === filter);
@@ -111,6 +112,7 @@ const WorkGrid = () => {
       </div>
     </section>;
 };
+
 interface PortfolioItemProps {
   item: {
     id: number;
@@ -121,27 +123,44 @@ interface PortfolioItemProps {
   };
   variants: any;
 }
-const PortfolioItem = ({
-  item,
-  variants
-}: PortfolioItemProps) => {
+
+const PortfolioItem = ({ item, variants }: PortfolioItemProps) => {
   const [isHovered, setIsHovered] = useState(false);
-  return <motion.div className="portfolio-item rounded-lg overflow-hidden group" variants={variants} whileHover={{
-    y: -5,
-    transition: {
-      duration: 0.2
-    }
-  }} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
+  
+  return (
+    <motion.div
+      className="portfolio-item rounded-none overflow-hidden group"
+      variants={variants}
+      whileHover={{
+        y: -4,
+        transition: { duration: 0.2 }
+      }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <div className="aspect-square relative">
-        <motion.img src={item.image} alt={item.title} className="w-full h-full object-cover transition-transform duration-700 ease-in-out" animate={{
-        scale: isHovered ? 1.1 : 1
-      }} />
-        <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-          <h3 className="text-2xl font-serif font-bold text-white mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">{item.title}</h3>
-          <p className="text-primary uppercase tracking-wider text-sm mb-3 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">{item.category}</p>
-          <p className="text-white/80 text-sm translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-100 font-sans">{item.description}</p>
+        <motion.img
+          src={item.image}
+          alt={item.title}
+          className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-500"
+          animate={{
+            scale: isHovered ? 1.05 : 1
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/95 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-sm flex flex-col justify-end p-6">
+          <h3 className="font-mono text-xl font-bold text-foreground mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+            {item.title}
+          </h3>
+          <p className="text-primary uppercase tracking-wider text-sm mb-3 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">
+            {item.category}
+          </p>
+          <p className="text-muted-foreground text-sm translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-100 font-mono">
+            {item.description}
+          </p>
         </div>
       </div>
-    </motion.div>;
+    </motion.div>
+  );
 };
+
 export default WorkGrid;
