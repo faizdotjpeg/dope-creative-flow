@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from '@/components/ThemeToggle';
@@ -22,7 +23,16 @@ const Navbar = () => {
         : 'py-5'
     }`}>
       <div className="container mx-auto flex justify-between items-center px-4">
-        <a href="/" className="text-xl font-mono font-bold glitch-intense" data-text="faiz.jpeg">
+        <a 
+          href="/" 
+          className="text-xl font-mono font-bold glitch-intense" 
+          data-text="faiz.jpeg"
+          onMouseEnter={(e) => {
+            e.currentTarget.style.animation = 'none';
+            e.currentTarget.offsetHeight; // Trigger reflow
+            e.currentTarget.style.animation = '';
+          }}
+        >
           faiz.jpeg
         </a>
         
