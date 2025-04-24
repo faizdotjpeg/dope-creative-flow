@@ -1,0 +1,27 @@
+
+@layer components {
+  .text-gradient {
+    @apply text-primary;
+    animation: flicker 2s linear infinite;
+  }
+
+  .link-underline {
+    @apply relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-bottom-left after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100;
+  }
+
+  .custom-cursor {
+    @apply fixed w-6 h-6 border-2 border-primary rounded-full pointer-events-none z-50 mix-blend-difference transition-transform duration-150 ease-out;
+  }
+
+  .custom-cursor-dot {
+    @apply fixed w-2 h-2 bg-primary rounded-full pointer-events-none z-50 mix-blend-difference transition-transform duration-150 ease-out;
+  }
+
+  .portfolio-item {
+    @apply relative block overflow-hidden transition-all duration-300 hover:scale-[1.02];
+  }
+
+  .portfolio-item-overlay {
+    @apply absolute inset-0 flex flex-col items-center justify-center bg-black/90 p-4 opacity-0 transition-opacity duration-300 hover:opacity-100 border border-primary;
+  }
+}
