@@ -40,12 +40,14 @@ const portfolioItems = [{
   image: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=800&q=80",
   description: "Creative direction for indie band"
 }];
+
 const WorkGrid = () => {
   const [filter, setFilter] = useState("all");
   const filteredItems = filter === "all" ? portfolioItems : portfolioItems.filter(item => item.category === filter);
+  
   return <section id="work" className="py-24 px-4 bg-secondary">
       <div className="container mx-auto">
-        <h2 className="text-4xl font-serif font-bold mb-4 text-center md:text-5xl">
+        <h2 className="text-4xl font-mono font-bold mb-4 text-center md:text-5xl">
           Featured <span className="text-gradient">Work</span>
         </h2>
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
@@ -87,6 +89,7 @@ const WorkGrid = () => {
       </div>
     </section>;
 };
+
 interface PortfolioItemProps {
   item: {
     id: number;
@@ -96,6 +99,7 @@ interface PortfolioItemProps {
     description: string;
   };
 }
+
 const PortfolioItem = ({
   item
 }: PortfolioItemProps) => {
@@ -120,4 +124,5 @@ const PortfolioItem = ({
       </div>
     </motion.div>;
 };
+
 export default WorkGrid;
