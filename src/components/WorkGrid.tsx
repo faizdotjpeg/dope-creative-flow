@@ -1,7 +1,8 @@
-
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { Trophy, Award, FileChartLine } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
 
 // Sample portfolio items (replace with your actual projects)
 const portfolioItems = [{
@@ -42,9 +43,23 @@ const portfolioItems = [{
   description: "Creative direction for indie band"
 }];
 
+// Sample client logos
+const clientLogos = [
+  { name: "Client 1", logo: "https://images.unsplash.com/photo-1615729947596-a598e5de0ab3?w=100&h=100&fit=crop" },
+  { name: "Client 2", logo: "https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?w=100&h=100&fit=crop" },
+  { name: "Client 3", logo: "https://images.unsplash.com/photo-1500673922987-e212871fec22?w=100&h=100&fit=crop" },
+];
+
+// Sample awards
+const awards = [
+  { title: "Best Campaign 2024", organization: "Advertising Awards", icon: Trophy },
+  { title: "Creative Excellence", organization: "Design Institute", icon: Award },
+];
+
 const WorkGrid = () => {
   const [filter, setFilter] = useState("all");
   const filteredItems = filter === "all" ? portfolioItems : portfolioItems.filter(item => item.category === filter);
+  
   const containerVariants = {
     hidden: {
       opacity: 0
@@ -69,81 +84,126 @@ const WorkGrid = () => {
       }
     }
   };
-  return <section 
-    id="work" 
-    className="py-24 px-4 bg-muted/10 dark:bg-background/30 transition-colors duration-300 relative overflow-hidden"
-  >
-    <div 
-      className="absolute inset-0 dark:bg-gradient-to-b dark:from-secondary/20 dark:to-transparent dark:opacity-50 pointer-events-none"
-      style={{
-        backgroundImage: 'linear-gradient(to bottom, rgba(139, 92, 246, 0.15), transparent)',
-        zIndex: 1
-      }}
-    >
-      {/* Floating orbs with increased visibility */}
-      <div className="absolute inset-0 mix-blend-overlay opacity-60">
-        {Array.from({ length: 5 }).map((_, i) => (
-          <div
-            key={i}
-            className="absolute rounded-full blur-3xl"
-            style={{
-              width: `${Math.random() * 400 + 200}px`,
-              height: `${Math.random() * 400 + 200}px`,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              background: i % 2 === 0 ? 
-                'radial-gradient(circle, rgba(0, 255, 128, 0.3) 0%, transparent 70%)' : 
-                'radial-gradient(circle, rgba(139, 92, 246, 0.3) 0%, transparent 70%)',
-              animation: `float ${10 + i * 2}s ease-in-out infinite`,
-              animationDelay: `${i * -2}s`,
-            }}
-          />
-        ))}
-      </div>
-    </div>
-    
-    <div className="container mx-auto relative z-10">
-      <h2 className="text-4xl font-serif font-bold mb-4 text-center animate-fade-in md:text-xl">
-        Featured <span data-text="Work" className="text-gradient glitch text-3xl">Work</span>
-      </h2>
-      <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto font-sans">
-        A selection of my projects across creative direction, photography, and design.
-      </p>
+  
+  return (
+    <section className="py-32 px-4 bg-muted/10 dark:bg-background/30 transition-colors duration-300 relative overflow-hidden">
+      <div className="absolute inset-0 dark:bg-gradient-to-b dark:from-secondary/20 dark:to-transparent dark:opacity-50 pointer-events-none" />
       
-      <Tabs defaultValue="all" className="mb-12">
-        <TabsList className="grid grid-cols-4 max-w-md mx-auto">
-          <TabsTrigger value="all" onClick={() => setFilter("all")}>All</TabsTrigger>
-          <TabsTrigger value="direction" onClick={() => setFilter("direction")}>Direction</TabsTrigger>
-          <TabsTrigger value="photography" onClick={() => setFilter("photography")}>Photography</TabsTrigger>
-          <TabsTrigger value="design" onClick={() => setFilter("design")}>Design</TabsTrigger>
-        </TabsList>
-        
-        <TabsContent value="all" className="mt-8">
-          <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" variants={containerVariants} initial="hidden" animate="show">
-            {filteredItems.map(item => <PortfolioItem key={item.id} item={item} variants={itemVariants} />)}
-          </motion.div>
-        </TabsContent>
-        
-        <TabsContent value="direction" className="mt-8">
-          <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" variants={containerVariants} initial="hidden" animate="show">
-            {filteredItems.map(item => <PortfolioItem key={item.id} item={item} variants={itemVariants} />)}
-          </motion.div>
-        </TabsContent>
-        
-        <TabsContent value="photography" className="mt-8">
-          <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" variants={containerVariants} initial="hidden" animate="show">
-            {filteredItems.map(item => <PortfolioItem key={item.id} item={item} variants={itemVariants} />)}
-          </motion.div>
-        </TabsContent>
-        
-        <TabsContent value="design" className="mt-8">
-          <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" variants={containerVariants} initial="hidden" animate="show">
-            {filteredItems.map(item => <PortfolioItem key={item.id} item={item} variants={itemVariants} />)}
-          </motion.div>
-        </TabsContent>
-      </Tabs>
-    </div>
-  </section>;
+      <div className="container mx-auto relative z-10 space-y-24">
+        <div className="text-center space-y-6">
+          <h2 className="text-4xl font-serif font-bold mb-4 text-center animate-fade-in">
+            Featured <span className="text-gradient">Work</span>
+          </h2>
+          <p className="text-center text-muted-foreground max-w-2xl mx-auto font-sans">
+            A curated selection of projects spanning creative direction, photography, and design.
+          </p>
+        </div>
+
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="py-16"
+        >
+          <h3 className="text-2xl font-serif text-center mb-12">Trusted By</h3>
+          <div className="grid grid-cols-3 md:grid-cols-6 gap-8 items-center justify-center">
+            {clientLogos.map((client, index) => (
+              <motion.div
+                key={client.name}
+                whileHover={{ scale: 1.05 }}
+                className="relative grayscale hover:grayscale-0 transition-all duration-300"
+              >
+                <img 
+                  src={client.logo} 
+                  alt={client.name}
+                  className="w-24 h-24 object-contain mx-auto rounded-full"
+                />
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        <Tabs defaultValue="all" className="mb-16">
+          <TabsList className="grid grid-cols-4 max-w-md mx-auto">
+            <TabsTrigger value="all" onClick={() => setFilter("all")}>All</TabsTrigger>
+            <TabsTrigger value="direction" onClick={() => setFilter("direction")}>Direction</TabsTrigger>
+            <TabsTrigger value="photography" onClick={() => setFilter("photography")}>Photography</TabsTrigger>
+            <TabsTrigger value="design" onClick={() => setFilter("design")}>Design</TabsTrigger>
+          </TabsList>
+
+          <TabsContent value="all" className="mt-12">
+            <motion.div 
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+              variants={containerVariants} 
+              initial="hidden" 
+              animate="show"
+            >
+              {filteredItems.map(item => <PortfolioItem key={item.id} item={item} variants={itemVariants} />)}
+            </motion.div>
+          </TabsContent>
+          
+          <TabsContent value="direction" className="mt-12">
+            <motion.div 
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+              variants={containerVariants} 
+              initial="hidden" 
+              animate="show"
+            >
+              {filteredItems.map(item => <PortfolioItem key={item.id} item={item} variants={itemVariants} />)}
+            </motion.div>
+          </TabsContent>
+          
+          <TabsContent value="photography" className="mt-12">
+            <motion.div 
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+              variants={containerVariants} 
+              initial="hidden" 
+              animate="show"
+            >
+              {filteredItems.map(item => <PortfolioItem key={item.id} item={item} variants={itemVariants} />)}
+            </motion.div>
+          </TabsContent>
+          
+          <TabsContent value="design" className="mt-12">
+            <motion.div 
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+              variants={containerVariants} 
+              initial="hidden" 
+              animate="show"
+            >
+              {filteredItems.map(item => <PortfolioItem key={item.id} item={item} variants={itemVariants} />)}
+            </motion.div>
+          </TabsContent>
+        </Tabs>
+
+        <motion.section
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="py-16"
+        >
+          <h3 className="text-2xl font-serif text-center mb-12">Awards & Recognition</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {awards.map((award, index) => (
+              <motion.div
+                key={award.title}
+                whileHover={{ scale: 1.02 }}
+                className="glass-card p-6"
+              >
+                <div className="flex items-center gap-4">
+                  <award.icon className="w-8 h-8 text-primary" />
+                  <div>
+                    <h4 className="font-serif text-lg">{award.title}</h4>
+                    <p className="text-sm text-muted-foreground">{award.organization}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.section>
+      </div>
+    </section>
+  );
 };
 
 interface PortfolioItemProps {
@@ -165,7 +225,7 @@ const PortfolioItem = ({ item, variants }: PortfolioItemProps) => {
       className="portfolio-item rounded-none overflow-hidden group"
       variants={variants}
       whileHover={{
-        y: -4,
+        y: -8,
         transition: { duration: 0.2 }
       }}
       onMouseEnter={() => setIsHovered(true)}
@@ -187,7 +247,21 @@ const PortfolioItem = ({ item, variants }: PortfolioItemProps) => {
           <p className="text-primary uppercase tracking-wider text-sm mb-3 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">
             {item.category}
           </p>
-          <p className="text-muted-foreground text-sm translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-100 font-mono">
+          
+          <div className="grid grid-cols-2 gap-4 mb-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-100">
+            <div className="text-center">
+              <FileChartLine className="w-5 h-5 mx-auto mb-2 text-primary" />
+              <span className="text-xs text-muted-foreground block">Engagement</span>
+              <span className="text-sm font-bold">+45%</span>
+            </div>
+            <div className="text-center">
+              <Trophy className="w-5 h-5 mx-auto mb-2 text-primary" />
+              <span className="text-xs text-muted-foreground block">Awards</span>
+              <span className="text-sm font-bold">2</span>
+            </div>
+          </div>
+
+          <p className="text-muted-foreground text-sm translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-150 font-mono">
             {item.description}
           </p>
         </div>
