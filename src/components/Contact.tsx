@@ -57,7 +57,7 @@ const Contact = () => {
           className="text-center max-w-2xl mx-auto mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-mono font-bold mb-4">
-            Let's <span className="text-gradient">Connect</span>
+            Let's <span className="text-gradient glitch-intense relative inline-block" data-text="Connect">Connect</span>
           </h2>
           <p className="text-muted-foreground">
             Interested in working together? I'm always open to discussing new projects, 
