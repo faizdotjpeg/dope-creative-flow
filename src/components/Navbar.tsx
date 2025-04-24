@@ -31,9 +31,9 @@ const Navbar = () => {
       <div className="container mx-auto px-4 flex items-center justify-between">
         <a 
           href="#" 
-          className="text-2xl font-mono font-bold text-primary tracking-tighter"
+          className="text-2xl font-mono font-bold tracking-tighter"
         >
-          PORTFOLIO
+          <span className="glitch-text">PORTFOLIO</span>
         </a>
 
         {/* Desktop Navigation */}
