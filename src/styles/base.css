@@ -1,50 +1,50 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
 
 @layer base {
   :root {
-    --background: 0 0% 98%;
-    --foreground: 240 10% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 142 100% 50%;
+    --background: 195 100% 10%;       // Dark Teal Background
+    --foreground: 0 0% 98%;           // Light text for contrast
+    --card: 195 80% 8%;               // Slightly lighter teal for cards
+    --card-foreground: 0 0% 98%;
+    --popover: 195 80% 8%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 142 100% 50%;           // Keep the neon green
     --primary-foreground: 0 0% 98%;
-    --secondary: 262 83% 58%;
+    --secondary: 262 83% 58%;          // Keep existing secondary color
     --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 142 100% 50%;
+    --muted: 195 50% 15%;              // Muted teal
+    --muted-foreground: 195 20% 70%;
+    --accent: 142 100% 50%;            // Neon green accent
     --accent-foreground: 0 0% 98%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 142 100% 50%;
-    --input: 240 5.9% 90%;
-    --ring: 142 100% 50%;
+    --border: 195 80% 20%;             // Teal border
+    --input: 195 50% 20%;              // Teal input
+    --ring: 142 100% 50%;              // Neon green ring
     --radius: 0;
   }
 
   .dark {
-    --background: 240 10% 3.9%;
+    --background: 195 100% 7%;         // Even darker teal for dark mode
     --foreground: 0 0% 98%;
-    --card: 222 20% 12%;
+    --card: 195 80% 10%;
     --card-foreground: 0 0% 98%;
-    --popover: 222 20% 12%;
+    --popover: 195 80% 10%;
     --popover-foreground: 0 0% 98%;
-    --primary: 142 100% 50%;
+    --primary: 142 100% 50%;            // Maintain neon green
     --primary-foreground: 240 5.9% 10%;
     --secondary: 262 83% 58%;
     --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 262 83% 58%;
+    --muted: 195 50% 12%;
+    --muted-foreground: 195 20% 80%;
+    --accent: 142 100% 50%;             // Neon green accent
     --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 142 100% 50%;
-    --input: 240 3.7% 15.9%;
+    --border: 195 80% 25%;
+    --input: 195 50% 25%;
     --ring: 142 100% 50%;
+    --radius: 0;
   }
 
   * {
