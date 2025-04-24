@@ -1,7 +1,10 @@
+
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+
 const skills = ["Creative Direction", "Brand Strategy", "Photography", "Visual Identity Design", "Editorial Design", "Typography", "Art Direction", "Digital Design"];
+
 const About = () => {
   return <section id="about" className="py-24 px-4">
       <div className="container mx-auto">
@@ -21,13 +24,13 @@ const About = () => {
               About <span className="text-gradient glitch relative inline-block" data-text="Me">Me</span>
             </h2>
             
-            <p className="text-lg mb-6 text-muted-foreground">
+            <p className="text-lg mb-6 text-foreground dark:text-gray-300">
               I'm a multidisciplinary creative with over 8 years of experience across creative direction,
               photography, and graphic design. My work is driven by a passion for visual storytelling
               and crafting meaningful brand experiences.
             </p>
             
-            <p className="text-lg mb-6 text-muted-foreground">
+            <p className="text-lg mb-6 text-foreground dark:text-gray-300">
               Working with clients ranging from startups to established brands, I bring strategic thinking
               and creative execution to every project. My approach combines conceptual thinking with
               technical expertise to create work that resonates and engages.
@@ -92,7 +95,7 @@ const About = () => {
                 <Card className="h-full bg-secondary border-none shadow-lg">
                   <CardContent className="p-6">
                     <h4 className="text-xl font-mono font-bold mb-3">{service.title}</h4>
-                    <p className="text-muted-foreground">{service.description}</p>
+                    <p className="text-foreground dark:text-gray-300">{service.description}</p>
                   </CardContent>
                 </Card>
               </motion.div>)}
