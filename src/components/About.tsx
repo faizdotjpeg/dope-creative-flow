@@ -1,9 +1,7 @@
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-
 const skills = ["Creative Direction", "Brand Strategy", "Photography", "Visual Identity Design", "Editorial Design", "Typography", "Art Direction", "Digital Design"];
-
 const About = () => {
   return <section id="about" className="py-24 px-4">
       <div className="container mx-auto">
@@ -66,7 +64,7 @@ const About = () => {
         
         <div className="mt-24">
           <h3 className="text-2xl font-mono font-bold mb-12 text-center md:text-xl">
-            <span className="text-gradient glitch glitch-intense" data-text="witness.logs">witness.logs</span>
+            <span className="text-gradient glitch glitch-intense" data-text="witness.logs">function set [] </span>
           </h3>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
