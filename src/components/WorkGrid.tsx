@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
@@ -41,13 +40,13 @@ const portfolioItems = [{
   image: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=800&q=80",
   description: "Creative direction for indie band"
 }];
-
 const WorkGrid = () => {
   const [filter, setFilter] = useState("all");
   const filteredItems = filter === "all" ? portfolioItems : portfolioItems.filter(item => item.category === filter);
-  
   const containerVariants = {
-    hidden: { opacity: 0 },
+    hidden: {
+      opacity: 0
+    },
     show: {
       opacity: 1,
       transition: {
@@ -55,17 +54,23 @@ const WorkGrid = () => {
       }
     }
   };
-  
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+    hidden: {
+      opacity: 0,
+      y: 20
+    },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5
+      }
+    }
   };
-  
-  return (
-    <section id="work" className="py-24 px-4 bg-secondary/5 transition-colors duration-300">
+  return <section id="work" className="py-24 px-4 bg-secondary/5 transition-colors duration-300">
       <div className="container mx-auto">
-        <h2 className="text-4xl font-serif font-bold mb-4 text-center md:text-5xl animate-fade-in">
-          Featured <span className="text-gradient glitch" data-text="Work">Work</span>
+        <h2 className="text-4xl font-serif font-bold mb-4 text-center animate-fade-in md:text-xl">
+          Featured <span data-text="Work" className="text-gradient glitch text-3xl">Work</span>
         </h2>
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto font-sans">
           A selection of my projects across creative direction, photography, and design.
@@ -80,54 +85,32 @@ const WorkGrid = () => {
           </TabsList>
           
           <TabsContent value="all" className="mt-8">
-            <motion.div 
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-              variants={containerVariants}
-              initial="hidden"
-              animate="show"
-            >
+            <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" variants={containerVariants} initial="hidden" animate="show">
               {filteredItems.map(item => <PortfolioItem key={item.id} item={item} variants={itemVariants} />)}
             </motion.div>
           </TabsContent>
           
           <TabsContent value="direction" className="mt-8">
-            <motion.div 
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-              variants={containerVariants}
-              initial="hidden"
-              animate="show"
-            >
+            <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" variants={containerVariants} initial="hidden" animate="show">
               {filteredItems.map(item => <PortfolioItem key={item.id} item={item} variants={itemVariants} />)}
             </motion.div>
           </TabsContent>
           
           <TabsContent value="photography" className="mt-8">
-            <motion.div 
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-              variants={containerVariants}
-              initial="hidden"
-              animate="show"
-            >
+            <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" variants={containerVariants} initial="hidden" animate="show">
               {filteredItems.map(item => <PortfolioItem key={item.id} item={item} variants={itemVariants} />)}
             </motion.div>
           </TabsContent>
           
           <TabsContent value="design" className="mt-8">
-            <motion.div 
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-              variants={containerVariants}
-              initial="hidden"
-              animate="show"
-            >
+            <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" variants={containerVariants} initial="hidden" animate="show">
               {filteredItems.map(item => <PortfolioItem key={item.id} item={item} variants={itemVariants} />)}
             </motion.div>
           </TabsContent>
         </Tabs>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 interface PortfolioItemProps {
   item: {
     id: number;
@@ -138,35 +121,27 @@ interface PortfolioItemProps {
   };
   variants: any;
 }
-
-const PortfolioItem = ({ item, variants }: PortfolioItemProps) => {
+const PortfolioItem = ({
+  item,
+  variants
+}: PortfolioItemProps) => {
   const [isHovered, setIsHovered] = useState(false);
-
-  return (
-    <motion.div 
-      className="portfolio-item rounded-lg overflow-hidden group"
-      variants={variants}
-      whileHover={{ y: -5, transition: { duration: 0.2 } }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
+  return <motion.div className="portfolio-item rounded-lg overflow-hidden group" variants={variants} whileHover={{
+    y: -5,
+    transition: {
+      duration: 0.2
+    }
+  }} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
       <div className="aspect-square relative">
-        <motion.img 
-          src={item.image} 
-          alt={item.title} 
-          className="w-full h-full object-cover transition-transform duration-700 ease-in-out" 
-          animate={{ 
-            scale: isHovered ? 1.1 : 1,
-          }}
-        />
+        <motion.img src={item.image} alt={item.title} className="w-full h-full object-cover transition-transform duration-700 ease-in-out" animate={{
+        scale: isHovered ? 1.1 : 1
+      }} />
         <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
           <h3 className="text-2xl font-serif font-bold text-white mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">{item.title}</h3>
           <p className="text-primary uppercase tracking-wider text-sm mb-3 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">{item.category}</p>
           <p className="text-white/80 text-sm translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-100 font-sans">{item.description}</p>
         </div>
       </div>
-    </motion.div>
-  );
+    </motion.div>;
 };
-
 export default WorkGrid;
