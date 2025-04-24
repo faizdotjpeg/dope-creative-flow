@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Trophy, Award, FileChartLine } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
+import { PortfolioItem } from "./portfolio/PortfolioItem";
+import { ClientsSection } from "./portfolio/ClientsSection";
+import { AwardsSection } from "./portfolio/AwardsSection";
 
 // Sample portfolio items (replace with your actual projects)
 const portfolioItems = [{
@@ -81,9 +83,7 @@ const WorkGrid = () => {
   }, []);
 
   const containerVariants = {
-    hidden: {
-      opacity: 0
-    },
+    hidden: { opacity: 0 },
     show: {
       opacity: 1,
       transition: {
@@ -91,6 +91,7 @@ const WorkGrid = () => {
       }
     }
   };
+  
   const itemVariants = {
     hidden: {
       opacity: 0,
@@ -105,7 +106,8 @@ const WorkGrid = () => {
     }
   };
 
-  return <section className="py-32 px-4 bg-muted/10 dark:bg-background/30 transition-colors duration-300 relative overflow-hidden">
+  return (
+    <section className="py-32 px-4 bg-muted/10 dark:bg-background/30 transition-colors duration-300 relative overflow-hidden">
       <div className="absolute inset-0 dark:bg-gradient-to-b dark:from-secondary/20 dark:to-transparent dark:opacity-50 pointer-events-none" />
       
       <div className="container mx-auto relative z-10 space-y-24">
@@ -120,10 +122,14 @@ const WorkGrid = () => {
               damping: 12
             }}
           >
-            <span className="text-gradient glitch relative" data-text="highlight.reel" style={{ 
-              textShadow: '0 0 10px rgba(147, 39, 143, 0.7)', 
-              animation: 'rgb-split 0.5s infinite alternate-reverse, glitch-text 1.5s infinite' 
-            }}>
+            <span 
+              className="text-gradient glitch relative" 
+              data-text="highlight.reel" 
+              style={{ 
+                textShadow: '0 0 10px rgba(147, 39, 143, 0.7)', 
+                animation: 'rgb-split 0.5s infinite alternate-reverse, glitch-text 1.5s infinite' 
+              }}
+            >
               highlight.reel
             </span>
           </motion.h2>
@@ -132,60 +138,7 @@ const WorkGrid = () => {
           </p>
         </div>
 
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="py-16 overflow-hidden"
-        >
-          <motion.h3 
-            className="text-2xl font-serif text-center mb-12"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{
-              duration: 0.5,
-              type: "spring",
-              bounce: 0.4
-            }}
-          >
-            <span 
-              className="glitch-intense" 
-              data-text="auth.past_clients"
-              style={{ 
-                textShadow: '0 0 10px rgba(234, 172, 232, 0.7)', 
-                animation: 'glitch 250ms infinite, flicker 2s linear infinite' 
-              }}
-            >
-              auth.past_clients
-            </span>
-          </motion.h3>
-          <div className="relative w-full">
-            <motion.div 
-              className="flex space-x-16" 
-              animate={{
-                x: [0, -1000]
-              }}
-              transition={{
-                x: {
-                  repeat: Infinity,
-                  repeatType: "loop",
-                  duration: 20,
-                  ease: "linear"
-                }
-              }}
-            >
-              {[...clientLogos, ...clientLogos].map((client, index) => (
-                <motion.div
-                  key={`${client.name}-${index}`}
-                  className="relative grayscale hover:grayscale-0 transition-all duration-300 flex-shrink-0"
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                >
-                  <img src={client.logo} alt={client.name} className="w-24 h-24 object-contain rounded-full" />
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-        </motion.div>
+        <ClientsSection clientLogos={clientLogos} />
 
         <Tabs defaultValue="all" className="mb-16">
           <TabsList className="grid grid-cols-4 max-w-md mx-auto">
@@ -220,122 +173,10 @@ const WorkGrid = () => {
           </TabsContent>
         </Tabs>
 
-        <motion.section 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="py-16"
-        >
-          <motion.h3 
-            className="text-2xl font-serif text-center mb-12"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ 
-              opacity: 1, 
-              x: 0,
-              transition: {
-                type: "spring",
-                stiffness: 200,
-                damping: 20
-              }
-            }}
-          >
-            <span 
-              className="text-gradient" 
-              data-text="cert.unlocked"
-              style={{ 
-                textShadow: '0 0 10px rgba(148, 39, 234, 0.7)', 
-                animation: 'flicker 1.5s linear infinite' 
-              }}
-            >
-              cert.unlocked
-            </span>
-          </motion.h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {awards.map((award, index) => (
-              <motion.div
-                key={award.title}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{
-                  duration: 0.5,
-                  delay: index * 0.2,
-                  type: "spring",
-                  stiffness: 100
-                }}
-                whileHover={{
-                  scale: 1.02,
-                  transition: { type: "spring", stiffness: 400 }
-                }}
-                className="glass-card p-6"
-              >
-                <div className="flex items-center gap-4">
-                  <award.icon className="w-8 h-8 text-primary" />
-                  <div>
-                    <h4 className="font-serif text-lg">{award.title}</h4>
-                    <p className="text-sm text-muted-foreground">{award.organization}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.section>
+        <AwardsSection awards={awards} />
       </div>
-    </section>;
-};
-
-interface PortfolioItemProps {
-  item: {
-    id: number;
-    title: string;
-    category: string;
-    image: string;
-    description: string;
-  };
-  variants: any;
-}
-
-const PortfolioItem = ({
-  item,
-  variants
-}: PortfolioItemProps) => {
-  const [isHovered, setIsHovered] = useState(false);
-  return <motion.div className="portfolio-item rounded-none overflow-hidden group" variants={variants} whileHover={{
-    y: -8,
-    transition: {
-      duration: 0.2
-    }
-  }} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
-      <div className="aspect-square relative">
-        <motion.img src={item.image} alt={item.title} className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-500" animate={{
-        scale: isHovered ? 1.05 : 1
-      }} />
-        <div className="absolute inset-0 bg-gradient-to-t from-background/95 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-sm flex flex-col justify-end p-6">
-          <h3 className="font-mono text-xl font-bold text-foreground mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-            {item.title}
-          </h3>
-          <p className="text-primary uppercase tracking-wider text-sm mb-3 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">
-            {item.category}
-          </p>
-          
-          <div className="grid grid-cols-2 gap-4 mb-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-100">
-            <div className="text-center">
-              <FileChartLine className="w-5 h-5 mx-auto mb-2 text-primary" />
-              <span className="text-xs text-muted-foreground block">Engagement</span>
-              <span className="text-sm font-bold">+45%</span>
-            </div>
-            <div className="text-center">
-              <Trophy className="w-5 h-5 mx-auto mb-2 text-primary" />
-              <span className="text-xs text-muted-foreground block">Awards</span>
-              <span className="text-sm font-bold">2</span>
-            </div>
-          </div>
-
-          <p className="text-muted-foreground text-sm translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-150 font-mono">
-            {item.description}
-          </p>
-        </div>
-      </div>
-    </motion.div>;
+    </section>
+  );
 };
 
 export default WorkGrid;
