@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono&family=Playfair+Display:wght@400;500;700&display=swap');
 
 @tailwind base;
@@ -6,24 +7,24 @@
 
 @layer base {
   :root {
-    --background: 0 0% 0%;
-    --foreground: 140 100% 50%;
-    --card: 0 0% 10%;
-    --card-foreground: 140 100% 50%;
-    --popover: 0 0% 10%;
-    --popover-foreground: 140 100% 50%;
+    --background: 0 0% 98%;
+    --foreground: 0 0% 0%;
+    --card: 0 0% 96%;
+    --card-foreground: 0 0% 0%;
+    --popover: 0 0% 96%;
+    --popover-foreground: 0 0% 0%;
     --primary: 140 100% 50%;
     --primary-foreground: 0 0% 0%;
-    --secondary: 0 0% 5%;
-    --secondary-foreground: 140 100% 50%;
-    --muted: 0 0% 20%;
-    --muted-foreground: 140 100% 40%;
+    --secondary: 30 100% 50%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: 0 0% 90%;
+    --muted-foreground: 0 0% 40%;
     --accent: 140 100% 50%;
     --accent-foreground: 0 0% 0%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
     --border: 140 100% 50%;
-    --input: 0 0% 20%;
+    --input: 0 0% 90%;
     --ring: 140 100% 50%;
     --radius: 0;
   }
@@ -126,3 +127,4 @@
 ::-webkit-scrollbar-thumb {
   @apply bg-primary/50 hover:bg-primary;
 }
+
