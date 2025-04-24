@@ -68,49 +68,52 @@ const WorkGrid = () => {
       }
     }
   };
-  return <section id="work" className="py-24 px-4 bg-secondary/5 transition-colors duration-300">
-      <div className="container mx-auto">
-        <h2 className="text-4xl font-serif font-bold mb-4 text-center animate-fade-in md:text-xl">
-          Featured <span data-text="Work" className="text-gradient glitch text-3xl">Work</span>
-        </h2>
-        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto font-sans">
-          A selection of my projects across creative direction, photography, and design.
-        </p>
+  return <section 
+    id="work" 
+    className="py-24 px-4 bg-muted/10 dark:bg-secondary/20 transition-colors duration-300"
+  >
+    <div className="container mx-auto">
+      <h2 className="text-4xl font-serif font-bold mb-4 text-center animate-fade-in md:text-xl">
+        Featured <span data-text="Work" className="text-gradient glitch text-3xl">Work</span>
+      </h2>
+      <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto font-sans">
+        A selection of my projects across creative direction, photography, and design.
+      </p>
+      
+      <Tabs defaultValue="all" className="mb-12">
+        <TabsList className="grid grid-cols-4 max-w-md mx-auto">
+          <TabsTrigger value="all" onClick={() => setFilter("all")}>All</TabsTrigger>
+          <TabsTrigger value="direction" onClick={() => setFilter("direction")}>Direction</TabsTrigger>
+          <TabsTrigger value="photography" onClick={() => setFilter("photography")}>Photography</TabsTrigger>
+          <TabsTrigger value="design" onClick={() => setFilter("design")}>Design</TabsTrigger>
+        </TabsList>
         
-        <Tabs defaultValue="all" className="mb-12">
-          <TabsList className="grid grid-cols-4 max-w-md mx-auto">
-            <TabsTrigger value="all" onClick={() => setFilter("all")}>All</TabsTrigger>
-            <TabsTrigger value="direction" onClick={() => setFilter("direction")}>Direction</TabsTrigger>
-            <TabsTrigger value="photography" onClick={() => setFilter("photography")}>Photography</TabsTrigger>
-            <TabsTrigger value="design" onClick={() => setFilter("design")}>Design</TabsTrigger>
-          </TabsList>
-          
-          <TabsContent value="all" className="mt-8">
-            <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" variants={containerVariants} initial="hidden" animate="show">
-              {filteredItems.map(item => <PortfolioItem key={item.id} item={item} variants={itemVariants} />)}
-            </motion.div>
-          </TabsContent>
-          
-          <TabsContent value="direction" className="mt-8">
-            <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" variants={containerVariants} initial="hidden" animate="show">
-              {filteredItems.map(item => <PortfolioItem key={item.id} item={item} variants={itemVariants} />)}
-            </motion.div>
-          </TabsContent>
-          
-          <TabsContent value="photography" className="mt-8">
-            <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" variants={containerVariants} initial="hidden" animate="show">
-              {filteredItems.map(item => <PortfolioItem key={item.id} item={item} variants={itemVariants} />)}
-            </motion.div>
-          </TabsContent>
-          
-          <TabsContent value="design" className="mt-8">
-            <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" variants={containerVariants} initial="hidden" animate="show">
-              {filteredItems.map(item => <PortfolioItem key={item.id} item={item} variants={itemVariants} />)}
-            </motion.div>
-          </TabsContent>
-        </Tabs>
-      </div>
-    </section>;
+        <TabsContent value="all" className="mt-8">
+          <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" variants={containerVariants} initial="hidden" animate="show">
+            {filteredItems.map(item => <PortfolioItem key={item.id} item={item} variants={itemVariants} />)}
+          </motion.div>
+        </TabsContent>
+        
+        <TabsContent value="direction" className="mt-8">
+          <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" variants={containerVariants} initial="hidden" animate="show">
+            {filteredItems.map(item => <PortfolioItem key={item.id} item={item} variants={itemVariants} />)}
+          </motion.div>
+        </TabsContent>
+        
+        <TabsContent value="photography" className="mt-8">
+          <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" variants={containerVariants} initial="hidden" animate="show">
+            {filteredItems.map(item => <PortfolioItem key={item.id} item={item} variants={itemVariants} />)}
+          </motion.div>
+        </TabsContent>
+        
+        <TabsContent value="design" className="mt-8">
+          <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" variants={containerVariants} initial="hidden" animate="show">
+            {filteredItems.map(item => <PortfolioItem key={item.id} item={item} variants={itemVariants} />)}
+          </motion.div>
+        </TabsContent>
+      </Tabs>
+    </div>
+  </section>;
 };
 
 interface PortfolioItemProps {
