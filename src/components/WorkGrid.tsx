@@ -98,7 +98,7 @@ const WorkGrid = () => {
       <div className="container mx-auto relative z-10 space-y-24">
         <div className="text-center space-y-6">
           <h2 className="text-4xl font-serif font-bold mb-4 text-center animate-fade-in">
-            Featured <span className="text-gradient">ree</span>
+            highlight.<span className="text-gradient">reel</span>
           </h2>
           <p className="text-center text-muted-foreground max-w-2xl mx-auto font-sans">
             A curated selection of projects spanning creative direction, photography, and design.
