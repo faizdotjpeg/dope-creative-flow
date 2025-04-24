@@ -1,17 +1,19 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
-import { Mail, Instagram, Twitter, Linkedin, FileText } from "lucide-react";
+import { Mail, Instagram, Twitter, Linkedin } from "lucide-react";
 import { z } from "zod";
+import { useState } from "react";
+
 const contactSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
   email: z.string().email("Please enter a valid email"),
   subject: z.string().min(3, "Subject must be at least 3 characters"),
   message: z.string().min(10, "Message must be at least 10 characters")
 });
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -24,6 +26,7 @@ const Contact = () => {
   const {
     toast
   } = useToast();
+
   const validateField = (name: string, value: string) => {
     try {
       contactSchema.shape[name as keyof typeof contactSchema.shape].parse(value);
@@ -40,6 +43,7 @@ const Contact = () => {
       }
     }
   };
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const {
       name,
@@ -51,6 +55,7 @@ const Contact = () => {
     }));
     validateField(name, value);
   };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -89,6 +94,7 @@ const Contact = () => {
       setIsSubmitting(false);
     }
   };
+
   return <section id="contact" className="py-24 px-4 bg-secondary">
       <div className="container mx-auto">
         <motion.div initial={{
@@ -105,7 +111,7 @@ const Contact = () => {
           <h2 className="text-4xl font-mono font-bold mb-4 md:text-xl">
             Let's <span data-text="Connect" className="text-gradient glitch-intense relative inline-block font-normal text-5xl">Connect</span>
           </h2>
-          <p className="text-muted-foreground">
+          <p className="text-foreground dark:text-gray-300">
             Interested in working together? I'm always open to discussing new projects, 
             creative ideas or opportunities to be part of your vision.
           </p>
@@ -222,4 +228,5 @@ const Contact = () => {
       </div>
     </section>;
 };
+
 export default Contact;
