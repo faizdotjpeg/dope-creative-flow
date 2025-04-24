@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+
 const testimonials = [{
   id: 1,
   name: "Sarah Johnson",
@@ -19,24 +20,31 @@ const testimonials = [{
   quote: "Their photography captured the essence of our collection in ways we never imagined possible. The results speak for themselves.",
   avatar: "https://randomuser.me/api/portraits/women/65.jpg"
 }];
+
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [scrollY, setScrollY] = useState(0);
+
   useEffect(() => {
     const handleScroll = () => {
       setScrollY(window.scrollY);
     };
+
     window.addEventListener('scroll', handleScroll, {
       passive: true
     });
+
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setCurrentIndex(prevIndex => (prevIndex + 1) % testimonials.length);
     }, 5000);
+
     return () => clearTimeout(timer);
   }, [currentIndex]);
+
   return <section className="py-24 px-4 relative overflow-hidden">
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" style={{
       transform: `translate(50%, -50%) translateY(-${scrollY * 0.1}px)`
@@ -48,7 +56,7 @@ const Testimonials = () => {
       <div className="container mx-auto relative">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-serif font-bold mb-12 md:text-xl">
-            Client <span className="text-gradient" data-text="Testimonials">Testimonials</span>
+            <span className="text-gradient" data-text="client.voices">client.voices</span>
           </h2>
           
           <div className="relative h-80">
@@ -87,4 +95,5 @@ const Testimonials = () => {
       </div>
     </section>;
 };
+
 export default Testimonials;

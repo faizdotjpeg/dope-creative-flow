@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -109,7 +110,7 @@ const Contact = () => {
         duration: 0.6
       }} className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="text-4xl font-mono font-bold mb-4 md:text-xl">
-            Let's <span data-text="Connect" className="text-gradient glitch-intense relative inline-block font-normal text-5xl">Connect</span>
+            <span data-text="connect.protocol" className="text-gradient glitch-intense relative inline-block font-normal text-5xl">connect.protocol</span>
           </h2>
           <p className="text-foreground dark:text-gray-300">
             Interested in working together? I'm always open to discussing new projects, 
