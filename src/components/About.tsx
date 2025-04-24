@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
@@ -25,7 +26,7 @@ const About = () => {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-4xl md:text-5xl font-mono font-bold mb-6">
-              About <span className="text-gradient">Me</span>
+              About <span className="text-gradient glitch relative inline-block" data-text="Me">Me</span>
             </h2>
             
             <p className="text-lg mb-6 text-muted-foreground">
