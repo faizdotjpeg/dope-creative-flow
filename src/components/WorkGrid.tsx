@@ -120,7 +120,10 @@ const WorkGrid = () => {
               damping: 12
             }}
           >
-            <span className="text-gradient glitch relative" data-text="highlight.reel">
+            <span className="text-gradient glitch relative" data-text="highlight.reel" style={{ 
+              textShadow: '0 0 10px rgba(147, 39, 143, 0.7)', 
+              animation: 'rgb-split 0.5s infinite alternate-reverse, glitch-text 1.5s infinite' 
+            }}>
               highlight.reel
             </span>
           </motion.h2>
@@ -145,7 +148,16 @@ const WorkGrid = () => {
               bounce: 0.4
             }}
           >
-            <span className="glitch-intense" data-text="auth.past_clients">auth.past_clients</span>
+            <span 
+              className="glitch-intense" 
+              data-text="auth.past_clients"
+              style={{ 
+                textShadow: '0 0 10px rgba(234, 172, 232, 0.7)', 
+                animation: 'glitch 250ms infinite, flicker 2s linear infinite' 
+              }}
+            >
+              auth.past_clients
+            </span>
           </motion.h3>
           <div className="relative w-full">
             <motion.div 
@@ -227,7 +239,16 @@ const WorkGrid = () => {
               }
             }}
           >
-            <span className="text-gradient" data-text="cert.unlocked">cert.unlocked</span>
+            <span 
+              className="text-gradient" 
+              data-text="cert.unlocked"
+              style={{ 
+                textShadow: '0 0 10px rgba(148, 39, 234, 0.7)', 
+                animation: 'flicker 1.5s linear infinite' 
+              }}
+            >
+              cert.unlocked
+            </span>
           </motion.h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {awards.map((award, index) => (
