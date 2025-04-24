@@ -48,7 +48,7 @@ const WorkGrid = () => {
   return <section id="work" className="py-24 px-4 bg-secondary">
       <div className="container mx-auto">
         <h2 className="text-4xl font-mono font-bold mb-4 text-center md:text-5xl">
-          Featured <span className="text-gradient">Work</span>
+          Featured <span className="text-gradient glitch" data-text="Work">Work</span>
         </h2>
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
           A selection of my projects across creative direction, photography, and design.
