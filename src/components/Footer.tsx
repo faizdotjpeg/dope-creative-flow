@@ -1,6 +1,8 @@
 
 import { ArrowUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import { Instagram, Twitter, Linkedin, FileText } from "lucide-react";
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -10,28 +12,78 @@ const Footer = () => {
     });
   };
 
+  const socialLinks = [
+    {
+      icon: <Instagram className="h-5 w-5" />,
+      href: "https://instagram.com/yourcreative",
+      label: "Instagram"
+    },
+    {
+      icon: <Twitter className="h-5 w-5" />,
+      href: "https://twitter.com/yourcreative",
+      label: "Twitter"
+    },
+    {
+      icon: <Linkedin className="h-5 w-5" />,
+      href: "https://linkedin.com/in/yourcreative",
+      label: "LinkedIn"
+    }
+  ];
+
   return (
     <footer className="py-12 px-4 border-t border-border">
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-6 md:mb-0">
-            <a href="#" className="text-2xl font-serif font-bold text-primary">
+            <motion.a 
+              href="#" 
+              className="text-2xl font-serif font-bold text-primary inline-block"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            >
               PORTFOLIO
-            </a>
+            </motion.a>
             <p className="text-muted-foreground mt-2">
               Creative Director • Photographer • Designer
             </p>
           </div>
 
-          <Button
-            variant="outline"
-            size="icon"
-            className="rounded-full"
+          <div className="flex items-center space-x-4 mb-6 md:mb-0">
+            {socialLinks.map((link) => (
+              <motion.a
+                key={link.label}
+                href={link.href}
+                className="p-2 rounded-full bg-background hover:bg-primary/10 transition-colors"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={link.label}
+              >
+                {link.icon}
+              </motion.a>
+            ))}
+            <motion.a
+              href="/resume.pdf"
+              className="flex items-center space-x-2 px-4 py-2 rounded-full bg-secondary/10 hover:bg-secondary/20 transition-colors"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              download
+            >
+              <FileText className="h-5 w-5" />
+              <span>Resume</span>
+            </motion.a>
+          </div>
+
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            className="rounded-full p-2 bg-primary/10 hover:bg-primary/20 transition-colors"
             onClick={scrollToTop}
             aria-label="Scroll to top"
           >
             <ArrowUp className="h-5 w-5" />
-          </Button>
+          </motion.button>
         </div>
 
         <div className="border-t border-border mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
@@ -42,20 +94,22 @@ const Footer = () => {
           <nav>
             <ul className="flex items-center space-x-6">
               <li>
-                <a
+                <motion.a
                   href="#"
                   className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  whileHover={{ y: -2 }}
                 >
                   Privacy Policy
-                </a>
+                </motion.a>
               </li>
               <li>
-                <a
+                <motion.a
                   href="#"
                   className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  whileHover={{ y: -2 }}
                 >
                   Terms of Service
-                </a>
+                </motion.a>
               </li>
             </ul>
           </nav>

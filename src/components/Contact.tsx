@@ -1,11 +1,18 @@
-
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
-import { Mail, Instagram, Twitter, Linkedin } from "lucide-react";
+import { Mail, Instagram, Twitter, Linkedin, FileText } from "lucide-react";
+import { z } from "zod";
+
+const contactSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  email: z.string().email("Please enter a valid email"),
+  subject: z.string().min(3, "Subject must be at least 3 characters"),
+  message: z.string().min(10, "Message must be at least 10 characters"),
+});
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -14,22 +21,37 @@ const Contact = () => {
     subject: "",
     message: "",
   });
+  const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+  const validateField = (name: string, value: string) => {
+    try {
+      contactSchema.shape[name as keyof typeof contactSchema.shape].parse(value);
+      setErrors(prev => ({ ...prev, [name]: "" }));
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        setErrors(prev => ({ ...prev, [name]: error.errors[0].message }));
+      }
+    }
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+    validateField(name, value);
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
+
+    try {
+      const validatedData = contactSchema.parse(formData);
+      
+      // Simulate form submission
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      
       toast({
         title: "Message Sent",
         description: "Thank you for your message. I'll get back to you soon!",
@@ -41,9 +63,27 @@ const Contact = () => {
         subject: "",
         message: "",
       });
+      setErrors({});
       
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        const newErrors: Record<string, string> = {};
+        error.errors.forEach(err => {
+          if (err.path[0]) {
+            newErrors[err.path[0].toString()] = err.message;
+          }
+        });
+        setErrors(newErrors);
+        
+        toast({
+          title: "Error",
+          description: "Please check the form for errors.",
+          variant: "destructive",
+        });
+      }
+    } finally {
       setIsSubmitting(false);
-    }, 1500);
+    }
   };
 
   return (
@@ -88,8 +128,12 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Your name"
+                    className={errors.name ? "border-destructive" : ""}
                     required
                   />
+                  {errors.name && (
+                    <p className="text-sm text-destructive mt-1">{errors.name}</p>
+                  )}
                 </div>
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium mb-1">
@@ -102,8 +146,12 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="Your email"
+                    className={errors.email ? "border-destructive" : ""}
                     required
                   />
+                  {errors.email && (
+                    <p className="text-sm text-destructive mt-1">{errors.email}</p>
+                  )}
                 </div>
               </div>
               
@@ -117,8 +165,12 @@ const Contact = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   placeholder="Subject"
+                  className={errors.subject ? "border-destructive" : ""}
                   required
                 />
+                {errors.subject && (
+                  <p className="text-sm text-destructive mt-1">{errors.subject}</p>
+                )}
               </div>
               
               <div>
@@ -132,11 +184,20 @@ const Contact = () => {
                   onChange={handleChange}
                   placeholder="Your message"
                   rows={5}
+                  className={errors.message ? "border-destructive" : ""}
                   required
                 />
+                {errors.message && (
+                  <p className="text-sm text-destructive mt-1">{errors.message}</p>
+                )}
               </div>
               
-              <Button type="submit" size="lg" disabled={isSubmitting}>
+              <Button 
+                type="submit" 
+                size="lg" 
+                disabled={isSubmitting}
+                className="hover:bg-primary/90"
+              >
                 {isSubmitting ? "Sending..." : "Send Message"}
               </Button>
             </form>
