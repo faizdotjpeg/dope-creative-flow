@@ -13,7 +13,7 @@
     --secondary: 262 83% 58%;         /* Keep existing purple */
     --secondary-foreground: 240 5.9% 10%;
     --muted: 0 0% 95%;               /* Light gray */
-    --muted-foreground: 0 0% 30%;
+    --muted-foreground: 0 0% 40%;  /* Darkened from 30% to 40% for better contrast */
     --accent: 142 100% 50%;          /* Neon green accent */
     --accent-foreground: 0 0% 5%;
     --destructive: 0 84.2% 60.2%;
@@ -36,7 +36,7 @@
     --secondary: 262 83% 58%;        /* Keep purple */
     --secondary-foreground: 0 0% 98%;
     --muted: 0 0% 12%;
-    --muted-foreground: 0 0% 80%;
+    --muted-foreground: 0 0% 70%;  /* Lightened from 80% to 70% for better readability */
     --accent: 142 100% 50%;          /* Neon green accent */
     --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
