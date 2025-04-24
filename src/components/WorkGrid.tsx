@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
@@ -75,28 +76,33 @@ const WorkGrid = () => {
     <div 
       className="absolute inset-0 dark:bg-gradient-to-b dark:from-secondary/20 dark:to-transparent dark:opacity-50 pointer-events-none"
       style={{
-        backgroundImage: 'linear-gradient(to bottom, rgba(139, 92, 246, 0.1), transparent)',
+        backgroundImage: 'linear-gradient(to bottom, rgba(139, 92, 246, 0.15), transparent)',
+        zIndex: 1
       }}
     >
-      <div className="absolute inset-0 animate-float mix-blend-overlay opacity-30">
-        {Array.from({ length: 3 }).map((_, i) => (
+      {/* Floating orbs with increased visibility */}
+      <div className="absolute inset-0 mix-blend-overlay opacity-60">
+        {Array.from({ length: 5 }).map((_, i) => (
           <div
             key={i}
-            className="absolute bg-gradient-to-b from-primary/20 to-transparent rounded-full blur-3xl"
+            className="absolute rounded-full blur-3xl"
             style={{
               width: `${Math.random() * 400 + 200}px`,
               height: `${Math.random() * 400 + 200}px`,
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
-              animationDelay: `${i * -5}s`,
-              animationDuration: '15s',
+              background: i % 2 === 0 ? 
+                'radial-gradient(circle, rgba(0, 255, 128, 0.3) 0%, transparent 70%)' : 
+                'radial-gradient(circle, rgba(139, 92, 246, 0.3) 0%, transparent 70%)',
+              animation: `float ${10 + i * 2}s ease-in-out infinite`,
+              animationDelay: `${i * -2}s`,
             }}
           />
         ))}
       </div>
     </div>
     
-    <div className="container mx-auto">
+    <div className="container mx-auto relative z-10">
       <h2 className="text-4xl font-serif font-bold mb-4 text-center animate-fade-in md:text-xl">
         Featured <span data-text="Work" className="text-gradient glitch text-3xl">Work</span>
       </h2>

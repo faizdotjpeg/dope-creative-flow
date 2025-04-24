@@ -5,6 +5,7 @@
     animation: glitch-text 1.5s infinite, rgb-split 0.5s infinite alternate-reverse;
     position: relative;
     letter-spacing: -0.03em;
+    text-shadow: 0 0 10px rgba(0, 255, 128, 0.7);
   }
 
   .text-gradient::before,
@@ -21,7 +22,7 @@
 
   .text-gradient::before {
     left: 2px;
-    text-shadow: -2px 0 #00ab6b;
+    text-shadow: -2px 0 #00ff80;
     animation: glitch-text-layer-2 3s infinite linear alternate-reverse;
   }
 

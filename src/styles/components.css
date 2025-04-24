@@ -1,11 +1,14 @@
+
 @layer components {
   .text-gradient {
     @apply text-primary;
     animation: flicker 2s linear infinite;
+    text-shadow: 0 0 10px rgba(0, 255, 128, 0.7);
   }
 
   .link-underline {
     @apply relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-left after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100;
+    text-shadow: 0 0 5px rgba(0, 255, 128, 0.5);
   }
 
   .portfolio-item {
@@ -21,14 +24,14 @@
     @apply fixed pointer-events-none w-6 h-6 rounded-full border-2 border-primary z-[9999] mix-blend-difference;
     transform: translate(-50%, -50%);
     transition: width 0.2s, height 0.2s, transform 0.1s;
-    box-shadow: 0 0 10px rgba(0, 171, 107, 0.5);
+    box-shadow: 0 0 10px rgba(0, 255, 128, 0.7);
   }
   
   .custom-cursor-dot {
     @apply fixed pointer-events-none w-2 h-2 rounded-full bg-primary z-[9999];
     transform: translate(-50%, -50%);
     transition: transform 0.1s ease;
-    box-shadow: 0 0 15px rgba(0, 171, 107, 0.8);
+    box-shadow: 0 0 15px rgba(0, 255, 128, 0.9);
   }
 
   /* Hide default cursor when custom cursor is enabled */
