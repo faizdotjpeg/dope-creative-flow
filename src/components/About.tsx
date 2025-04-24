@@ -74,7 +74,7 @@ const About = () => {
         
         <div className="mt-24">
           <h3 className="text-2xl md:text-3xl font-mono font-bold mb-12 text-center">
-            What I <span className="text-gradient">Offer</span>
+            What I <span className="text-gradient glitch glitch-intense" data-text="Offer">Offer</span>
           </h3>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
