@@ -21,7 +21,7 @@ const About = () => {
           duration: 0.6
         }}>
             <h2 className="text-4xl font-mono font-bold mb-6 md:text-xl">
-              About <span className="text-gradient glitch relative inline-block" data-text="Me">Me</span>
+              <span className="text-gradient glitch relative inline-block" data-text="origin.story">origin.story</span>
             </h2>
             
             <p className="text-lg mb-6 text-foreground dark:text-gray-300">
