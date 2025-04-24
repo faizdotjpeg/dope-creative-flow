@@ -14,12 +14,14 @@ export const ClientsSection = ({ clientLogos }: ClientLogosProps) => {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
+      viewport={{ once: true, margin: "-100px" }}
       className="py-16 overflow-hidden"
     >
       <motion.h3 
         className="text-2xl font-serif text-center mb-12"
         initial={{ opacity: 0, scale: 0.9 }}
         whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
         transition={{
           duration: 0.5,
           type: "spring",

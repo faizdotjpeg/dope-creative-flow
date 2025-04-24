@@ -2,9 +2,11 @@
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from '@/components/ThemeToggle';
+
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -12,6 +14,7 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
   return <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'py-3 bg-background/60 backdrop-blur-xl border-b border-primary/10' : 'py-5'}`}>
       <div className="container mx-auto flex justify-between items-center px-4">
         <a href="/" className="text-xl font-mono font-bold glitch-intense" data-text="faiz.jpeg" onMouseEnter={e => {
@@ -50,4 +53,5 @@ const Navbar = () => {
         </div>}
     </nav>;
 };
+
 export default Navbar;

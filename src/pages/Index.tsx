@@ -18,11 +18,19 @@ const Index = () => {
     >
       <Navbar />
       <main className="flex-grow">
-        <Hero />
-        <WorkGrid />
-        <About />
+        <section id="home">
+          <Hero />
+        </section>
+        <section id="work">
+          <WorkGrid />
+        </section>
+        <section id="about">
+          <About />
+        </section>
         <Testimonials />
-        <Contact />
+        <section id="contact">
+          <Contact />
+        </section>
       </main>
       <Footer />
     </motion.div>
