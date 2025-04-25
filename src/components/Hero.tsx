@@ -32,9 +32,7 @@ const Hero = () => {
       <div className="container mx-auto relative z-10 text-center" style={{
       transform: `translateY(${scrollY * 0.08}px)`
     }}>
-        <p className="glitch-intense mb-4 bg-clip-text font-mono text-sm md:text-base" data-text="CREATIVE DIRECTOR • PHOTOGRAPHER • DESIGNER">
-          CREATIVE DIRECTOR • PHOTOGRAPHER • DESIGNER
-        </p>
+        <p className="glitch-intense mb-4 bg-clip-text font-mono text-sm md:text-base" data-text="CREATIVE DIRECTOR • PHOTOGRAPHER • DESIGNER">CREATIVE DIRECTOR • PHOTOGRAPHER • COPYWRITER • DESIGNER</p>
         
         <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 md:mb-12 font-sans leading-relaxed">
           I craft compelling visual stories through creative direction, photography, and design. 
