@@ -49,9 +49,7 @@ const Hero = () => {
             </Button>
           </a>
           <a href="#contact">
-            <Button variant="outline" size={isMobile ? "default" : "lg"} className="w-full sm:w-auto px-6 md:px-8 border-2 hover:bg-primary/10">
-              Get In Touch
-            </Button>
+            <Button variant="outline" size={isMobile ? "default" : "lg"} className="w-full sm:w-auto px-6 md:px-8 border-2 hover:bg-primary/10">ping://connect</Button>
           </a>
         </div>
       </div>
