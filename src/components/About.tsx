@@ -1,9 +1,7 @@
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-
 const skills = ["Creative Direction", "Brand Strategy", "Photography", "Visual Identity Design", "Editorial Design", "Typography", "Art Direction", "Digital Design"];
-
 const About = () => {
   return <section id="about" className="py-24 px-4">
       <div className="container mx-auto">
@@ -23,17 +21,18 @@ const About = () => {
               <span className="text-gradient glitch relative inline-block" data-text="origin.story">origin.story</span>
             </h2>
             
-            <p className="text-lg mb-6 text-foreground dark:text-gray-300">
-              I'm a multidisciplinary creative with over 8 years of experience across creative direction,
-              photography, and graphic design. My work is driven by a passion for visual storytelling
-              and crafting meaningful brand experiences.
-            </p>
+            <p className="text-lg mb-6 text-foreground dark:text-gray-300">[ SYSTEM ONLINE ] [I AM] faiz [feyz] :: pronounced like 'phase' ↳ creative director | designer | photographer ↳ forged in CA, refined in NY ↳ immigrant-coded, future-loaded ⸻ [ORIGIN.PROTOCOL] init: capture() • Began with a lens in hand, building 10+ years of imaging brand stories with precision and soul. init: wordsmith() • Sharpened my craft as an Arts/Entertainment journalist at [Daily Bruin], evolving into a strategic copywriter across platforms. deploy: brand.architecture • Transitioned into tech at [Snap Inc.], leading global product narratives through a hybrid of visual and written fluency. execute: campaign.sprints • Photographed campaigns for world brands — [PUMA], [Foot Locker], [MVMT], [Komono] — merging high-performance visuals with cultural resonance. scale: creative.command • As Creative Director at [Asteroid Technologies], architected the brand ecosystem — from iOS product launch to digital presence. expand: multi-channel.strategy • Crossed into traditional advertising as a creative producer and digital strategist, driving multi-platform activations across industries. level-up: art.direction • Trained in advanced visual systems through [ELVTR] (Ogilvy cohort) and continued design architecture studies at [Parsons School of Design]. current.version • Operating as Associate Creative Director at a boutique multicultural agency, engineering creative that fuses narrative, visual architecture, and performance.</p>
             
-            <p className="text-lg mb-6 text-foreground dark:text-gray-300">
-              Working with clients ranging from startups to established brands, I bring strategic thinking
-              and creative execution to every project. My approach combines conceptual thinking with
-              technical expertise to create work that resonates and engages.
-            </p>
+            <p className="text-lg mb-6 text-foreground dark:text-gray-300">[I ENGINEER]
+• Radical [Creative + Art Direction]
+• End-to-end [Brand Systems & Content Deployment]
+• Scaled [Production Architectures]
+
+[I EMPOWER]
+↳ brands to materialize identities that resonate, disrupt, and convert.
+↳ forging content pipelines that aren’t just seen — they’re felt.
+
+[ trust the signal ]</p>
             
             <div className="grid grid-cols-2 gap-4 mt-8">
               {skills.map((skill, index) => <div key={index} className="flex items-center font-mono">
@@ -57,11 +56,7 @@ const About = () => {
           }} transition={{
             duration: 0.6
           }} className="relative z-10">
-              <img 
-                src="/lovable-uploads/f27a3cb1-127f-486c-9779-9ef5dee4f040.png" 
-                alt="About me" 
-                className="w-full rounded-lg shadow-xl object-cover" 
-              />
+              <img src="/lovable-uploads/f27a3cb1-127f-486c-9779-9ef5dee4f040.png" alt="About me" className="w-full rounded-lg shadow-xl object-cover" />
             </motion.div>
             
             <div className="absolute top-0 right-0 transform translate-x-8 -translate-y-8 w-full h-full border-2 border-primary rounded-lg -z-10"></div>
