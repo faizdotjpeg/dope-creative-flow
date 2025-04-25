@@ -21,13 +21,14 @@ const Navbar = () => {
     setMobileMenuOpen(false);
   };
 
-  return <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'py-2 bg-background/60 backdrop-blur-xl border-b border-primary/10' : 'py-3 md:py-5'}`}>
+  return (
+    <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'py-2 bg-background/80 backdrop-blur-xl border-b border-primary/10' : 'py-3 md:py-5'}`}>
       <div className="container mx-auto flex justify-between items-center px-4">
         <a href="/" className="text-xl font-mono font-bold glitch-intense" data-text="faiz.jpeg" onMouseEnter={e => {
-        e.currentTarget.style.animation = 'none';
-        e.currentTarget.offsetHeight; // Trigger reflow
-        e.currentTarget.style.animation = '';
-      }}>
+          e.currentTarget.style.animation = 'none';
+          e.currentTarget.offsetHeight; // Trigger reflow
+          e.currentTarget.style.animation = '';
+        }}>
           faiz.jpeg
         </a>
         
@@ -49,15 +50,18 @@ const Navbar = () => {
         </div>
       </div>
       
-      {mobileMenuOpen && <div className="md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-lg border-b border-border/50 animate-fade-in">
+      {mobileMenuOpen && (
+        <div className="md:hidden fixed top-[56px] left-0 right-0 bg-background/95 backdrop-blur-lg border-b border-border/50 animate-fade-in z-50">
           <div className="container mx-auto py-4 px-4 flex flex-col space-y-4">
             <a href="#home" className="hover:text-primary transition-colors py-2 font-mono text-sm" onClick={closeMenu}>{"> "}root.access</a>
             <a href="#work" className="hover:text-primary transition-colors py-2 font-mono text-sm" onClick={closeMenu}>projects.log</a>
             <a href="#about" className="hover:text-primary transition-colors py-2 font-mono text-sm" onClick={closeMenu}>whoami</a>
             <a href="#contact" className="hover:text-primary transition-colors py-2 font-mono text-sm" onClick={closeMenu}>connect.protocol</a>
           </div>
-        </div>}
-    </nav>;
+        </div>
+      )}
+    </nav>
+  );
 };
 
 export default Navbar;
