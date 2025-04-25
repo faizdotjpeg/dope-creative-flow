@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+
 const skills = ["Creative Direction", "Brand Strategy", "Photography", "Visual Identity Design", "Editorial Design", "Typography", "Art Direction", "Digital Design"];
+
 const About = () => {
   return <section id="about" className="py-24 px-4">
       <div className="container mx-auto">
@@ -55,7 +57,11 @@ const About = () => {
           }} transition={{
             duration: 0.6
           }} className="relative z-10">
-              <img src="https://images.unsplash.com/photo-1587613864521-9ef8dfe617cc?auto=format&fit=crop&w=800&q=80" alt="About me" className="w-full rounded-lg shadow-xl" />
+              <img 
+                src="/lovable-uploads/f27a3cb1-127f-486c-9779-9ef5dee4f040.png" 
+                alt="About me" 
+                className="w-full rounded-lg shadow-xl object-cover" 
+              />
             </motion.div>
             
             <div className="absolute top-0 right-0 transform translate-x-8 -translate-y-8 w-full h-full border-2 border-primary rounded-lg -z-10"></div>
