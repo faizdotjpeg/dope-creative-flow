@@ -29,15 +29,18 @@ const Hero = () => {
       }}></div>
       </div>
       
-      <div className="container mx-auto relative z-10 text-center" style={{
+      <div style={{
       transform: `translateY(${scrollY * 0.08}px)`
-    }}>
+    }} className="container mx-auto relative z-10 text-center">
         <p className="glitch-intense mb-4 bg-clip-text font-mono text-sm md:text-base" data-text="CREATIVE DIRECTOR • PHOTOGRAPHER • DESIGNER">CREATIVE DIRECTOR • PHOTOGRAPHER • COPYWRITER • DESIGNER</p>
         
-        <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 md:mb-12 font-sans leading-relaxed">
-          I craft compelling visual stories through creative direction, photography, and design. 
-          Let's create something extraordinary together.
-        </p>
+        <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 md:mb-12 font-sans leading-relaxed">[ SYSTEM ONLINE ]
+
+[I AM]
+
+faiz [feyz] :: pronounced like 'phase'
+↳ forged in CA, refined in NY
+↳ immigrant-coded, future-loaded</p>
         
         <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
           <a href="#work">
