@@ -1,5 +1,6 @@
 
 import { motion } from "framer-motion";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface ClientLogosProps {
   clientLogos: Array<{
@@ -11,6 +12,8 @@ interface ClientLogosProps {
 export const ClientsSection = ({
   clientLogos
 }: ClientLogosProps) => {
+  const isMobile = useIsMobile();
+  
   return <motion.div 
     initial={{
       opacity: 0,
@@ -27,19 +30,19 @@ export const ClientsSection = ({
       once: true,
       amount: 0.3
     }} 
-    className="py-16 overflow-hidden border-t border-b border-primary/20 bg-background/30 backdrop-blur-sm"
+    className="py-12 md:py-16 overflow-hidden border-t border-b border-primary/20 bg-background/30 backdrop-blur-sm"
   >
     <div className="relative w-full">
       <motion.div 
-        className="flex space-x-16" 
+        className="flex space-x-8 md:space-x-16" 
         animate={{
-          x: [0, -1000]
+          x: [0, isMobile ? -800 : -1000]
         }} 
         transition={{
           x: {
             repeat: Infinity,
             repeatType: "loop",
-            duration: 20,
+            duration: isMobile ? 15 : 20,
             ease: "linear"
           }
         }}
@@ -53,7 +56,7 @@ export const ClientsSection = ({
               rotate: 5
             }}
           >
-            <div className="w-24 h-24 rounded-full border-2 border-primary/30 overflow-hidden flex items-center justify-center bg-background/50 backdrop-blur-sm p-2 hover:border-primary transition-colors duration-300">
+            <div className="w-16 h-16 md:w-24 md:h-24 rounded-full border-2 border-primary/30 overflow-hidden flex items-center justify-center bg-background/50 backdrop-blur-sm p-2 hover:border-primary transition-colors duration-300">
               <img 
                 src={client.logo} 
                 alt={client.name} 
