@@ -40,12 +40,7 @@ const Hero = () => {
             <p className="text-lg md:text-xl lg:text-2xl font-mono text-foreground/90">[I AM]
 faiz [feyz] :: pronounced like 'phase'</p>
             <div className="space-y-1 text-base md:text-lg text-muted-foreground/80 font-sans">
-              <p>[system active]
-
-
-creative systems // visual signals // narrative code
-
-
+              <p>[system active] creative systems // visual signals // narrative code
 origin: california // codebase: immigrant // directive: build the future</p>
               <p>
             </p>
