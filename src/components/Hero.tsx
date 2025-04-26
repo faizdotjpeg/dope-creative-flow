@@ -2,11 +2,9 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowDown } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
-
 const Hero = () => {
   const [scrollY, setScrollY] = useState(0);
   const isMobile = useIsMobile();
-
   useEffect(() => {
     const handleScroll = () => {
       setScrollY(window.scrollY);
@@ -16,7 +14,6 @@ const Hero = () => {
     });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
   return <section id="home" className="relative min-h-screen flex flex-col items-center justify-center py-16 md:py-20 px-4 overflow-hidden">
       <div className="absolute inset-0 z-0 opacity-30">
         <div className="absolute top-20 left-10 md:left-20 w-40 md:w-60 h-40 md:h-60 rounded-full bg-primary/40 blur-3xl animate-parallax-float" style={{
@@ -49,7 +46,8 @@ const Hero = () => {
             </p>
             
             <div className="space-y-3 text-base md:text-lg text-muted-foreground/80 font-sans leading-relaxed">
-              <p className="font-mono">[system active]</p>
+              <p className="font-mono">
+            </p>
               <p className="max-w-xl mx-auto">creative systems // visual signals // narrative code</p>
               <p className="max-w-xl mx-auto">origin: california // codebase: immigrant // directive: build the future</p>
             </div>
@@ -75,5 +73,4 @@ const Hero = () => {
       </a>
     </section>;
 };
-
 export default Hero;
