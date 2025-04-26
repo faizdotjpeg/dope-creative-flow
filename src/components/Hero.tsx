@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowDown } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
+
 const Hero = () => {
   const [scrollY, setScrollY] = useState(0);
   const isMobile = useIsMobile();
+
   useEffect(() => {
     const handleScroll = () => {
       setScrollY(window.scrollY);
@@ -14,6 +16,7 @@ const Hero = () => {
     });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
   return <section id="home" className="relative min-h-screen flex flex-col items-center justify-center py-16 md:py-20 px-4 overflow-hidden">
       <div className="absolute inset-0 z-0 opacity-30">
         <div className="absolute top-20 left-10 md:left-20 w-40 md:w-60 h-40 md:h-60 rounded-full bg-primary/40 blur-3xl animate-parallax-float" style={{
@@ -31,21 +34,24 @@ const Hero = () => {
       <div style={{
       transform: `translateY(${scrollY * 0.08}px)`
     }} className="container mx-auto relative z-10 text-center">
-        <p className="glitch-intense mb-4 bg-clip-text font-mono text-sm md:text-base" data-text="CREATIVE DIRECTOR • PHOTOGRAPHER • DESIGNER">CREATIVE DIRECTOR • PHOTOGRAPHER • COPYWRITER • DESIGNER</p>
+        <p className="glitch-intense mb-6 bg-clip-text font-mono text-sm tracking-wider md:text-base uppercase" data-text="CREATIVE DIRECTOR • PHOTOGRAPHER • DESIGNER">
+          CREATIVE DIRECTOR • PHOTOGRAPHER • COPYWRITER • DESIGNER
+        </p>
         
-        <div className="space-y-4 max-w-2xl mx-auto mb-8 md:mb-12">
-          <div className="text-primary/90 font-mono text-sm md:text-base">[ SYSTEM ONLINE ]</div>
+        <div className="space-y-8 max-w-2xl mx-auto mb-12">
+          <div className="inline-block bg-primary/10 px-4 py-2 rounded-sm">
+            <div className="text-primary/90 font-mono text-sm md:text-base tracking-widest">[ SYSTEM ONLINE ]</div>
+          </div>
           
-          <div className="space-y-2">
-            <p className="text-lg md:text-xl lg:text-2xl font-mono text-foreground/90">[I AM]
-faiz [feyz] :: pronounced like 'phase'</p>
-            <div className="space-y-1 text-base md:text-lg text-muted-foreground/80 font-sans">
-              <p>[system active] creative systems // visual signals // narrative code
-origin: california // codebase: immigrant // directive: build the future</p>
-              <p>
+          <div className="space-y-6">
+            <p className="text-2xl md:text-3xl lg:text-4xl font-mono text-foreground/90 tracking-tight">[I AM]
+              <span className="block mt-2">faiz [feyz] :: pronounced like 'phase'</span>
             </p>
-              <p>
-            </p>
+            
+            <div className="space-y-3 text-base md:text-lg text-muted-foreground/80 font-sans leading-relaxed">
+              <p className="font-mono">[system active]</p>
+              <p className="max-w-xl mx-auto">creative systems // visual signals // narrative code</p>
+              <p className="max-w-xl mx-auto">origin: california // codebase: immigrant // directive: build the future</p>
             </div>
           </div>
         </div>
@@ -69,4 +75,5 @@ origin: california // codebase: immigrant // directive: build the future</p>
       </a>
     </section>;
 };
+
 export default Hero;
