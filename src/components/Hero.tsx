@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowDown } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
+
 const Hero = () => {
   const [scrollY, setScrollY] = useState(0);
   const isMobile = useIsMobile();
+
   useEffect(() => {
     const handleScroll = () => {
       setScrollY(window.scrollY);
@@ -14,8 +16,8 @@ const Hero = () => {
     });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
   return <section id="home" className="relative min-h-screen flex flex-col items-center justify-center py-16 md:py-20 px-4 overflow-hidden">
-      {/* Background pattern with enhanced parallax */}
       <div className="absolute inset-0 z-0 opacity-30">
         <div className="absolute top-20 left-10 md:left-20 w-40 md:w-60 h-40 md:h-60 rounded-full bg-primary/40 blur-3xl animate-parallax-float" style={{
         transform: `translateY(-${scrollY * 0.05}px)`
@@ -34,7 +36,20 @@ const Hero = () => {
     }} className="container mx-auto relative z-10 text-center">
         <p className="glitch-intense mb-4 bg-clip-text font-mono text-sm md:text-base" data-text="CREATIVE DIRECTOR • PHOTOGRAPHER • DESIGNER">CREATIVE DIRECTOR • PHOTOGRAPHER • COPYWRITER • DESIGNER</p>
         
-        <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 md:mb-12 font-sans leading-relaxed">[ SYSTEM ONLINE ]  [I AM]  faiz [feyz] :: pronounced like 'phase' ↳ creative director | designer | photographer ↳ forged in CA, refined in NY ↳ immigrant-coded, future-loaded</p>
+        <div className="space-y-4 max-w-2xl mx-auto mb-8 md:mb-12">
+          <div className="text-primary/90 font-mono text-sm md:text-base">[ SYSTEM ONLINE ]</div>
+          
+          <div className="space-y-2">
+            <p className="text-lg md:text-xl lg:text-2xl font-mono text-foreground/90">
+              [I AM] faiz [feyz] :: pronounced like 'phase'
+            </p>
+            <div className="space-y-1 text-base md:text-lg text-muted-foreground/80 font-sans">
+              <p>↳ creative director | designer | photographer</p>
+              <p>↳ forged in CA, refined in NY</p>
+              <p>↳ immigrant-coded, future-loaded</p>
+            </div>
+          </div>
+        </div>
         
         <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
           <a href="#work">
@@ -55,4 +70,5 @@ const Hero = () => {
       </a>
     </section>;
 };
+
 export default Hero;
