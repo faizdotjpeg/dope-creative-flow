@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
@@ -17,15 +18,15 @@ const About = () => {
         }} transition={{
           duration: 0.6
         }} className="space-y-8">
-            <div className="space-y-6">
+            <div className="space-y-4"> {/* Reduced from space-y-6 to space-y-4 */}
               <h2 className="text-4xl font-mono font-bold md:text-xl">
                 <span className="text-gradient glitch relative inline-block" data-text="origin.story">[origin.protocol]</span>
               </h2>
               
-              <div className="space-y-6 text-foreground/80">
-                <div className="space-y-4">
+              <div className="space-y-4"> {/* Reduced from space-y-6 to space-y-4 */}
+                <div className="space-y-2"> {/* Reduced from space-y-4 to space-y-2 */}
                   <h3 className="text-xl font-mono text-primary">[SYSTEM ONLINE]</h3>
-                  <div className="space-y-2">
+                  <div className="space-y-1"> {/* Reduced from space-y-2 to space-y-1 */}
                     <p className="text-lg font-mono">
                   </p>
                     <ul className="list-none space-y-1 font-mono text-base">
@@ -38,10 +39,10 @@ const About = () => {
                   </div>
                 </div>
 
-                <div className="space-y-4">
+                <div className="space-y-2"> {/* Reduced from space-y-4 to space-y-2 */}
                   <h3 className="text-xl font-mono text-primary">
                 </h3>
-                  <ul className="list-none space-y-4 text-base">
+                  <ul className="list-none space-y-2 text-base"> {/* Reduced from space-y-4 to space-y-2 */}
                     <li className="space-y-1">
                       <span className="font-mono text-primary/80">init: capture()</span>
                       <p>Began with a lens in hand, building 10+ years of imaging brand stories with precision and soul.</p>
@@ -57,18 +58,18 @@ const About = () => {
                   </ul>
                 </div>
 
-                <div className="space-y-4">
+                <div className="space-y-2"> {/* Reduced from space-y-4 to space-y-2 */}
                   <h3 className="text-xl font-mono text-primary">[I ENGINEER]</h3>
-                  <ul className="list-none space-y-2 font-mono text-base">
+                  <ul className="list-none space-y-1 font-mono text-base"> {/* Reduced from space-y-2 to space-y-1 */}
                     <li>• Radical [Creative + Art Direction]</li>
                     <li>• End-to-end [Brand Systems & Content Deployment]</li>
                     <li>• Scaled [Production Architectures]</li>
                   </ul>
                 </div>
 
-                <div className="space-y-4">
+                <div className="space-y-2"> {/* Reduced from space-y-4 to space-y-2 */}
                   <h3 className="text-xl font-mono text-primary">[I EMPOWER]</h3>
-                  <ul className="list-none space-y-2 text-base">
+                  <ul className="list-none space-y-1 text-base"> {/* Reduced from space-y-2 to space-y-1 */}
                     <li>↳ brands to materialize identities that resonate, disrupt, and convert.</li>
                     <li>↳ forging content pipelines that aren't just seen — they're felt.</li>
                   </ul>
@@ -76,11 +77,11 @@ const About = () => {
               </div>
             </div>
 
-            <div className="pt-6">
-              <h3 className="text-xl font-mono mb-6 text-primary">[SKILL.SET]</h3>
-              <div className="grid grid-cols-2 gap-4">
+            <div className="pt-4"> {/* Reduced from pt-6 to pt-4 */}
+              <h3 className="text-xl font-mono mb-4 text-primary">[SKILL.SET]</h3> {/* Reduced from mb-6 to mb-4 */}
+              <div className="grid grid-cols-2 gap-3"> {/* Reduced from gap-4 to gap-3 */}
                 {skills.map((skill, index) => <div key={index} className="flex items-center font-mono">
-                    <div className="bg-primary/20 p-1 rounded-full mr-3">
+                    <div className="bg-primary/20 p-1 rounded-full mr-2"> {/* Reduced margin from mr-3 to mr-2 */}
                       <Check className="h-4 w-4 text-primary" />
                     </div>
                     <span>{skill}</span>
@@ -150,3 +151,4 @@ const About = () => {
     </section>;
 };
 export default About;
+
