@@ -1,7 +1,20 @@
+
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-const skills = ["Creative Direction", "Brand Strategy", "Photography", "Visual Identity Design", "Editorial Design", "Typography", "Art Direction", "Digital Design"];
+
+const skills = [
+  "Creative Direction",
+  "Brand Strategy", 
+  "Copywriting",
+  "Photography", 
+  "Visual Identity Design", 
+  "Editorial Design", 
+  "Typography", 
+  "Art Direction", 
+  "Digital Design"
+];
+
 const About = () => {
   return <section id="about" className="py-24 px-4">
       <div className="container mx-auto">
@@ -150,4 +163,5 @@ const About = () => {
       </div>
     </section>;
 };
+
 export default About;
