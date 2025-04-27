@@ -34,10 +34,10 @@ export const ClientsSection = ({
 
   if (!imagesLoaded) {
     return (
-      <div className="py-12 md:py-16 overflow-hidden border-t border-b border-primary/20 bg-background/30 backdrop-blur-sm">
-        <div className="flex justify-center space-x-8 md:space-x-16 px-4">
+      <div className="py-16 md:py-20 overflow-hidden border-t border-b border-primary/20 bg-background/30 backdrop-blur-sm">
+        <div className="flex justify-center space-x-12 md:space-x-20 px-6">
           {[1, 2, 3, 4].map((i) => (
-            <Skeleton key={i} className="w-24 h-12 md:w-32 md:h-16 rounded-sm flex-shrink-0" />
+            <Skeleton key={i} className="w-32 h-20 md:w-40 md:h-24 rounded-sm flex-shrink-0" />
           ))}
         </div>
       </div>
@@ -49,19 +49,19 @@ export const ClientsSection = ({
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="py-12 md:py-16 overflow-hidden border-t border-b border-primary/20 bg-background/30 backdrop-blur-sm"
+      className="py-16 md:py-20 overflow-hidden border-t border-b border-primary/20 bg-background/30 backdrop-blur-sm"
     >
-      <div className="relative w-full max-w-7xl mx-auto px-4">
+      <div className="relative w-full max-w-7xl mx-auto px-6">
         <motion.div 
-          className="flex space-x-8 md:space-x-16" 
+          className="flex space-x-12 md:space-x-20" 
           animate={{
-            x: [0, isMobile ? -1200 : -2000]
+            x: [0, isMobile ? -1600 : -2400]
           }} 
           transition={{
             x: {
               repeat: Infinity,
               repeatType: "loop",
-              duration: isMobile ? 30 : 40,
+              duration: isMobile ? 40 : 50,
               ease: "linear"
             }
           }}
@@ -71,15 +71,15 @@ export const ClientsSection = ({
               key={`${client.name}-${index}`} 
               className="relative grayscale hover:grayscale-0 transition-all duration-300 flex-shrink-0" 
               whileHover={{
-                scale: 1.1,
-                rotate: 5
+                scale: 1.05,
+                rotate: 2
               }}
             >
-              <div className="w-24 h-12 md:w-32 md:h-16 rounded-sm overflow-hidden flex items-center justify-center bg-background/50 backdrop-blur-sm p-3 hover:border-primary transition-colors duration-300">
+              <div className="w-32 h-20 md:w-40 md:h-24 rounded-sm overflow-hidden flex items-center justify-center bg-background/50 backdrop-blur-sm p-4 hover:border-primary transition-colors duration-300 hover:bg-background/70">
                 <img 
                   src={client.logo} 
                   alt={client.name} 
-                  className="w-full h-full object-contain" 
+                  className="w-full h-full object-contain filter contrast-125" 
                 />
               </div>
             </motion.div>
@@ -89,3 +89,4 @@ export const ClientsSection = ({
     </motion.div>
   );
 };
+
