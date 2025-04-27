@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
@@ -69,24 +68,24 @@ const awards = [{
   organization: "Design Institute",
   icon: Award
 }];
-
 const WorkGrid = () => {
   const [filter, setFilter] = useState("all");
   const [scrollY, setScrollY] = useState(0);
   const filteredItems = filter === "all" ? portfolioItems : portfolioItems.filter(item => item.category === filter);
   const isMobile = useIsMobile();
-  
   useEffect(() => {
     const handleScroll = () => {
       setScrollY(window.scrollY);
     };
-    
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('scroll', handleScroll, {
+      passive: true
+    });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
   const containerVariants = {
-    hidden: { opacity: 0 },
+    hidden: {
+      opacity: 0
+    },
     show: {
       opacity: 1,
       transition: {
@@ -94,7 +93,6 @@ const WorkGrid = () => {
       }
     }
   };
-  
   const itemVariants = {
     hidden: {
       opacity: 0,
@@ -108,38 +106,33 @@ const WorkGrid = () => {
       }
     }
   };
-
-  return (
-    <section className="py-20 md:py-32 px-4 bg-muted/10 dark:bg-background/30 transition-colors duration-300 relative overflow-hidden">
+  return <section className="py-20 md:py-32 px-4 bg-muted/10 dark:bg-background/30 transition-colors duration-300 relative overflow-hidden">
       <div className="absolute inset-0 dark:bg-gradient-to-b dark:from-secondary/20 dark:to-transparent dark:opacity-50 pointer-events-none" />
       
       <div className="container mx-auto relative z-10 space-y-16 md:space-y-24">
         <div className="text-center space-y-6">
-          <motion.h2 
-            className="text-3xl md:text-4xl font-serif font-bold mb-4 text-center"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{
-              duration: 0.6,
-              type: "spring",
-              damping: 12
-            }}
-          >
-            <span 
-              className="text-gradient glitch relative" 
-              data-text="highlight.reel" 
-              style={{ 
-                textShadow: '0 0 10px rgba(147, 39, 143, 0.7)', 
-                animation: 'rgb-split 0.5s infinite alternate-reverse, glitch-text 1.5s infinite' 
-              }}
-            >
+          <motion.h2 className="text-3xl md:text-4xl font-serif font-bold mb-4 text-center" initial={{
+          opacity: 0,
+          y: 20
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true,
+          amount: 0.3
+        }} transition={{
+          duration: 0.6,
+          type: "spring",
+          damping: 12
+        }}>
+            <span className="text-gradient glitch relative" data-text="highlight.reel" style={{
+            textShadow: '0 0 10px rgba(147, 39, 143, 0.7)',
+            animation: 'rgb-split 0.5s infinite alternate-reverse, glitch-text 1.5s infinite'
+          }}>
               highlight.reel
             </span>
           </motion.h2>
-          <p className="text-center text-muted-foreground max-w-2xl mx-auto font-sans">
-            A curated selection of projects spanning creative direction, photography, and design.
-          </p>
+          <p className="text-center text-muted-foreground max-w-2xl mx-auto font-sans">compiled signals from creative direction, visual storytelling, and design architecture.</p>
         </div>
 
         <ClientsSection clientLogos={clientLogos} />
@@ -153,25 +146,37 @@ const WorkGrid = () => {
           </TabsList>
 
           <TabsContent value="all" className="mt-8 md:mt-12">
-            <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8" variants={containerVariants} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.1 }}>
+            <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8" variants={containerVariants} initial="hidden" whileInView="show" viewport={{
+            once: true,
+            amount: 0.1
+          }}>
               {filteredItems.map(item => <PortfolioItem key={item.id} item={item} variants={itemVariants} />)}
             </motion.div>
           </TabsContent>
           
           <TabsContent value="direction" className="mt-8 md:mt-12">
-            <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8" variants={containerVariants} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.1 }}>
+            <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8" variants={containerVariants} initial="hidden" whileInView="show" viewport={{
+            once: true,
+            amount: 0.1
+          }}>
               {filteredItems.map(item => <PortfolioItem key={item.id} item={item} variants={itemVariants} />)}
             </motion.div>
           </TabsContent>
           
           <TabsContent value="photography" className="mt-8 md:mt-12">
-            <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8" variants={containerVariants} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.1 }}>
+            <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8" variants={containerVariants} initial="hidden" whileInView="show" viewport={{
+            once: true,
+            amount: 0.1
+          }}>
               {filteredItems.map(item => <PortfolioItem key={item.id} item={item} variants={itemVariants} />)}
             </motion.div>
           </TabsContent>
           
           <TabsContent value="design" className="mt-8 md:mt-12">
-            <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8" variants={containerVariants} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.1 }}>
+            <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8" variants={containerVariants} initial="hidden" whileInView="show" viewport={{
+            once: true,
+            amount: 0.1
+          }}>
               {filteredItems.map(item => <PortfolioItem key={item.id} item={item} variants={itemVariants} />)}
             </motion.div>
           </TabsContent>
@@ -179,8 +184,6 @@ const WorkGrid = () => {
 
         <AwardsSection awards={awards} />
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default WorkGrid;
