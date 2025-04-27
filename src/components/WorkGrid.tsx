@@ -8,7 +8,7 @@ import { AwardsSection } from "./portfolio/AwardsSection";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 // Sample portfolio items (replace with your actual projects)
-const portfolioItems = [{
+export const portfolioItems = [{
   id: 1,
   title: "Urban Perspective",
   category: "photography",
@@ -68,6 +68,7 @@ const awards = [{
   organization: "Design Institute",
   icon: Award
 }];
+
 const WorkGrid = () => {
   const [filter, setFilter] = useState("all");
   const [scrollY, setScrollY] = useState(0);
