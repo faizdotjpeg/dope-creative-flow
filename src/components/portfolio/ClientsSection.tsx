@@ -38,7 +38,7 @@ export const ClientsSection = ({
       <div className="py-16 md:py-20 overflow-hidden border-t border-b border-primary/20 bg-background/30 backdrop-blur-sm">
         <div className="flex justify-center space-x-12 md:space-x-20 px-6">
           {[1, 2, 3, 4].map((i) => (
-            <Skeleton key={i} className="w-32 h-20 md:w-40 md:h-24 rounded-sm flex-shrink-0" />
+            <Skeleton key={i} className="w-32 h-32 rounded-full" />
           ))}
         </div>
       </div>
@@ -76,11 +76,11 @@ export const ClientsSection = ({
                 rotate: 2
               }}
             >
-              <div className="w-40 h-24 md:w-48 md:h-32 rounded-sm overflow-hidden flex items-center justify-center bg-background/50 backdrop-blur-sm p-6 hover:border-primary transition-colors duration-300 hover:bg-background/70">
+              <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden flex items-center justify-center bg-background/50 backdrop-blur-sm p-4 hover:border-primary transition-colors duration-300 hover:bg-background/70">
                 <OptimizedImage 
                   src={client.logo} 
                   alt={client.name}
-                  className="w-full h-full object-contain filter contrast-125" 
+                  className="w-full h-full object-contain filter contrast-125 rounded-full" 
                 />
               </div>
             </motion.div>
