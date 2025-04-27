@@ -158,7 +158,8 @@ const WorkGrid = () => {
         <Tabs defaultValue="all" className="mb-8 md:mb-16">
           <TabsList className={`grid ${isMobile ? 'grid-cols-2 gap-2 mb-2' : 'grid-cols-4'} max-w-md mx-auto`}>
             <TabsTrigger value="all" onClick={() => setFilter("all")}>All</TabsTrigger>
-            <TabsTrigger value="direction" onClick={() => setFilter("direction")}>broadcast.partners</TabsTrigger>
+            <TabsTrigger value="direction" onClick={() => setFilter("direction")}>Copywriting
+          </TabsTrigger>
             <TabsTrigger value="photography" onClick={() => setFilter("photography")}>Photography</TabsTrigger>
             <TabsTrigger value="design" onClick={() => setFilter("design")}>Design</TabsTrigger>
           </TabsList>
