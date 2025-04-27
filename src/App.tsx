@@ -8,6 +8,7 @@ import { ThemeProvider } from "./components/ThemeProvider";
 import CustomCursor from "./components/CustomCursor";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import PortfolioItemPage from "./pages/PortfolioItemPage";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +22,7 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/portfolio/:id" element={<PortfolioItemPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
