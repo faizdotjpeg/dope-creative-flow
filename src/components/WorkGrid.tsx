@@ -146,9 +146,7 @@ const WorkGrid = () => {
             <span className="text-gradient glitch relative" data-text="highlight.reel" style={{
             textShadow: '0 0 10px rgba(147, 39, 143, 0.7)',
             animation: 'rgb-split 0.5s infinite alternate-reverse, glitch-text 1.5s infinite'
-          }}>
-              highlight.reel
-            </span>
+          }}>broadcast.partners</span>
           </motion.h2>
           <p className="text-center text-muted-foreground max-w-2xl mx-auto font-sans">compiled signals from creative direction, visual storytelling, and design architecture.</p>
         </div>
