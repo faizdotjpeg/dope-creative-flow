@@ -86,7 +86,6 @@ const awards = [{
   organization: "Design Institute",
   icon: Award
 }];
-
 const WorkGrid = () => {
   const [filter, setFilter] = useState("all");
   const [scrollY, setScrollY] = useState(0);
