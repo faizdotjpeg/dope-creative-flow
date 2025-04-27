@@ -1,5 +1,6 @@
+
 import { motion } from "framer-motion";
-import { Check } from "lucide-react";
+import SkillSet from "./SkillSet";
 import { Card, CardContent } from "@/components/ui/card";
 
 const skills = [
@@ -89,17 +90,7 @@ const About = () => {
               </div>
             </div>
 
-            <div className="pt-4">
-              <h3 className="text-xl font-mono mb-4 text-primary">[SKILL.SET]</h3>
-              <div className="grid grid-cols-2 gap-3">
-                {skills.map((skill, index) => <div key={index} className="flex items-center font-mono">
-                    <div className="bg-primary/20 p-1 rounded-full mr-2">
-                      <Check className="h-4 w-4 text-primary" />
-                    </div>
-                    <span>{skill}</span>
-                  </div>)}
-              </div>
-            </div>
+            <SkillSet skills={skills} />
           </motion.div>
           
           <div className="relative">

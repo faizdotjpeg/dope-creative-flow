@@ -11,14 +11,17 @@ const CustomCursor = () => {
 
   useEffect(() => {
     const updateCursor = (e: MouseEvent) => {
-      setPosition({ x: e.clientX, y: e.clientY });
+      // Use requestAnimationFrame for smoother updates
+      requestAnimationFrame(() => {
+        setPosition({ x: e.clientX, y: e.clientY });
+      });
       
       // Only show cursor after first mouse movement
       if (!visible) setVisible(true);
     };
 
-    const updateCursorType = () => {
-      const hoveredElement = document.elementFromPoint(position.x, position.y);
+    const updateCursorType = (e: MouseEvent) => {
+      const hoveredElement = document.elementFromPoint(e.clientX, e.clientY);
       
       if (!hoveredElement) return;
       
@@ -46,17 +49,17 @@ const CustomCursor = () => {
     const handleMouseUp = () => setClicking(false);
 
     window.addEventListener('mousemove', updateCursor);
-    window.addEventListener('mouseover', updateCursorType);
+    window.addEventListener('mousemove', updateCursorType); // Use the same event for both functions
     window.addEventListener('mousedown', handleMouseDown);
     window.addEventListener('mouseup', handleMouseUp);
 
     return () => {
       window.removeEventListener('mousemove', updateCursor);
-      window.removeEventListener('mouseover', updateCursorType);
+      window.removeEventListener('mousemove', updateCursorType);
       window.removeEventListener('mousedown', handleMouseDown);
       window.removeEventListener('mouseup', handleMouseUp);
     };
-  }, [position.x, position.y, visible]);
+  }, [visible]);
   
   // Hide default cursor via CSS
   useEffect(() => {
@@ -88,15 +91,19 @@ const CustomCursor = () => {
   return (
     <>
       <div
-        className={`custom-cursor transition-all duration-200 ${getCursorStyles()} ${clicking ? 'scale-75' : ''}`}
+        className={`custom-cursor fixed pointer-events-none transition-transform duration-100 ${getCursorStyles()} ${clicking ? 'scale-75' : ''}`}
         style={{
-          transform: `translate(${position.x}px, ${position.y}px) ${clicking ? 'scale(0.8)' : 'scale(1)'}`,
+          left: `${position.x}px`,
+          top: `${position.y}px`,
+          transform: `translate(-50%, -50%) ${clicking ? 'scale(0.8)' : 'scale(1)'}`
         }}
       />
       <div
-        className="custom-cursor-dot"
+        className="custom-cursor-dot fixed pointer-events-none"
         style={{
-          transform: `translate(${position.x}px, ${position.y}px)`,
+          left: `${position.x}px`,
+          top: `${position.y}px`,
+          transform: `translate(-50%, -50%)`
         }}
       />
     </>
