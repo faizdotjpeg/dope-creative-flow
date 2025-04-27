@@ -120,45 +120,6 @@ const About = () => {
             <div className="absolute top-0 right-0 transform translate-x-8 -translate-y-8 w-full h-full border-2 border-primary rounded-lg -z-10"></div>
           </div>
         </div>
-        
-        <div className="mt-24">
-          <h3 className="text-2xl font-mono font-bold mb-12 text-center md:text-xl">
-            <span className="text-gradient glitch glitch-intense" data-text="witness.logs">
-              function set []
-            </span>
-          </h3>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[{
-            title: "Creative Direction",
-            description: "Guiding visual direction for campaigns and branding projects from concept to execution."
-          }, {
-            title: "Photography",
-            description: "Editorial, commercial and narrative photography with a focus on mood and storytelling."
-          }, {
-            title: "Graphic Design",
-            description: "Brand identity, editorial design, digital products, and visual systems."
-          }].map((service, index) => <motion.div key={index} initial={{
-            opacity: 0,
-            y: 30
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }} transition={{
-            duration: 0.6,
-            delay: index * 0.1
-          }}>
-                <Card className="h-full bg-secondary border-none shadow-lg">
-                  <CardContent className="p-6">
-                    <h4 className="text-xl font-mono font-bold mb-3">{service.title}</h4>
-                    <p className="text-foreground dark:text-gray-300">{service.description}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>)}
-          </div>
-        </div>
       </div>
     </section>;
 };
