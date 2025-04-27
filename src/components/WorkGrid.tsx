@@ -46,17 +46,45 @@ const portfolioItems = [{
   description: "Creative direction for indie band"
 }];
 
-// Sample client logos
-const clientLogos = [{
-  name: "Client 1",
-  logo: "https://images.unsplash.com/photo-1615729947596-a598e5de0ab3?w=100&h=100&fit=crop"
-}, {
-  name: "Client 2",
-  logo: "https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?w=100&h=100&fit=crop"
-}, {
-  name: "Client 3",
-  logo: "https://images.unsplash.com/photo-1500673922987-e212871fec22?w=100&h=100&fit=crop"
-}];
+// Updated client logos
+const clientLogos = [
+  {
+    name: "Komono",
+    logo: "public/lovable-uploads/be5f432a-42c8-4bca-a48e-a9ae54f1bab4.png"
+  },
+  {
+    name: "MVMT",
+    logo: "public/lovable-uploads/df0c801a-d859-43ad-9e7a-06c33b0ed252.png"
+  },
+  {
+    name: "Tomorrows Laundry",
+    logo: "public/lovable-uploads/bcdbace4-760d-422f-bcf3-40a1ed88a308.png"
+  },
+  {
+    name: "Starry",
+    logo: "public/lovable-uploads/b949a951-c1d4-4471-9d29-e2906e48eaed.png"
+  },
+  {
+    name: "Filling Pieces",
+    logo: "public/lovable-uploads/de7e097b-f357-402c-9a89-918da957c3fd.png"
+  },
+  {
+    name: "Pink+Dolphin",
+    logo: "public/lovable-uploads/ce2837d0-3dd3-4f62-a67a-424efb83c080.png"
+  },
+  {
+    name: "Nike",
+    logo: "public/lovable-uploads/0203cc52-6359-4eb3-a9d3-ee8207843526.png"
+  },
+  {
+    name: "Kodak",
+    logo: "public/lovable-uploads/d58adc37-bc30-4acf-b72f-1fb9e793ca59.png"
+  },
+  {
+    name: "Puma",
+    logo: "public/lovable-uploads/d4de1aa1-f01f-4227-b924-9a3a1e837d08.png"
+  }
+];
 
 // Sample awards
 const awards = [{
@@ -68,6 +96,7 @@ const awards = [{
   organization: "Design Institute",
   icon: Award
 }];
+
 const WorkGrid = () => {
   const [filter, setFilter] = useState("all");
   const [scrollY, setScrollY] = useState(0);

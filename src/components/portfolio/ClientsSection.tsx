@@ -18,7 +18,6 @@ export const ClientsSection = ({
   const [imagesLoaded, setImagesLoaded] = useState(false);
   
   useEffect(() => {
-    // Preload all images before starting animation
     const imagePromises = clientLogos.map(client => {
       return new Promise((resolve, reject) => {
         const img = new Image();
@@ -36,9 +35,9 @@ export const ClientsSection = ({
   if (!imagesLoaded) {
     return (
       <div className="py-12 md:py-16 overflow-hidden border-t border-b border-primary/20 bg-background/30 backdrop-blur-sm">
-        <div className="flex space-x-8 md:space-x-16 px-4">
-          {[1, 2, 3].map((i) => (
-            <Skeleton key={i} className="w-16 h-16 md:w-24 md:h-24 rounded-full flex-shrink-0" />
+        <div className="flex justify-center space-x-8 md:space-x-16 px-4">
+          {[1, 2, 3, 4].map((i) => (
+            <Skeleton key={i} className="w-24 h-12 md:w-32 md:h-16 rounded-sm flex-shrink-0" />
           ))}
         </div>
       </div>
@@ -56,13 +55,13 @@ export const ClientsSection = ({
         <motion.div 
           className="flex space-x-8 md:space-x-16" 
           animate={{
-            x: [0, isMobile ? -800 : -1000]
+            x: [0, isMobile ? -1200 : -2000]
           }} 
           transition={{
             x: {
               repeat: Infinity,
               repeatType: "loop",
-              duration: isMobile ? 25 : 30,
+              duration: isMobile ? 30 : 40,
               ease: "linear"
             }
           }}
@@ -76,7 +75,7 @@ export const ClientsSection = ({
                 rotate: 5
               }}
             >
-              <div className="w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-primary/30 overflow-hidden flex items-center justify-center bg-background/50 backdrop-blur-sm p-3 hover:border-primary transition-colors duration-300">
+              <div className="w-24 h-12 md:w-32 md:h-16 rounded-sm overflow-hidden flex items-center justify-center bg-background/50 backdrop-blur-sm p-3 hover:border-primary transition-colors duration-300">
                 <img 
                   src={client.logo} 
                   alt={client.name} 
@@ -90,4 +89,3 @@ export const ClientsSection = ({
     </motion.div>
   );
 };
-
