@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useState, useEffect } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
+import OptimizedImage from "@/components/OptimizedImage";
 
 interface ClientLogosProps {
   clientLogos: Array<{
@@ -53,7 +54,7 @@ export const ClientsSection = ({
     >
       <div className="relative w-full max-w-7xl mx-auto px-6">
         <motion.div 
-          className="flex space-x-12 md:space-x-20" 
+          className="flex space-x-16 md:space-x-24" 
           animate={{
             x: [0, isMobile ? -1600 : -2400]
           }} 
@@ -75,10 +76,10 @@ export const ClientsSection = ({
                 rotate: 2
               }}
             >
-              <div className="w-32 h-20 md:w-40 md:h-24 rounded-sm overflow-hidden flex items-center justify-center bg-background/50 backdrop-blur-sm p-4 hover:border-primary transition-colors duration-300 hover:bg-background/70">
-                <img 
+              <div className="w-40 h-24 md:w-48 md:h-32 rounded-sm overflow-hidden flex items-center justify-center bg-background/50 backdrop-blur-sm p-6 hover:border-primary transition-colors duration-300 hover:bg-background/70">
+                <OptimizedImage 
                   src={client.logo} 
-                  alt={client.name} 
+                  alt={client.name}
                   className="w-full h-full object-contain filter contrast-125" 
                 />
               </div>
@@ -89,4 +90,3 @@ export const ClientsSection = ({
     </motion.div>
   );
 };
-

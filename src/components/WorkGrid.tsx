@@ -7,7 +7,7 @@ import { ClientsSection } from "./portfolio/ClientsSection";
 import { AwardsSection } from "./portfolio/AwardsSection";
 import { useIsMobile } from "@/hooks/use-mobile";
 
-// Sample portfolio items (replace with your actual projects)
+// Sample portfolio items
 export const portfolioItems = [{
   id: 1,
   title: "Urban Perspective",
@@ -48,14 +48,32 @@ export const portfolioItems = [{
 
 // Sample client logos
 const clientLogos = [{
-  name: "Client 1",
-  logo: "https://images.unsplash.com/photo-1615729947596-a598e5de0ab3?w=100&h=100&fit=crop"
+  name: "Komono",
+  logo: "/lovable-uploads/6944ed31-f320-418f-bb79-36c9e5aa17ab.png"
 }, {
-  name: "Client 2",
-  logo: "https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?w=100&h=100&fit=crop"
+  name: "MVMT",
+  logo: "/lovable-uploads/b23aafe5-5905-4cbd-9214-3d6ae8a7eebc.png"
 }, {
-  name: "Client 3",
-  logo: "https://images.unsplash.com/photo-1500673922987-e212871fec22?w=100&h=100&fit=crop"
+  name: "Tomorrows Laundry",
+  logo: "/lovable-uploads/c4a93c2a-1fdb-491a-91a7-8a1323d8a543.png"
+}, {
+  name: "Starry",
+  logo: "/lovable-uploads/ca04cbc1-d087-4430-b56e-956c0a343405.png"
+}, {
+  name: "Puma",
+  logo: "/lovable-uploads/1a197f38-6f81-4ab7-8087-25edce89550b.png"
+}, {
+  name: "Filling Pieces",
+  logo: "/lovable-uploads/3b8866e5-7d3f-4573-a888-acf1a9f5c693.png"
+}, {
+  name: "Pink Dolphin",
+  logo: "/lovable-uploads/b864d84b-6be9-4f35-b8a1-9f9bb6220472.png"
+}, {
+  name: "Nike",
+  logo: "/lovable-uploads/accd413c-0011-4e48-b309-b6c4e6a709ed.png"
+}, {
+  name: "Kodak",
+  logo: "/lovable-uploads/9e4a567d-aad1-4a77-8cba-2e4634e63411.png"
 }];
 
 // Sample awards
