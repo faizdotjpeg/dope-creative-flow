@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
@@ -25,7 +24,8 @@ const About = () => {
               
               <div className="space-y-4"> {/* Reduced from space-y-6 to space-y-4 */}
                 <div className="space-y-2"> {/* Reduced from space-y-4 to space-y-2 */}
-                  <h3 className="text-xl font-mono text-primary">[SYSTEM ONLINE]</h3>
+                  <h3 className="text-xl font-mono text-primary">
+                </h3>
                   <div className="space-y-1"> {/* Reduced from space-y-2 to space-y-1 */}
                     <p className="text-lg font-mono">
                   </p>
@@ -151,4 +151,3 @@ const About = () => {
     </section>;
 };
 export default About;
-
