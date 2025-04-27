@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { useIsMobile } from "@/hooks/use-mobile";
+import { Menu, X } from "lucide-react"; // Added X icon for mobile menu close
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -42,10 +43,14 @@ const Navbar = () => {
         
         <div className="md:hidden flex items-center">
           <ThemeToggle />
-          <Button variant="ghost" className="ml-2" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-            <span className={`block w-5 h-0.5 bg-foreground transition-all duration-300 ${mobileMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
-            <span className={`block w-5 h-0.5 bg-foreground mt-1.5 transition-all duration-300 ${mobileMenuOpen ? 'opacity-0' : ''}`}></span>
-            <span className={`block w-5 h-0.5 bg-foreground mt-1.5 transition-all duration-300 ${mobileMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></span>
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            className="ml-2 text-foreground" 
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+          >
+            {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </Button>
         </div>
       </div>
