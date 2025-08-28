@@ -4,8 +4,8 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  // Set base path for GitHub Pages deployment
-  base: mode === 'production' ? '/dope-creative-flow/' : '/',
+  // Dynamic base path - works for both Vercel and GitHub Pages
+  base: process.env.VERCEL ? '/' : (mode === 'production' ? '/dope-creative-flow/' : '/'),
   server: {
     host: "::",
     port: 8080,
