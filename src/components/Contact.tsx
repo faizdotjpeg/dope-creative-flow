@@ -108,16 +108,16 @@ const Contact = () => {
       }} transition={{
         duration: 0.6
       }} className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6 text-foreground">
-            Ready to Transform Your Brand?
+          <h2 className="text-4xl md:text-5xl font-mono font-bold mb-6 text-foreground">
+            [ ready.to.build.tomorrow? ]
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground/90 mb-4 leading-relaxed">
-            Let's create something extraordinary together. I partner with ambitious brands to develop strategic creative direction that drives measurable results.
+          <p className="text-lg md:text-xl text-muted-foreground/90 mb-4 leading-relaxed font-mono">
+            let's.create.something.extraordinary // I partner with ambitious.brands to develop strategic creative.direction that drives measurable.results
           </p>
           <div className="flex justify-center space-x-8 text-sm text-primary font-mono">
-            <span>✓ Free Strategy Session</span>
-            <span>✓ 48hr Response Time</span>
-            <span>✓ Project-Based or Retainer</span>
+            <span>✓ free.strategy.session</span>
+            <span>✓ 48hr.response.time</span>
+            <span>✓ project.based | retainer.available</span>
           </div>
         </motion.div>
         
@@ -133,11 +133,11 @@ const Contact = () => {
         }} transition={{
           duration: 0.6
         }}>
-            <h3 className="text-2xl font-serif font-bold mb-6">
-              Let's Start Your Project
+            <h3 className="text-2xl font-mono font-bold mb-6">
+              [ initiate.connection ]
             </h3>
-            <p className="text-muted-foreground mb-6">
-              Fill out the form below and I'll get back to you within 24 hours with a personalized strategy for your brand.
+            <p className="text-muted-foreground mb-6 font-mono">
+              complete.form.below // I'll respond within 24hrs with personalized strategy.framework for your.brand
             </p>
             
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -159,26 +159,26 @@ const Contact = () => {
               </div>
               
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium mb-1">
-                  Project Type
+                <label htmlFor="subject" className="block text-sm font-medium mb-1 font-mono">
+                  project.type://
                 </label>
-                <Input id="subject" name="subject" value={formData.subject} onChange={handleChange} placeholder="e.g., Brand Strategy, Campaign Development, Visual Identity" className={errors.subject ? "border-destructive" : ""} required />
+                <Input id="subject" name="subject" value={formData.subject} onChange={handleChange} placeholder="e.g., brand.strategy | campaign.development | visual.identity" className={errors.subject ? "border-destructive" : ""} required />
                 {errors.subject && <p className="text-sm text-destructive mt-1">{errors.subject}</p>}
               </div>
               
               <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-1">
-                  Project Details
+                <label htmlFor="message" className="block text-sm font-medium mb-1 font-mono">
+                  project.details://
                 </label>
-                <Textarea id="message" name="message" value={formData.message} onChange={handleChange} placeholder="Tell me about your brand, goals, timeline, and budget range. The more details you provide, the better I can help you." rows={5} className={errors.message ? "border-destructive" : ""} required />
+                <Textarea id="message" name="message" value={formData.message} onChange={handleChange} placeholder="tell.me.about your.brand + goals + timeline + budget.range // more.details = better.strategy.output" rows={5} className={errors.message ? "border-destructive" : ""} required />
                 {errors.message && <p className="text-sm text-destructive mt-1">{errors.message}</p>}
               </div>
               
-              <Button type="submit" size="lg" disabled={isSubmitting} className="w-full bg-primary text-background hover:bg-primary/90 text-base font-medium py-4">
-                {isSubmitting ? "Sending Your Message..." : "Get My Free Strategy Session"}
+              <Button type="submit" size="lg" disabled={isSubmitting} className="w-full bg-primary text-background hover:bg-primary/90 text-base font-medium py-4 font-mono">
+                {isSubmitting ? "transmitting.message..." : "execute://free.strategy.session"}
               </Button>
-              <p className="text-xs text-muted-foreground mt-2 text-center">
-                No spam, ever. Your information is completely secure.
+              <p className="text-xs text-muted-foreground mt-2 text-center font-mono">
+                secure.transmission // your.data is.encrypted and.protected
               </p>
             </form>
           </motion.div>
@@ -194,27 +194,27 @@ const Contact = () => {
         }} transition={{
           duration: 0.6
         }} className="bg-card p-8 rounded-lg">
-            <h3 className="text-2xl font-serif font-bold mb-6">
-              Why Work With Me?
+            <h3 className="text-2xl font-mono font-bold mb-6">
+              [ why.collaborate.with.faiz? ]
             </h3>
             
             <div className="space-y-4 mb-8">
               <div className="flex items-start space-x-3">
                 <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
-                <p className="text-sm text-muted-foreground">
-                  <strong className="text-foreground">Strategic Approach:</strong> Every project starts with deep brand analysis and market research
+                <p className="text-sm text-muted-foreground font-mono">
+                  <strong className="text-foreground">strategic.approach:</strong> every.project begins with deep brand.analysis + market.research protocols
                 </p>
               </div>
               <div className="flex items-start space-x-3">
                 <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
-                <p className="text-sm text-muted-foreground">
-                  <strong className="text-foreground">Proven Results:</strong> 50+ successful campaigns with measurable ROI improvements
+                <p className="text-sm text-muted-foreground font-mono">
+                  <strong className="text-foreground">proven.results:</strong> 50+ successful.campaigns with measurable ROI.improvements
                 </p>
               </div>
               <div className="flex items-start space-x-3">
                 <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
-                <p className="text-sm text-muted-foreground">
-                  <strong className="text-foreground">Full Partnership:</strong> From strategy to execution, I'm with you every step
+                <p className="text-sm text-muted-foreground font-mono">
+                  <strong className="text-foreground">full.partnership:</strong> from strategy.phase to execution.deployment // I'm.with.you at.every.step
                 </p>
               </div>
             </div>
@@ -226,9 +226,9 @@ const Contact = () => {
               </div>
               
               <div>
-                <h4 className="text-primary text-lg font-medium mb-2">Direct Contact</h4>
+                <h4 className="text-primary text-lg font-medium mb-2 font-mono">direct.contact://</h4>
                 <a href="mailto:hello@faiz-creative.com" className="text-foreground hover:text-primary transition-colors font-mono">hello@faiz-creative.com</a>
-                <p className="text-sm text-muted-foreground mt-1">Response within 24 hours</p>
+                <p className="text-sm text-muted-foreground mt-1 font-mono">response.time: under.24hrs</p>
               </div>
               
               <div>
@@ -251,12 +251,12 @@ const Contact = () => {
             </div>
             
             <div className="mt-8 p-6 border border-primary/20 rounded-lg bg-primary/5">
-              <h4 className="text-lg font-medium mb-3 text-foreground">Currently Accepting New Projects</h4>
-              <p className="text-muted-foreground text-sm mb-2">Next availability: January 2025</p>
-              <p className="text-muted-foreground text-sm">Project minimums start at $10K</p>
+              <h4 className="text-lg font-medium mb-3 text-foreground font-mono">[ status: accepting.new.projects ]</h4>
+              <p className="text-muted-foreground text-sm mb-2 font-mono">next.availability: january.2025</p>
+              <p className="text-muted-foreground text-sm font-mono">project.minimums: start.at.$10K</p>
               <div className="mt-4 flex items-center space-x-2">
                 <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
-                <span className="text-xs text-primary font-mono">TAKING BOOKINGS NOW</span>
+                <span className="text-xs text-primary font-mono">taking.bookings.now</span>
               </div>
             </div>
           </motion.div>

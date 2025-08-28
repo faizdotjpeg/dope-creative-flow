@@ -99,30 +99,30 @@ const PortfolioItemPage = () => {
 
           <TabsContent value="details" className="max-w-3xl space-y-8">
             <div className="space-y-6">
-              <h2 className="text-3xl font-serif text-gradient-primary">{item.title}</h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">{item.fullDescription}</p>
+              <h2 className="text-3xl font-mono text-gradient-primary">[{item.title}]</h2>
+              <p className="text-lg text-muted-foreground leading-relaxed font-mono">{item.fullDescription}</p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-6 bg-card rounded-lg border border-border">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-6 bg-card rounded-lg border border-primary/20">
               <div>
-                <h3 className="font-mono text-primary text-sm uppercase tracking-wider mb-2">Client</h3>
-                <p className="font-semibold">{item.client}</p>
+                <h3 className="font-mono text-primary text-sm uppercase tracking-wider mb-2">client://</h3>
+                <p className="font-mono font-semibold">{item.client}</p>
               </div>
               <div>
-                <h3 className="font-mono text-primary text-sm uppercase tracking-wider mb-2">Year</h3>
-                <p className="font-semibold">{item.year}</p>
+                <h3 className="font-mono text-primary text-sm uppercase tracking-wider mb-2">year://</h3>
+                <p className="font-mono font-semibold">{item.year}</p>
               </div>
               <div>
-                <h3 className="font-mono text-primary text-sm uppercase tracking-wider mb-2">Role</h3>
-                <p className="font-semibold">{item.role}</p>
+                <h3 className="font-mono text-primary text-sm uppercase tracking-wider mb-2">role://</h3>
+                <p className="font-mono font-semibold">{item.role}</p>
               </div>
             </div>
             
             <div className="space-y-4">
-              <h3 className="text-xl font-serif">Project Scope</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                This project challenged conventional approaches by integrating cutting-edge creative direction with strategic brand positioning. 
-                The result was a comprehensive creative solution that elevated brand perception and drove measurable engagement across all platforms.
+              <h3 className="text-xl font-mono">[ project.scope ]</h3>
+              <p className="text-muted-foreground leading-relaxed font-mono">
+                this.project challenged conventional.approaches by integrating cutting-edge creative.direction with strategic brand.positioning // 
+                result: comprehensive creative.solution that elevated brand.perception and drove measurable engagement.metrics across all digital.platforms
               </p>
             </div>
           </TabsContent>

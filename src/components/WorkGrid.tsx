@@ -7,18 +7,18 @@ import { ClientsSection } from "./portfolio/ClientsSection";
 import { AwardsSection } from "./portfolio/AwardsSection";
 import { useIsMobile } from "@/hooks/use-mobile";
 
-// Enhanced portfolio items with placeholders and detailed content
+// Enhanced portfolio items with brand voice
 export const portfolioItems = [
   {
     id: 1,
-    title: "NEURAL NETWORKS",
+    title: "neural.networks",
     category: "direction",
     image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
-    description: "AI-driven creative campaign for tech startup",
-    fullDescription: "A groundbreaking creative direction project that merged artificial intelligence with human creativity. This campaign challenged conventional marketing approaches by integrating neural network visualizations into brand storytelling.",
-    client: "TechNova AI",
+    description: "ai-driven creative systems // merging human intuition with machine learning",
+    fullDescription: "breakthrough creative direction protocol that fused artificial intelligence with human creativity architecture. this campaign deconstructed conventional marketing frameworks by integrating neural network visualizations into brand narrative code.",
+    client: "TechNova.AI",
     year: "2024",
-    role: "Creative Director",
+    role: "creative.director",
     gallery: [
       "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80",
@@ -28,14 +28,14 @@ export const portfolioItems = [
   },
   {
     id: 2,
-    title: "QUANTUM BRAND",
+    title: "quantum.brand",
     category: "design",
     image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=800&q=80",
-    description: "Complete visual identity for quantum computing company",
-    fullDescription: "Designed a comprehensive brand identity that visualized complex quantum computing concepts through minimalist design principles. The project included logo design, brand guidelines, and digital assets.",
-    client: "Quantum Labs",
+    description: "visual identity systems // quantum computing translated into design language",
+    fullDescription: "comprehensive brand architecture that rendered complex quantum computing concepts through minimalist design protocols. project scope: logo.design + brand.guidelines + digital.assets // all optimized for multi-dimensional brand expression.",
+    client: "Quantum.Labs",
     year: "2023",
-    role: "Brand Designer",
+    role: "brand.architect",
     gallery: [
       "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?auto=format&fit=crop&w=800&q=80",
@@ -45,14 +45,14 @@ export const portfolioItems = [
   },
   {
     id: 3,
-    title: "URBAN FUTURES",
+    title: "urban.futures",
     category: "photography",
     image: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=800&q=80",
-    description: "Architectural photography series exploring modern cityscapes",
-    fullDescription: "A documentary photography project capturing the intersection of technology and urban architecture. This series explores how digital innovation reshapes physical spaces in modern cities.",
-    client: "Architecture Weekly",
+    description: "architectural documentation // where digital innovation reshapes physical space",
+    fullDescription: "documentary photography protocol capturing the intersection of technology and urban architecture. this visual series explores how digital innovation rewrites the physical space syntax of modern cities // building new visual languages for tomorrow's landscapes.",
+    client: "Architecture.Weekly",
     year: "2024",
-    role: "Photographer",
+    role: "visual.documentarian",
     gallery: [
       "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
@@ -62,14 +62,14 @@ export const portfolioItems = [
   },
   {
     id: 4,
-    title: "DIGITAL NOMAD",
+    title: "digital.nomad",
     category: "direction",
     image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80",
-    description: "Campaign strategy for remote work platform",
-    fullDescription: "Creative direction for a comprehensive campaign targeting digital nomads and remote workers. The project included brand positioning, content strategy, and multi-platform creative execution.",
-    client: "RemoteHub",
+    description: "campaign architecture // remote work culture translated into brand signals",
+    fullDescription: "comprehensive creative direction framework targeting digital nomads and remote work ecosystems. project included: brand.positioning + content.strategy + multi-platform.execution // all designed to resonate with location-independent creative communities.",
+    client: "RemoteHub.co",
     year: "2023",
-    role: "Creative Director",
+    role: "campaign.architect",
     gallery: [
       "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?auto=format&fit=crop&w=800&q=80",
@@ -79,14 +79,14 @@ export const portfolioItems = [
   },
   {
     id: 5,
-    title: "NEON TYPOGRAPHY",
+    title: "neon.typography",
     category: "design",
     image: "https://images.unsplash.com/photo-1616628188524-413f8a0a8789?auto=format&fit=crop&w=800&q=80",
-    description: "Experimental typeface design for digital platforms",
-    fullDescription: "Development of a custom typeface family inspired by cyberpunk aesthetics. This project pushed the boundaries of digital typography with experimental letterforms and dynamic character variations.",
-    client: "Future Fonts",
+    description: "experimental typeface development // cyberpunk aesthetics meets functional design",
+    fullDescription: "custom typeface family development inspired by cyberpunk design language. this project pushed digital typography boundaries with experimental letterforms and dynamic character variations // building tomorrow's visual communication tools today.",
+    client: "Future.Fonts",
     year: "2024",
-    role: "Type Designer",
+    role: "type.developer",
     gallery: [
       "https://images.unsplash.com/photo-1616628188524-413f8a0a8789?auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=800&q=80",
@@ -96,14 +96,14 @@ export const portfolioItems = [
   },
   {
     id: 6,
-    title: "SOUND WAVES",
+    title: "sound.waves",
     category: "photography",
     image: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=800&q=80",
-    description: "Music industry photography and visual storytelling",
-    fullDescription: "A comprehensive visual project documenting emerging artists and studio culture. This series combines portrait photography with environmental storytelling to capture the creative process in music production.",
-    client: "Independent Artists",
+    description: "music industry documentation // visual storytelling meets audio culture",
+    fullDescription: "comprehensive visual documentation of emerging artists and studio culture. this series combines portrait.photography + environmental.storytelling to capture the creative process algorithms that drive music production // translating sound into visual narrative.",
+    client: "Independent.Artists.Collective",
     year: "2023",
-    role: "Photographer",
+    role: "visual.chronicler",
     gallery: [
       "https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=800&q=80",
@@ -210,12 +210,12 @@ const WorkGrid = () => {
           type: "spring",
           damping: 12
         }}>
-            <span className="text-gradient glitch relative" data-text="highlight.reel" style={{
+             <span className="text-gradient glitch relative" data-text="project.archive" style={{
             textShadow: '0 0 10px rgba(147, 39, 143, 0.7)',
             animation: 'rgb-split 0.5s infinite alternate-reverse, glitch-text 1.5s infinite'
-          }}>broadcast.partners</span>
+          }}>project.archive</span>
           </motion.h2>
-          <p className="text-center text-muted-foreground max-w-2xl mx-auto font-sans">compiled signals from creative direction, visual storytelling, and design architecture.</p>
+          <p className="text-center text-muted-foreground max-w-2xl mx-auto font-mono">compiled.signals from creative.direction + visual.storytelling + design.architecture // building tomorrow's brand experiences today</p>
         </div>
 
         <ClientsSection clientLogos={clientLogos} />
