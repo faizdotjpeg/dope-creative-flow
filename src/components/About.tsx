@@ -105,7 +105,7 @@ const About = () => {
           }} transition={{
             duration: 0.6
           }} className="relative z-10">
-              <img src="/lovable-uploads/f27a3cb1-127f-486c-9779-9ef5dee4f040.png" alt="About me" className="w-full rounded-lg shadow-xl object-cover" />
+              <img src="/assets/images/f27a3cb1-127f-486c-9779-9ef5dee4f040.png" alt="About me" className="w-full rounded-lg shadow-xl object-cover" />
             </motion.div>
             
             <div className="absolute top-0 right-0 transform translate-x-8 -translate-y-8 w-full h-full border-2 border-primary rounded-lg -z-10"></div>
