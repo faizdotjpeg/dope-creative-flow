@@ -191,8 +191,8 @@ const WorkGrid = () => {
       }
     }
   };
-  return <section className="py-20 md:py-32 px-4 bg-muted/10 dark:bg-gradient-to-b dark:from-secondary/5 dark:to-background transition-colors duration-300 relative overflow-hidden">
-      <div className="absolute inset-0 dark:bg-gradient-to-br dark:from-primary/3 dark:via-transparent dark:to-accent/2 pointer-events-none" />
+  return <section className="py-20 md:py-32 px-4 bg-muted/10 dark:bg-gradient-to-b dark:from-muted/20 dark:to-background transition-colors duration-300 relative overflow-hidden">
+      <div className="absolute inset-0 dark:bg-gradient-to-br dark:from-primary/2 dark:via-transparent dark:to-accent/1 pointer-events-none" />
       
       <div className="container mx-auto relative z-10 space-y-16 md:space-y-24">
         <div className="text-center space-y-6">
