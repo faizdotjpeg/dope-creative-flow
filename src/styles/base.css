@@ -2,49 +2,76 @@
 
 @layer base {
   :root {
-    --background: 0 0% 98%;            /* Off-white background */
-    --foreground: 0 0% 5%;            /* Near-black text */
-    --card: 0 0% 100%;                /* Pure white for cards */
-    --card-foreground: 0 0% 5%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 5%;
-    --primary: 142 100% 50%;          /* Keep the neon green */
-    --primary-foreground: 0 0% 5%;
-    --secondary: 262 83% 58%;         /* Keep existing purple */
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 0 0% 95%;               /* Light gray */
-    --muted-foreground: 0 0% 40%;    /* Dark enough for contrast */
-    --accent: 142 100% 50%;          /* Neon green accent */
-    --accent-foreground: 0 0% 5%;
-    --destructive: 0 84.2% 60.2%;    /* Bright red for errors */
+    /* Modern color palette inspired by cyberpunk aesthetics */
+    --background: 240 8% 6%;             /* Rich dark background */
+    --foreground: 0 0% 98%;              /* Pure light text */
+    --card: 240 8% 8%;                   /* Slightly lighter card background */
+    --card-foreground: 0 0% 95%;
+    --popover: 240 8% 10%;
+    --popover-foreground: 0 0% 98%;
+    
+    /* Enhanced neon green primary */
+    --primary: 142 100% 55%;             /* Brighter neon green */
+    --primary-foreground: 240 8% 6%;
+    --primary-glow: 142 100% 70%;        /* Lighter glow variant */
+    --primary-dark: 142 100% 40%;        /* Darker variant */
+    
+    /* Sophisticated secondary palette */
+    --secondary: 270 95% 65%;            /* Electric purple */
+    --secondary-foreground: 240 8% 6%;
+    --secondary-glow: 270 95% 80%;       /* Lighter purple */
+    --secondary-dark: 270 95% 45%;       /* Darker purple */
+    
+    /* Accent colors for depth */
+    --accent: 195 100% 60%;              /* Cyan accent */
+    --accent-foreground: 240 8% 6%;
+    --accent-glow: 195 100% 75%;
+    
+    /* Neutral grays with warm undertone */
+    --muted: 240 8% 15%;                 /* Warm dark gray */
+    --muted-foreground: 0 0% 75%;        /* Light gray text */
+    --muted-light: 240 8% 25%;           /* Lighter muted */
+    
+    /* Functional colors */
+    --destructive: 0 95% 60%;            /* Bright error red */
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 90%;              /* Light border */
-    --input: 0 0% 90%;               /* Light input */
-    --ring: 142 100% 50%;            /* Neon green ring */
-    --radius: 0;
+    --warning: 45 100% 60%;              /* Amber warning */
+    --warning-foreground: 240 8% 6%;
+    --success: 120 100% 50%;             /* Success green */
+    --success-foreground: 240 8% 6%;
+    
+    /* Interactive elements */
+    --border: 240 8% 20%;                /* Subtle borders */
+    --input: 240 8% 12%;                 /* Input backgrounds */
+    --ring: 142 100% 55%;                /* Focus rings */
+    
+    /* Design system utilities */
+    --radius: 4px;
+    --shadow-color: 240 8% 3%;
+    --glow-intensity: 0.3;
   }
 
   .dark {
-    --background: 0 0% 3%;           /* Near-black for dark mode */
-    --foreground: 0 0% 98%;          /* Off-white text */
-    --card: 0 0% 5%;                 /* Slightly lighter than background */
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 5%;
+    /* Dark mode already optimized as primary theme */
+    --background: 240 8% 6%;
+    --foreground: 0 0% 98%;
+    --card: 240 8% 8%;
+    --card-foreground: 0 0% 95%;
+    --popover: 240 8% 10%;
     --popover-foreground: 0 0% 98%;
-    --primary: 142 100% 50%;         /* Maintain neon green */
-    --primary-foreground: 0 0% 98%;
-    --secondary: 262 83% 58%;        /* Keep purple */
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 12%;              /* Dark gray for muted areas */
-    --muted-foreground: 0 0% 70%;    /* Light enough for contrast */
-    --accent: 142 100% 50%;          /* Neon green accent */
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;    /* Darker red for dark mode */
+    --primary: 142 100% 55%;
+    --primary-foreground: 240 8% 6%;
+    --secondary: 270 95% 65%;
+    --secondary-foreground: 240 8% 6%;
+    --muted: 240 8% 15%;
+    --muted-foreground: 0 0% 75%;
+    --accent: 195 100% 60%;
+    --accent-foreground: 240 8% 6%;
+    --destructive: 0 95% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 25%;              /* Darker border */
-    --input: 0 0% 25%;               /* Darker input */
-    --ring: 142 100% 50%;            /* Keep neon green ring */
-    --radius: 0;
+    --border: 240 8% 20%;
+    --input: 240 8% 12%;
+    --ring: 142 100% 55%;
   }
 
   html {
@@ -58,17 +85,18 @@
   body {
     @apply bg-background text-foreground antialiased font-mono;
     background-image: 
-      linear-gradient(to bottom right, rgba(139, 92, 246, 0.03), rgba(0, 255, 128, 0.03)),
-      url("lovable-uploads/3d456cce-5549-4b47-ba92-33d782fc2ac6.png"),
-      url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)' opacity='0.15'/%3E%3C/svg%3E");
-    background-blend-mode: overlay, overlay, normal;
-    background-size: cover, cover, 200px 200px;
+      radial-gradient(circle at 20% 50%, hsla(var(--primary), 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, hsla(var(--secondary), 0.06) 0%, transparent 50%),
+      radial-gradient(circle at 40% 80%, hsla(var(--accent), 0.04) 0%, transparent 50%),
+      linear-gradient(180deg, hsla(var(--background), 1) 0%, hsla(var(--muted), 0.3) 100%);
+    background-attachment: fixed;
     position: relative;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
+  /* Enhanced matrix effect with better color harmony */
   body::before {
     content: '';
     position: fixed;
@@ -77,13 +105,14 @@
     width: 100%;
     height: 200vh;
     pointer-events: none;
-    background: repeating-linear-gradient(
-      0deg,
-      transparent 0%,
-      rgba(0, 255, 128, 0.03) 50%,
-      transparent 100%
-    );
-    animation: matrix-rain 8s linear infinite;
+    background: 
+      repeating-linear-gradient(
+        0deg,
+        transparent 0%,
+        hsla(var(--primary), 0.02) 50%,
+        transparent 100%
+      );
+    animation: matrix-flow 20s linear infinite;
     z-index: 1;
   }
 
@@ -95,30 +124,82 @@
     width: 100%;
     height: 200vh;
     pointer-events: none;
-    background: repeating-linear-gradient(
-      0deg,
-      transparent 0%,
-      rgba(139, 92, 246, 0.02) 50%,
-      transparent 100%
-    );
-    animation: matrix-rain 12s linear infinite;
-    animation-delay: -4s;
+    background: 
+      repeating-linear-gradient(
+        45deg,
+        transparent 0%,
+        hsla(var(--secondary), 0.015) 50%,
+        transparent 100%
+      );
+    animation: matrix-flow 25s linear infinite reverse;
+    animation-delay: -8s;
     z-index: 1;
   }
 
+  /* Enhanced typography with better color relationships */
   h1 {
-    @apply text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4 font-serif text-gradient;
+    @apply text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4 font-serif;
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 30px hsla(var(--primary), 0.3);
   }
 
   h2 {
-    @apply text-4xl md:text-5xl font-bold tracking-tight mb-4 font-serif;
+    @apply text-4xl md:text-5xl font-bold tracking-tight mb-4 font-serif text-foreground;
   }
 
   h3 {
-    @apply text-3xl font-bold tracking-tight mb-4 font-serif;
+    @apply text-3xl font-bold tracking-tight mb-4 font-serif text-foreground;
   }
 
   p {
-    @apply leading-7 [&:not(:first-of-type)]:mt-6;
+    @apply leading-7 [&:not(:first-of-type)]:mt-6 text-muted-foreground;
+  }
+
+  /* Modern animation keyframes */
+  @keyframes matrix-flow {
+    0% { transform: translateY(-100vh) rotate(0deg); }
+    100% { transform: translateY(100vh) rotate(360deg); }
+  }
+
+  @keyframes glow-pulse {
+    0%, 100% { 
+      box-shadow: 0 0 20px hsla(var(--primary), 0.3);
+    }
+    50% { 
+      box-shadow: 0 0 40px hsla(var(--primary), 0.6);
+    }
+  }
+
+  /* Custom utility classes for enhanced color usage */
+  .glow-primary {
+    box-shadow: 0 0 20px hsla(var(--primary), 0.4);
+  }
+
+  .glow-secondary {
+    box-shadow: 0 0 20px hsla(var(--secondary), 0.4);
+  }
+
+  .text-gradient-primary {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-gradient-secondary {
+    background: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--secondary-glow)));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .border-glow {
+    border: 1px solid hsla(var(--primary), 0.3);
+    box-shadow: 
+      0 0 10px hsla(var(--primary), 0.2),
+      inset 0 0 10px hsla(var(--primary), 0.1);
   }
 }

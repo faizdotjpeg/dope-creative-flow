@@ -33,26 +33,50 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
-          muted: "hsl(142 70% 45%)", // Slightly muted neon green
-          hover: "hsl(142 100% 45%)", // Brighter on hover
+          glow: "hsl(var(--primary-glow))",
+          dark: "hsl(var(--primary-dark))",
+          50: "hsl(142 100% 95%)",
+          100: "hsl(142 100% 90%)",
+          500: "hsl(var(--primary))",
+          600: "hsl(var(--primary-dark))",
+          900: "hsl(142 100% 20%)",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
-          muted: "hsl(262 73% 53%)", // Slightly muted purple
-          hover: "hsl(262 83% 63%)", // Brighter on hover
+          glow: "hsl(var(--secondary-glow))",
+          dark: "hsl(var(--secondary-dark))",
+          50: "hsl(270 95% 95%)",
+          100: "hsl(270 95% 90%)",
+          500: "hsl(var(--secondary))",
+          600: "hsl(var(--secondary-dark))",
+          900: "hsl(270 95% 25%)",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+          glow: "hsl(var(--accent-glow))",
+          50: "hsl(195 100% 95%)",
+          100: "hsl(195 100% 90%)",
+          500: "hsl(var(--accent))",
+          900: "hsl(195 100% 25%)",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+          light: "hsl(var(--muted-light))",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
         },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
+        warning: {
+          DEFAULT: "hsl(var(--warning))",
+          foreground: "hsl(var(--warning-foreground))",
         },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
+        success: {
+          DEFAULT: "hsl(var(--success))",
+          foreground: "hsl(var(--success-foreground))",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
@@ -120,6 +144,8 @@ export default {
         "fade-out": "fade-out 0.6s ease-out",
         "page-in": "page-in 0.8s ease-out",
         "parallax-float": "parallax-float 6s ease-in-out infinite",
+        "matrix-flow": "matrix-flow 20s linear infinite",
+        "glow-pulse": "glow-pulse 2s ease-in-out infinite",
       },
     },
   },
