@@ -9,6 +9,7 @@ import CustomCursor from "./components/CustomCursor";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import PortfolioItemPage from "./pages/PortfolioItemPage";
+import BrandPhotography from "./pages/BrandPhotography";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +24,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/portfolio/:id" element={<PortfolioItemPage />} />
+            <Route path="/services/brand-photography" element={<BrandPhotography />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

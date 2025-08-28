@@ -3,7 +3,13 @@ import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { useIsMobile } from "@/hooks/use-mobile";
-import { Menu, X } from "lucide-react"; // Added X icon for mobile menu close
+import { Menu, X, ChevronDown } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -36,6 +42,37 @@ const Navbar = () => {
         <div className="hidden md:flex items-center space-x-8">
           <a href="#home" className="font-mono hover:text-primary transition-all duration-200 hover:-translate-y-0.5">{"> "}root.access</a>
           <a href="#work" className="font-mono hover:text-primary transition-all duration-200 hover:-translate-y-0.5">projects.log</a>
+          
+          {/* Services Dropdown */}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" className="font-mono hover:text-primary transition-all duration-200 hover:-translate-y-0.5 p-0 h-auto bg-transparent">
+                services.exec
+                <ChevronDown className="ml-1 h-3 w-3" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="start" className="bg-background border-primary/20 min-w-[220px]">
+              <DropdownMenuItem asChild className="font-mono text-sm">
+                <a href="/services/brand-photography" className="w-full cursor-pointer hover:text-primary transition-colors">
+                  brand.photography
+                  <span className="text-xs text-muted-foreground ml-auto">// OC</span>
+                </a>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild className="font-mono text-sm">
+                <a href="#contact" className="w-full cursor-pointer hover:text-primary transition-colors">
+                  creative.direction
+                  <span className="text-xs text-muted-foreground ml-auto">// strategy</span>
+                </a>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild className="font-mono text-sm">
+                <a href="#contact" className="w-full cursor-pointer hover:text-primary transition-colors">
+                  visual.identity
+                  <span className="text-xs text-muted-foreground ml-auto">// brands</span>
+                </a>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+          
           <a href="#about" className="font-mono hover:text-primary transition-all duration-200 hover:-translate-y-0.5">whoami</a>
           <a href="#contact" className="font-mono hover:text-primary transition-all duration-200 hover:-translate-y-0.5">connect.protocol</a>
           <ThemeToggle />
@@ -60,6 +97,23 @@ const Navbar = () => {
           <div className="container mx-auto py-4 px-4 flex flex-col space-y-4">
             <a href="#home" className="hover:text-primary transition-colors py-2 font-mono text-sm" onClick={closeMenu}>{"> "}root.access</a>
             <a href="#work" className="hover:text-primary transition-colors py-2 font-mono text-sm" onClick={closeMenu}>projects.log</a>
+            
+            {/* Mobile Services Menu */}
+            <div className="py-2">
+              <div className="text-primary font-mono text-sm mb-2">services.exec:</div>
+              <div className="ml-4 space-y-2">
+                <a href="/services/brand-photography" className="block hover:text-primary transition-colors font-mono text-xs" onClick={closeMenu}>
+                  → brand.photography // OC
+                </a>
+                <a href="#contact" className="block hover:text-primary transition-colors font-mono text-xs" onClick={closeMenu}>
+                  → creative.direction // strategy  
+                </a>
+                <a href="#contact" className="block hover:text-primary transition-colors font-mono text-xs" onClick={closeMenu}>
+                  → visual.identity // brands
+                </a>
+              </div>
+            </div>
+            
             <a href="#about" className="hover:text-primary transition-colors py-2 font-mono text-sm" onClick={closeMenu}>whoami</a>
             <a href="#contact" className="hover:text-primary transition-colors py-2 font-mono text-sm" onClick={closeMenu}>connect.protocol</a>
           </div>

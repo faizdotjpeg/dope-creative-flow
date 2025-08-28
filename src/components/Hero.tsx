@@ -76,7 +76,7 @@ const Hero = () => {
         {/* Trust signals and social proof */}
         <div className="space-y-6">
           <div className="flex flex-wrap justify-center gap-6 md:gap-8 text-xs md:text-sm tracking-wider text-muted-foreground/60 uppercase font-mono">
-            <span className="hover:text-primary transition-colors cursor-default">Brand Strategy</span>
+            <a href="/services/brand-photography" className="hover:text-primary transition-colors cursor-pointer">Brand Photography</a>
             <span className="hover:text-primary transition-colors cursor-default">Art Direction</span>
             <span className="hover:text-primary transition-colors cursor-default">Visual Identity</span>
             <span className="hover:text-primary transition-colors cursor-default">Campaign Development</span>
