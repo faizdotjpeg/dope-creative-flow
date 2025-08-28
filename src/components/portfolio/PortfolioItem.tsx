@@ -10,6 +10,12 @@ interface PortfolioItemProps {
     category: string;
     image: string;
     description: string;
+    fullDescription: string;
+    client: string;
+    year: string;
+    role: string;
+    gallery: string[];
+    video?: string | null;
   };
   variants: any;
 }
@@ -34,14 +40,17 @@ export const PortfolioItem = ({
         onMouseEnter={() => setIsHovered(true)} 
         onMouseLeave={() => setIsHovered(false)}
       >
-        <div className="aspect-square relative">
+        <div className="aspect-square relative bg-muted/20">
           <motion.img 
             src={item.image} 
             alt={item.title} 
             className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-500" 
             animate={{
               scale: isHovered ? 1.05 : 1
-            }} 
+            }}
+            onError={(e) => {
+              e.currentTarget.src = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23${Math.random().toString(16).substr(2,6)}'/%3E%3Ctext x='200' y='200' text-anchor='middle' dy='0.3em' font-family='monospace' font-size='16' fill='white'%3E${item.title}%3C/text%3E%3C/svg%3E`;
+            }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background/95 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-sm flex flex-col justify-end p-6">
             <h3 className="font-mono text-xl font-bold text-foreground mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">

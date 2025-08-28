@@ -7,44 +7,111 @@ import { ClientsSection } from "./portfolio/ClientsSection";
 import { AwardsSection } from "./portfolio/AwardsSection";
 import { useIsMobile } from "@/hooks/use-mobile";
 
-// Sample portfolio items
-export const portfolioItems = [{
-  id: 1,
-  title: "Urban Perspective",
-  category: "photography",
-  image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=800&q=80",
-  description: "Urban architecture photography series"
-}, {
-  id: 2,
-  title: "Brand Redesign",
-  category: "design",
-  image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=800&q=80",
-  description: "Complete visual identity for tech startup"
-}, {
-  id: 3,
-  title: "Fashion Campaign",
-  category: "direction",
-  image: "https://images.unsplash.com/photo-1605310537282-96e590498a5e?auto=format&fit=crop&w=800&q=80",
-  description: "Creative direction for seasonal campaign"
-}, {
-  id: 4,
-  title: "Product Series",
-  category: "photography",
-  image: "https://images.unsplash.com/photo-1502982720700-bfff97f2ecac?auto=format&fit=crop&w=800&q=80",
-  description: "Minimalist product photography"
-}, {
-  id: 5,
-  title: "Editorial Layout",
-  category: "design",
-  image: "https://images.unsplash.com/photo-1616628188524-413f8a0a8789?auto=format&fit=crop&w=800&q=80",
-  description: "Magazine layout and typography design"
-}, {
-  id: 6,
-  title: "Music Video",
-  category: "direction",
-  image: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=800&q=80",
-  description: "Creative direction for indie band"
-}];
+// Enhanced portfolio items with placeholders and detailed content
+export const portfolioItems = [
+  {
+    id: 1,
+    title: "NEURAL NETWORKS",
+    category: "direction",
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+    description: "AI-driven creative campaign for tech startup",
+    fullDescription: "A groundbreaking creative direction project that merged artificial intelligence with human creativity. This campaign challenged conventional marketing approaches by integrating neural network visualizations into brand storytelling.",
+    client: "TechNova AI",
+    year: "2024",
+    role: "Creative Director",
+    gallery: [
+      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1518709268805-4e9042af2176?auto=format&fit=crop&w=800&q=80"
+    ],
+    video: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    id: 2,
+    title: "QUANTUM BRAND",
+    category: "design",
+    image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=800&q=80",
+    description: "Complete visual identity for quantum computing company",
+    fullDescription: "Designed a comprehensive brand identity that visualized complex quantum computing concepts through minimalist design principles. The project included logo design, brand guidelines, and digital assets.",
+    client: "Quantum Labs",
+    year: "2023",
+    role: "Brand Designer",
+    gallery: [
+      "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1542744094-3a31f272c490?auto=format&fit=crop&w=800&q=80"
+    ],
+    video: null
+  },
+  {
+    id: 3,
+    title: "URBAN FUTURES",
+    category: "photography",
+    image: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=800&q=80",
+    description: "Architectural photography series exploring modern cityscapes",
+    fullDescription: "A documentary photography project capturing the intersection of technology and urban architecture. This series explores how digital innovation reshapes physical spaces in modern cities.",
+    client: "Architecture Weekly",
+    year: "2024",
+    role: "Photographer",
+    gallery: [
+      "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1590767187812-ee0c2b31e9de?auto=format&fit=crop&w=800&q=80"
+    ],
+    video: null
+  },
+  {
+    id: 4,
+    title: "DIGITAL NOMAD",
+    category: "direction",
+    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80",
+    description: "Campaign strategy for remote work platform",
+    fullDescription: "Creative direction for a comprehensive campaign targeting digital nomads and remote workers. The project included brand positioning, content strategy, and multi-platform creative execution.",
+    client: "RemoteHub",
+    year: "2023",
+    role: "Creative Director",
+    gallery: [
+      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&w=800&q=80"
+    ],
+    video: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    id: 5,
+    title: "NEON TYPOGRAPHY",
+    category: "design",
+    image: "https://images.unsplash.com/photo-1616628188524-413f8a0a8789?auto=format&fit=crop&w=800&q=80",
+    description: "Experimental typeface design for digital platforms",
+    fullDescription: "Development of a custom typeface family inspired by cyberpunk aesthetics. This project pushed the boundaries of digital typography with experimental letterforms and dynamic character variations.",
+    client: "Future Fonts",
+    year: "2024",
+    role: "Type Designer",
+    gallery: [
+      "https://images.unsplash.com/photo-1616628188524-413f8a0a8789?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1580927752452-89d86da3fa0a?auto=format&fit=crop&w=800&q=80"
+    ],
+    video: null
+  },
+  {
+    id: 6,
+    title: "SOUND WAVES",
+    category: "photography",
+    image: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=800&q=80",
+    description: "Music industry photography and visual storytelling",
+    fullDescription: "A comprehensive visual project documenting emerging artists and studio culture. This series combines portrait photography with environmental storytelling to capture the creative process in music production.",
+    client: "Independent Artists",
+    year: "2023",
+    role: "Photographer",
+    gallery: [
+      "https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1598387181353-d3f34d5bcdd6?auto=format&fit=crop&w=800&q=80"
+    ],
+    video: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  }
+];
 
 // Sample client logos
 const clientLogos = [{
@@ -155,9 +222,8 @@ const WorkGrid = () => {
 
         <Tabs defaultValue="all" className="mb-8 md:mb-16">
           <TabsList className={`grid ${isMobile ? 'grid-cols-2 gap-2 mb-2' : 'grid-cols-4'} max-w-md mx-auto`}>
-            <TabsTrigger value="all" onClick={() => setFilter("all")}>All</TabsTrigger>
-            <TabsTrigger value="direction" onClick={() => setFilter("direction")}>Copywriting
-          </TabsTrigger>
+            <TabsTrigger value="all" onClick={() => setFilter("all")}>All Work</TabsTrigger>
+            <TabsTrigger value="direction" onClick={() => setFilter("direction")}>Direction</TabsTrigger>
             <TabsTrigger value="photography" onClick={() => setFilter("photography")}>Photography</TabsTrigger>
             <TabsTrigger value="design" onClick={() => setFilter("design")}>Design</TabsTrigger>
           </TabsList>
