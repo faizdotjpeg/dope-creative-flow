@@ -1,73 +1,135 @@
-# Welcome to your Lovable project
+# Dope Creative Flow - Portfolio Website
 
-## Project info
+A modern, cyberpunk-inspired portfolio website built with cutting-edge web technologies. Features smooth animations, dark/light theme support, and a futuristic design aesthetic.
 
-**URL**: https://lovable.dev/projects/fe12047d-175e-494d-b19a-66606ac40d15
+## 🚀 Live Demo
 
-## How can I edit this code?
+Visit the live site: [Your Portfolio URL]
 
-There are several ways of editing your application.
+## 🛠 Technologies Used
 
-**Use Lovable**
+- **Frontend**: React 18 + TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS + shadcn/ui components
+- **Animations**: Framer Motion
+- **Routing**: React Router DOM
+- **State Management**: TanStack Query
+- **Theming**: next-themes for dark/light mode
+- **Icons**: Lucide React
+- **Forms**: React Hook Form + Zod validation
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/fe12047d-175e-494d-b19a-66606ac40d15) and start prompting.
+## ⚡ Quick Start
 
-Changes made via Lovable will be committed automatically to this repo.
+### Prerequisites
+- Node.js 18+ and npm (recommended: [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating))
 
-**Use your preferred IDE**
+### Installation
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+```bash
+# Clone the repository
+git clone https://github.com/faizdotjpeg/dope-creative-flow.git
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+# Navigate to project directory  
+cd dope-creative-flow
 
-Follow these steps:
+# Install dependencies
+npm install
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Visit `http://localhost:5173` to view the site locally.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 🎨 Features
 
-**Use GitHub Codespaces**
+- **Responsive Design**: Mobile-first approach with Tailwind CSS
+- **Dark/Light Theme**: Seamless theme switching with system preference detection
+- **Smooth Animations**: Framer Motion powered transitions and effects
+- **Custom Cursor**: Interactive cursor with hover effects
+- **Portfolio Grid**: Dynamic work showcase with filtering capabilities
+- **Contact Form**: Validated contact form with real-time validation
+- **SEO Optimized**: Meta tags and structured data for better search visibility
+- **Performance Optimized**: Lazy loading, code splitting, and optimized assets
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 📁 Project Structure
 
-## What technologies are used for this project?
+```
+src/
+├── components/          # Reusable UI components
+│   ├── ui/             # shadcn/ui components
+│   └── portfolio/      # Portfolio-specific components
+├── pages/              # Route components
+├── styles/             # Global styles and animations
+├── hooks/              # Custom React hooks
+└── lib/                # Utilities and helpers
+```
 
-This project is built with:
+## 🚀 Deployment
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### GitHub Pages (Automatic)
+Pushes to `main` branch automatically deploy via GitHub Actions.
 
-## How can I deploy this project?
+### Manual Deployment Options
 
-Simply open [Lovable](https://lovable.dev/projects/fe12047d-175e-494d-b19a-66606ac40d15) and click on Share -> Publish.
+**Build for production:**
+```bash
+npm run build
+```
 
-## Can I connect a custom domain to my Lovable project?
+**Preview production build:**
+```bash
+npm run preview
+```
 
-Yes, you can!
+**Deploy to Netlify:**
+```bash
+# Build command: npm run build
+# Publish directory: dist
+```
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+**Deploy to Vercel:**
+```bash
+# Auto-detected configuration
+```
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## 🔧 Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run build:dev` - Build in development mode
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+
+## 🎯 Customization
+
+### Colors
+Update theme colors in `src/styles/base.css` - modify CSS variables for light/dark modes.
+
+### Content
+- Update portfolio items in relevant components
+- Modify contact information in `src/components/Contact.tsx`
+- Change hero content in `src/components/Hero.tsx`
+
+### Animations
+Custom animations are defined in `src/styles/animations.css` and can be modified or extended.
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📧 Contact
+
+**Faiz Ghori** - Creative Director & Developer
+- Email: [your-email@example.com]
+- Portfolio: [Your Portfolio URL]
+- LinkedIn: [Your LinkedIn]
+- Twitter: [Your Twitter]
