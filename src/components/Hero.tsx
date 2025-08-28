@@ -35,50 +35,41 @@ const Hero = () => {
         }} 
         className="container mx-auto relative z-10 text-center"
       >
-        {/* Inspired by Jenny's "EST 2017" branding - clean and professional */}
+        {/* Restored brand identity */}
         <div className="mb-8">
-          <p className="text-sm md:text-base tracking-[0.3em] text-muted-foreground/80 uppercase font-mono">
-            EST. CALIFORNIA
+          <p className="glitch-intense mb-6 bg-clip-text font-mono text-sm tracking-wider md:text-base uppercase" data-text="CREATIVE DIRECTOR • PHOTOGRAPHER • DESIGNER">
+            CREATIVE DIRECTOR • PHOTOGRAPHER • COPYWRITER • DESIGNER
           </p>
         </div>
 
-        {/* Main headline with SEO-optimized H1 */}
-        <div className="space-y-6 mb-12">
-          <h1 className="text-4xl md:text-6xl lg:text-8xl font-serif font-light tracking-wide text-foreground leading-tight">
-            Creative Director
-            <br />
-            <span className="font-light italic">& Brand Strategist</span>
-          </h1>
+        {/* Main headline with original brand voice */}
+        <div className="space-y-8 max-w-2xl mx-auto mb-12">
+          <div className="inline-block bg-primary/10 px-4 py-2 rounded-sm">
+            <div className="text-primary/90 font-mono text-sm md:text-base tracking-widest">[ SYSTEM ONLINE ]</div>
+          </div>
           
-          {/* Value proposition with clear benefits */}
-          <div className="max-w-3xl mx-auto space-y-4">
-            <p className="text-lg md:text-xl font-serif font-light text-muted-foreground/90 italic tracking-wide">
-              Award-winning <em className="text-primary">creative direction</em> that drives <em className="text-primary">brand growth</em> and <em className="text-primary">market impact</em>
-            </p>
-            <p className="text-base md:text-lg text-muted-foreground/70 max-w-xl mx-auto leading-relaxed">
-              I help innovative brands tell their story through strategic vision and authentic storytelling that converts audiences into advocates.
-            </p>
+          <div className="space-y-6">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-mono text-foreground/90 tracking-tight">[I AM]
+              <span className="block mt-2">faiz [feyz] :: pronounced like 'phase'</span>
+            </h1>
+          
+            <div className="space-y-3 text-base md:text-lg text-muted-foreground/80 font-sans leading-relaxed">
+              <p className="max-w-xl mx-auto">creative systems // visual signals // narrative code</p>
+              <p className="max-w-xl mx-auto">origin: california // codebase: immigrant // directive: build the future</p>
+            </div>
           </div>
         </div>
-
-        {/* High-converting CTA buttons */}
-        <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-8 mb-16">
+        
+        {/* Original CTA style with conversion optimization */}
+        <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
           <a href="#contact" className="w-full sm:w-auto">
-            <Button 
-              size={isMobile ? "default" : "lg"} 
-              className="w-full px-8 py-4 font-mono text-sm tracking-wider uppercase bg-primary text-background hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-            >
-              Start Your Project
+            <Button size={isMobile ? "default" : "lg"} className="w-full sm:w-auto px-6 md:px-8 relative overflow-hidden group bg-gradient-to-r from-primary to-primary/80 hover:from-primary hover:to-primary transition-all duration-300">
+              <span className="relative z-10">ping://connect</span>
+              <span className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
             </Button>
           </a>
           <a href="#work" className="w-full sm:w-auto">
-            <Button 
-              variant="ghost" 
-              size={isMobile ? "default" : "lg"} 
-              className="w-full px-8 py-3 font-mono text-sm tracking-wider uppercase border border-foreground/20 hover:border-primary hover:bg-primary/5 hover:text-primary"
-            >
-              View Portfolio
-            </Button>
+            <Button variant="outline" size={isMobile ? "default" : "lg"} className="w-full sm:w-auto px-6 md:px-8 border-2 hover:bg-primary/10">access://portfolio</Button>
           </a>
         </div>
 
