@@ -18,7 +18,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section id="home" className="relative min-h-screen flex flex-col items-center justify-center py-16 md:py-20 px-4 overflow-hidden bg-gradient-to-b from-background via-background/95 to-background">
+    <main className="relative min-h-screen flex flex-col items-center justify-center py-16 md:py-20 px-4 overflow-hidden bg-gradient-to-b from-background via-background/95 to-background">
       {/* Elegant floating elements inspired by Jenny's design */}
       <div className="absolute inset-0 z-0 opacity-20">
         <div className="absolute top-20 left-10 md:left-20 w-40 md:w-60 h-40 md:h-60 rounded-full bg-primary/30 blur-3xl animate-parallax-float" style={{
@@ -42,61 +42,69 @@ const Hero = () => {
           </p>
         </div>
 
-        {/* Main headline inspired by Jenny's elegant typography */}
+        {/* Main headline with SEO-optimized H1 */}
         <div className="space-y-6 mb-12">
           <h1 className="text-4xl md:text-6xl lg:text-8xl font-serif font-light tracking-wide text-foreground leading-tight">
-            CREATIVE
+            Creative Director
             <br />
-            <span className="font-light italic">DIRECTION</span>
+            <span className="font-light italic">& Brand Strategist</span>
           </h1>
           
-          {/* Subtitle inspired by Jenny's emotional taglines */}
+          {/* Value proposition with clear benefits */}
           <div className="max-w-3xl mx-auto space-y-4">
             <p className="text-lg md:text-xl font-serif font-light text-muted-foreground/90 italic tracking-wide">
-              Strategic <em className="text-primary">vision</em>, brand <em className="text-primary">narratives</em>, authentic <em className="text-primary">storytelling</em>
+              Award-winning <em className="text-primary">creative direction</em> that drives <em className="text-primary">brand growth</em> and <em className="text-primary">market impact</em>
             </p>
             <p className="text-base md:text-lg text-muted-foreground/70 max-w-xl mx-auto leading-relaxed">
-              Disciplined creative direction for brands that dare to be different
+              I help innovative brands tell their story through strategic vision and authentic storytelling that converts audiences into advocates.
             </p>
           </div>
         </div>
 
-        {/* Clean CTA buttons inspired by Jenny's minimal approach */}
+        {/* High-converting CTA buttons */}
         <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-8 mb-16">
-          <a href="#work">
+          <a href="#contact" className="w-full sm:w-auto">
             <Button 
               size={isMobile ? "default" : "lg"} 
-              className="w-full sm:w-auto px-8 py-3 font-mono text-sm tracking-wider uppercase bg-foreground text-background hover:bg-foreground/90 transition-all duration-300"
+              className="w-full px-8 py-4 font-mono text-sm tracking-wider uppercase bg-primary text-background hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
             >
-              View Work
+              Start Your Project
             </Button>
           </a>
-          <a href="#contact">
+          <a href="#work" className="w-full sm:w-auto">
             <Button 
               variant="ghost" 
               size={isMobile ? "default" : "lg"} 
-              className="w-full sm:w-auto px-8 py-3 font-mono text-sm tracking-wider uppercase border border-foreground/20 hover:border-foreground/40 hover:bg-foreground/5"
+              className="w-full px-8 py-3 font-mono text-sm tracking-wider uppercase border border-foreground/20 hover:border-primary hover:bg-primary/5 hover:text-primary"
             >
-              Get In Touch
+              View Portfolio
             </Button>
           </a>
         </div>
 
-        {/* Specialty areas - inspired by Jenny's service categories */}
-        <div className="flex flex-wrap justify-center gap-6 md:gap-8 text-xs md:text-sm tracking-wider text-muted-foreground/60 uppercase font-mono">
-          <span className="hover:text-primary transition-colors cursor-default">Brand Strategy</span>
-          <span className="hover:text-primary transition-colors cursor-default">Art Direction</span>
-          <span className="hover:text-primary transition-colors cursor-default">Visual Identity</span>
-          <span className="hover:text-primary transition-colors cursor-default">Campaign Development</span>
+        {/* Trust signals and social proof */}
+        <div className="space-y-6">
+          <div className="flex flex-wrap justify-center gap-6 md:gap-8 text-xs md:text-sm tracking-wider text-muted-foreground/60 uppercase font-mono">
+            <span className="hover:text-primary transition-colors cursor-default">Brand Strategy</span>
+            <span className="hover:text-primary transition-colors cursor-default">Art Direction</span>
+            <span className="hover:text-primary transition-colors cursor-default">Visual Identity</span>
+            <span className="hover:text-primary transition-colors cursor-default">Campaign Development</span>
+          </div>
+          
+          <div className="flex justify-center items-center space-x-8 text-xs text-muted-foreground/50 font-mono">
+            <span>★ 50+ Successful Projects</span>
+            <span>★ Award-Winning Creative</span>
+            <span>★ 10+ Years Experience</span>
+          </div>
         </div>
       </div>
       
       {/* Scroll indicator */}
       <a href="#work" className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center text-muted-foreground/60 hover:text-foreground transition-colors group">
-        <span className="text-xs tracking-wider mb-2 font-mono uppercase">Explore</span>
+        <span className="text-xs tracking-wider mb-2 font-mono uppercase">Explore Work</span>
         <ArrowDown className="h-4 w-4 animate-bounce group-hover:translate-y-1 transition-transform" />
       </a>
-    </section>
+    </main>
   );
 };
 export default Hero;

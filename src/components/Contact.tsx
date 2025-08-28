@@ -107,14 +107,18 @@ const Contact = () => {
         once: true
       }} transition={{
         duration: 0.6
-      }} className="text-center max-w-2xl mx-auto mb-16">
-          <h2 className="text-4xl font-mono font-bold mb-4 md:text-xl">
-            <span data-text="connect.protocol" className="text-gradient glitch-intense relative inline-block font-normal text-5xl">connect.protocol</span>
+      }} className="text-center max-w-3xl mx-auto mb-16">
+          <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6 text-foreground">
+            Ready to Transform Your Brand?
           </h2>
-          <p className="text-foreground dark:text-gray-300">
-            Interested in working together? I'm always open to discussing new projects, 
-            creative ideas or opportunities to be part of your vision.
+          <p className="text-lg md:text-xl text-muted-foreground/90 mb-4 leading-relaxed">
+            Let's create something extraordinary together. I partner with ambitious brands to develop strategic creative direction that drives measurable results.
           </p>
+          <div className="flex justify-center space-x-8 text-sm text-primary font-mono">
+            <span>✓ Free Strategy Session</span>
+            <span>✓ 48hr Response Time</span>
+            <span>✓ Project-Based or Retainer</span>
+          </div>
         </motion.div>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -130,8 +134,11 @@ const Contact = () => {
           duration: 0.6
         }}>
             <h3 className="text-2xl font-serif font-bold mb-6">
-              Get in Touch
+              Let's Start Your Project
             </h3>
+            <p className="text-muted-foreground mb-6">
+              Fill out the form below and I'll get back to you within 24 hours with a personalized strategy for your brand.
+            </p>
             
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -153,23 +160,26 @@ const Contact = () => {
               
               <div>
                 <label htmlFor="subject" className="block text-sm font-medium mb-1">
-                  Subject
+                  Project Type
                 </label>
-                <Input id="subject" name="subject" value={formData.subject} onChange={handleChange} placeholder="Subject" className={errors.subject ? "border-destructive" : ""} required />
+                <Input id="subject" name="subject" value={formData.subject} onChange={handleChange} placeholder="e.g., Brand Strategy, Campaign Development, Visual Identity" className={errors.subject ? "border-destructive" : ""} required />
                 {errors.subject && <p className="text-sm text-destructive mt-1">{errors.subject}</p>}
               </div>
               
               <div>
                 <label htmlFor="message" className="block text-sm font-medium mb-1">
-                  Message
+                  Project Details
                 </label>
-                <Textarea id="message" name="message" value={formData.message} onChange={handleChange} placeholder="Your message" rows={5} className={errors.message ? "border-destructive" : ""} required />
+                <Textarea id="message" name="message" value={formData.message} onChange={handleChange} placeholder="Tell me about your brand, goals, timeline, and budget range. The more details you provide, the better I can help you." rows={5} className={errors.message ? "border-destructive" : ""} required />
                 {errors.message && <p className="text-sm text-destructive mt-1">{errors.message}</p>}
               </div>
               
-              <Button type="submit" size="lg" disabled={isSubmitting} className="hover:bg-primary/90">
-                {isSubmitting ? "Sending..." : "Send Message"}
+              <Button type="submit" size="lg" disabled={isSubmitting} className="w-full bg-primary text-background hover:bg-primary/90 text-base font-medium py-4">
+                {isSubmitting ? "Sending Your Message..." : "Get My Free Strategy Session"}
               </Button>
+              <p className="text-xs text-muted-foreground mt-2 text-center">
+                No spam, ever. Your information is completely secure.
+              </p>
             </form>
           </motion.div>
           
@@ -185,8 +195,29 @@ const Contact = () => {
           duration: 0.6
         }} className="bg-card p-8 rounded-lg">
             <h3 className="text-2xl font-serif font-bold mb-6">
-              Contact Information
+              Why Work With Me?
             </h3>
+            
+            <div className="space-y-4 mb-8">
+              <div className="flex items-start space-x-3">
+                <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
+                <p className="text-sm text-muted-foreground">
+                  <strong className="text-foreground">Strategic Approach:</strong> Every project starts with deep brand analysis and market research
+                </p>
+              </div>
+              <div className="flex items-start space-x-3">
+                <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
+                <p className="text-sm text-muted-foreground">
+                  <strong className="text-foreground">Proven Results:</strong> 50+ successful campaigns with measurable ROI improvements
+                </p>
+              </div>
+              <div className="flex items-start space-x-3">
+                <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
+                <p className="text-sm text-muted-foreground">
+                  <strong className="text-foreground">Full Partnership:</strong> From strategy to execution, I'm with you every step
+                </p>
+              </div>
+            </div>
             
             <div className="space-y-6">
               <div>
@@ -195,8 +226,9 @@ const Contact = () => {
               </div>
               
               <div>
-                <h4 className="text-primary text-lg font-medium mb-2">Email Me</h4>
-                <a href="mailto:hello@creative-portfolio.com" className="text-foreground hover:text-primary transition-colors">hello@creative-portfolio.com</a>
+                <h4 className="text-primary text-lg font-medium mb-2">Direct Contact</h4>
+                <a href="mailto:hello@faiz-creative.com" className="text-foreground hover:text-primary transition-colors font-mono">hello@faiz-creative.com</a>
+                <p className="text-sm text-muted-foreground mt-1">Response within 24 hours</p>
               </div>
               
               <div>
@@ -218,10 +250,14 @@ const Contact = () => {
               </div>
             </div>
             
-            <div className="mt-8 p-4 border border-border rounded-lg bg-secondary">
-              <h4 className="text-lg font-medium mb-2 text-foreground dark:text-gray-300">faiz{'>'}status --active</h4>
-              <p className="text-foreground dark:text-gray-300">Monday - Friday: 9am - 6pm</p>
-              <p className="text-foreground dark:text-gray-300">Weekend: By appointment</p>
+            <div className="mt-8 p-6 border border-primary/20 rounded-lg bg-primary/5">
+              <h4 className="text-lg font-medium mb-3 text-foreground">Currently Accepting New Projects</h4>
+              <p className="text-muted-foreground text-sm mb-2">Next availability: January 2025</p>
+              <p className="text-muted-foreground text-sm">Project minimums start at $10K</p>
+              <div className="mt-4 flex items-center space-x-2">
+                <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+                <span className="text-xs text-primary font-mono">TAKING BOOKINGS NOW</span>
+              </div>
             </div>
           </motion.div>
         </div>
