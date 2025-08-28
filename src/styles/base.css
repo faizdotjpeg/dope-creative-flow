@@ -2,7 +2,57 @@
 
 @layer base {
   :root {
-    /* Modern color palette inspired by cyberpunk aesthetics */
+    /* Light mode - clean and modern */
+    --background: 0 0% 98%;              /* Almost white background */
+    --foreground: 240 8% 12%;            /* Dark text */
+    --card: 0 0% 100%;                   /* Pure white cards */
+    --card-foreground: 240 8% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 8% 12%;
+    
+    /* Enhanced neon green primary - works on light */
+    --primary: 142 100% 45%;             /* Slightly darker for contrast */
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 142 100% 55%;        /* Brighter glow variant */
+    --primary-dark: 142 100% 35%;        /* Darker variant */
+    
+    /* Sophisticated secondary palette - light mode */
+    --secondary: 270 95% 55%;            /* Adjusted purple for light */
+    --secondary-foreground: 0 0% 98%;
+    --secondary-glow: 270 95% 70%;       /* Lighter purple */
+    --secondary-dark: 270 95% 40%;       /* Darker purple */
+    
+    /* Accent colors for depth - light mode */
+    --accent: 195 100% 50%;              /* Darker cyan for contrast */
+    --accent-foreground: 0 0% 98%;
+    --accent-glow: 195 100% 65%;
+    
+    /* Neutral grays - light mode */
+    --muted: 240 5% 92%;                 /* Light gray */
+    --muted-foreground: 240 8% 45%;      /* Dark gray text */
+    --muted-light: 240 5% 96%;           /* Very light gray */
+    
+    /* Functional colors - light mode */
+    --destructive: 0 85% 55%;            /* Red for errors */
+    --destructive-foreground: 0 0% 98%;
+    --warning: 45 95% 50%;               /* Amber warning */
+    --warning-foreground: 240 8% 12%;
+    --success: 120 80% 40%;              /* Success green */
+    --success-foreground: 0 0% 98%;
+    
+    /* Interactive elements - light mode */
+    --border: 240 8% 85%;                /* Light borders */
+    --input: 240 5% 95%;                 /* Light input backgrounds */
+    --ring: 142 100% 45%;                /* Focus rings */
+    
+    /* Design system utilities */
+    --radius: 4px;
+    --shadow-color: 240 8% 90%;
+    --glow-intensity: 0.2;
+  }
+
+  .dark {
+    /* Dark mode - cyberpunk aesthetics */
     --background: 240 8% 6%;             /* Rich dark background */
     --foreground: 0 0% 98%;              /* Pure light text */
     --card: 240 8% 8%;                   /* Slightly lighter card background */
@@ -10,29 +60,29 @@
     --popover: 240 8% 10%;
     --popover-foreground: 0 0% 98%;
     
-    /* Enhanced neon green primary */
+    /* Enhanced neon green primary - dark mode */
     --primary: 142 100% 55%;             /* Brighter neon green */
     --primary-foreground: 240 8% 6%;
     --primary-glow: 142 100% 70%;        /* Lighter glow variant */
     --primary-dark: 142 100% 40%;        /* Darker variant */
     
-    /* Sophisticated secondary palette */
+    /* Sophisticated secondary palette - dark mode */
     --secondary: 270 95% 65%;            /* Electric purple */
     --secondary-foreground: 240 8% 6%;
     --secondary-glow: 270 95% 80%;       /* Lighter purple */
     --secondary-dark: 270 95% 45%;       /* Darker purple */
     
-    /* Accent colors for depth */
+    /* Accent colors for depth - dark mode */
     --accent: 195 100% 60%;              /* Cyan accent */
     --accent-foreground: 240 8% 6%;
     --accent-glow: 195 100% 75%;
     
-    /* Neutral grays with warm undertone */
+    /* Neutral grays with warm undertone - dark mode */
     --muted: 240 8% 15%;                 /* Warm dark gray */
     --muted-foreground: 0 0% 75%;        /* Light gray text */
     --muted-light: 240 8% 25%;           /* Lighter muted */
     
-    /* Functional colors */
+    /* Functional colors - dark mode */
     --destructive: 0 95% 60%;            /* Bright error red */
     --destructive-foreground: 0 0% 98%;
     --warning: 45 100% 60%;              /* Amber warning */
@@ -40,7 +90,7 @@
     --success: 120 100% 50%;             /* Success green */
     --success-foreground: 240 8% 6%;
     
-    /* Interactive elements */
+    /* Interactive elements - dark mode */
     --border: 240 8% 20%;                /* Subtle borders */
     --input: 240 8% 12%;                 /* Input backgrounds */
     --ring: 142 100% 55%;                /* Focus rings */
@@ -49,29 +99,6 @@
     --radius: 4px;
     --shadow-color: 240 8% 3%;
     --glow-intensity: 0.3;
-  }
-
-  .dark {
-    /* Dark mode already optimized as primary theme */
-    --background: 240 8% 6%;
-    --foreground: 0 0% 98%;
-    --card: 240 8% 8%;
-    --card-foreground: 0 0% 95%;
-    --popover: 240 8% 10%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 142 100% 55%;
-    --primary-foreground: 240 8% 6%;
-    --secondary: 270 95% 65%;
-    --secondary-foreground: 240 8% 6%;
-    --muted: 240 8% 15%;
-    --muted-foreground: 0 0% 75%;
-    --accent: 195 100% 60%;
-    --accent-foreground: 240 8% 6%;
-    --destructive: 0 95% 60%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 8% 20%;
-    --input: 240 8% 12%;
-    --ring: 142 100% 55%;
   }
 
   html {
@@ -85,10 +112,10 @@
   body {
     @apply bg-background text-foreground antialiased font-mono;
     background-image: 
-      radial-gradient(circle at 20% 50%, hsla(var(--primary), 0.08) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, hsla(var(--secondary), 0.06) 0%, transparent 50%),
-      radial-gradient(circle at 40% 80%, hsla(var(--accent), 0.04) 0%, transparent 50%),
-      linear-gradient(180deg, hsla(var(--background), 1) 0%, hsla(var(--muted), 0.3) 100%);
+      radial-gradient(circle at 20% 50%, hsla(var(--primary), 0.04) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, hsla(var(--secondary), 0.03) 0%, transparent 50%),
+      radial-gradient(circle at 40% 80%, hsla(var(--accent), 0.02) 0%, transparent 50%),
+      linear-gradient(180deg, hsla(var(--background), 1) 0%, hsla(var(--muted), 0.2) 100%);
     background-attachment: fixed;
     position: relative;
     overflow-x: hidden;

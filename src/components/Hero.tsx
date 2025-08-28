@@ -65,7 +65,7 @@ const Hero = () => {
           <a href="#contact" className="w-full sm:w-auto">
             <Button size={isMobile ? "default" : "lg"} className="w-full sm:w-auto px-6 md:px-8 relative overflow-hidden group bg-gradient-to-r from-primary to-primary/80 hover:from-primary hover:to-primary transition-all duration-300">
               <span className="relative z-10">ping://connect</span>
-              <span className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+              <span className="absolute inset-0 bg-foreground/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
             </Button>
           </a>
           <a href="#work" className="w-full sm:w-auto">
