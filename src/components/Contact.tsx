@@ -95,7 +95,7 @@ const Contact = () => {
     }
   };
 
-  return <section id="contact" className="py-24 px-4 bg-secondary">
+  return <section id="contact" className="py-24 px-4 bg-primary/10">
       <div className="container mx-auto">
         <motion.div initial={{
         opacity: 0,
@@ -108,7 +108,7 @@ const Contact = () => {
       }} transition={{
         duration: 0.6
       }} className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-4xl md:text-5xl font-mono font-bold mb-6 text-foreground">
+          <h2 className="text-4xl md:text-5xl font-mono font-bold mb-6 text-primary">
             [ ready.to.build.tomorrow? ]
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground/90 mb-4 leading-relaxed font-mono">
@@ -133,7 +133,7 @@ const Contact = () => {
         }} transition={{
           duration: 0.6
         }}>
-            <h3 className="text-2xl font-mono font-bold mb-6">
+            <h3 className="text-2xl font-mono font-bold mb-6 text-primary">
               [ initiate.connection ]
             </h3>
             <p className="text-muted-foreground mb-6 font-mono">
@@ -174,7 +174,7 @@ const Contact = () => {
                 {errors.message && <p className="text-sm text-destructive mt-1">{errors.message}</p>}
               </div>
               
-              <Button type="submit" size="lg" disabled={isSubmitting} className="w-full bg-primary text-background hover:bg-primary/90 text-base font-medium py-4 font-mono">
+              <Button type="submit" size="lg" disabled={isSubmitting} className="w-full bg-primary text-primary-foreground hover:bg-primary/90 text-base font-medium py-4 font-mono glow-primary">
                 {isSubmitting ? "transmitting.message..." : "execute://free.strategy.session"}
               </Button>
               <p className="text-xs text-muted-foreground mt-2 text-center font-mono">
@@ -193,8 +193,8 @@ const Contact = () => {
           once: true
         }} transition={{
           duration: 0.6
-        }} className="bg-card p-8 rounded-lg">
-            <h3 className="text-2xl font-mono font-bold mb-6">
+        }} className="bg-card p-8 rounded-lg border border-primary/20 glow-primary">
+            <h3 className="text-2xl font-mono font-bold mb-6 text-primary">
               [ why.collaborate.with.faiz? ]
             </h3>
             
@@ -202,19 +202,19 @@ const Contact = () => {
               <div className="flex items-start space-x-3">
                 <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
                 <p className="text-sm text-muted-foreground font-mono">
-                  <strong className="text-foreground">strategic.approach:</strong> every.project begins with deep brand.analysis + market.research protocols
+                  <strong className="text-primary">strategic.approach:</strong> every.project begins with deep brand.analysis + market.research protocols
                 </p>
               </div>
               <div className="flex items-start space-x-3">
                 <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
                 <p className="text-sm text-muted-foreground font-mono">
-                  <strong className="text-foreground">proven.results:</strong> 50+ successful.campaigns with measurable ROI.improvements
+                  <strong className="text-primary">proven.results:</strong> 50+ successful.campaigns with measurable ROI.improvements
                 </p>
               </div>
               <div className="flex items-start space-x-3">
                 <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
                 <p className="text-sm text-muted-foreground font-mono">
-                  <strong className="text-foreground">full.partnership:</strong> from strategy.phase to execution.deployment // I'm.with.you at.every.step
+                  <strong className="text-primary">full.partnership:</strong> from strategy.phase to execution.deployment // I'm.with.you at.every.step
                 </p>
               </div>
             </div>
@@ -250,8 +250,8 @@ const Contact = () => {
               </div>
             </div>
             
-            <div className="mt-8 p-6 border border-primary/20 rounded-lg bg-primary/5">
-              <h4 className="text-lg font-medium mb-3 text-foreground font-mono">[ status: accepting.new.projects ]</h4>
+            <div className="mt-8 p-6 border border-primary/30 rounded-lg bg-primary/10 glow-primary">
+              <h4 className="text-lg font-medium mb-3 text-primary font-mono">[ status: accepting.new.projects ]</h4>
               <p className="text-muted-foreground text-sm mb-2 font-mono">next.availability: january.2025</p>
               <p className="text-muted-foreground text-sm font-mono">project.minimums: start.at.$10K</p>
               <div className="mt-4 flex items-center space-x-2">
