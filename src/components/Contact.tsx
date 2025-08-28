@@ -174,7 +174,7 @@ const Contact = () => {
                 {errors.message && <p className="text-sm text-destructive mt-1">{errors.message}</p>}
               </div>
               
-              <Button type="submit" size="lg" disabled={isSubmitting} className="w-full bg-primary text-primary-foreground hover:bg-primary/90 text-base font-medium py-4 font-mono glow-primary">
+              <Button type="submit" size="lg" disabled={isSubmitting} className="w-full bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-105 transition-all duration-300 text-base font-medium py-4 font-mono glow-primary">
                 {isSubmitting ? "transmitting.message..." : "execute://free.strategy.session"}
               </Button>
               <p className="text-xs text-muted-foreground mt-2 text-center font-mono">
