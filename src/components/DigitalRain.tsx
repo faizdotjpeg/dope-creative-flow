@@ -88,7 +88,7 @@ const DigitalRain = ({ intensity = 'light', opacity = 0.15 }: DigitalRainProps) 
       // Set text properties with theme-aware colors
       const textColor = isDarkMode 
         ? `hsla(142, 100%, 55%, ${opacity})` 
-        : `hsla(142, 80%, 35%, ${opacity * 1.5})`;
+        : `hsla(142, 60%, 25%, ${opacity * 2})`;
       ctx.fillStyle = textColor;
       ctx.font = `${fontSize}px 'JetBrains Mono', monospace`;
       ctx.textBaseline = 'top';
@@ -102,9 +102,9 @@ const DigitalRain = ({ intensity = 'light', opacity = 0.15 }: DigitalRainProps) 
 
         // Add glow effect for primary characters with theme awareness
         if (Math.random() < 0.1) {
-          const shadowColor = isDarkMode ? 'hsl(142, 100%, 55%)' : 'hsl(142, 80%, 35%)';
+          const shadowColor = isDarkMode ? 'hsl(142, 100%, 55%)' : 'hsl(142, 60%, 25%)';
           ctx.shadowColor = shadowColor;
-          ctx.shadowBlur = isDarkMode ? 8 : 6;
+          ctx.shadowBlur = isDarkMode ? 8 : 4;
         } else {
           ctx.shadowBlur = 0;
         }
@@ -135,8 +135,8 @@ const DigitalRain = ({ intensity = 'light', opacity = 0.15 }: DigitalRainProps) 
       className="fixed inset-0 pointer-events-none z-0"
       style={{ 
         mixBlendMode: isDarkMode ? 'screen' : 'multiply',
-        filter: isDarkMode ? 'contrast(1.2) brightness(0.8)' : 'contrast(1.1) brightness(1.2)',
-        opacity: isDarkMode ? 1 : 0.7
+        filter: isDarkMode ? 'contrast(1.2) brightness(0.8)' : 'contrast(1.3) brightness(0.9)',
+        opacity: isDarkMode ? 1 : 0.9
       }}
     />
   );

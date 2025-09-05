@@ -22,7 +22,7 @@ const App = () => (
         <CustomCursor />
         
         {/* Background Effects - Choose one: */}
-        <DigitalRain intensity="light" opacity={0.12} />
+        <DigitalRain intensity="light" opacity={0.08} />
         {/* <FilmGrain intensity="light" opacity={0.08} animated={true} /> */}
         
         <Toaster />
