@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 interface DigitalRainProps {
   intensity?: 'light' | 'medium' | 'heavy';
@@ -7,9 +7,30 @@ interface DigitalRainProps {
 
 const DigitalRain = ({ intensity = 'light', opacity = 0.15 }: DigitalRainProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [isDarkMode, setIsDarkMode] = useState(false);
   
   // Respect user's motion preferences
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Detect theme changes
+  useEffect(() => {
+    const checkTheme = () => {
+      const html = document.documentElement;
+      setIsDarkMode(html.classList.contains('dark'));
+    };
+
+    // Initial check
+    checkTheme();
+
+    // Create observer for theme changes
+    const observer = new MutationObserver(checkTheme);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class']
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -59,12 +80,16 @@ const DigitalRain = ({ intensity = 'light', opacity = 0.15 }: DigitalRainProps) 
       }
       lastTime = currentTime;
 
-      // Create trailing effect
-      ctx.fillStyle = `rgba(0, 0, 0, ${fadeRate})`;
+      // Create trailing effect with theme-aware background
+      const trailColor = isDarkMode ? `rgba(0, 0, 0, ${fadeRate})` : `rgba(255, 255, 255, ${fadeRate})`;
+      ctx.fillStyle = trailColor;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      // Set text properties
-      ctx.fillStyle = `hsla(142, 100%, 55%, ${opacity})`;
+      // Set text properties with theme-aware colors
+      const textColor = isDarkMode 
+        ? `hsla(142, 100%, 55%, ${opacity})` 
+        : `hsla(142, 80%, 35%, ${opacity * 1.5})`;
+      ctx.fillStyle = textColor;
       ctx.font = `${fontSize}px 'JetBrains Mono', monospace`;
       ctx.textBaseline = 'top';
 
@@ -75,10 +100,11 @@ const DigitalRain = ({ intensity = 'light', opacity = 0.15 }: DigitalRainProps) 
         const x = i * fontSize;
         const y = drops[i];
 
-        // Add glow effect for primary characters
+        // Add glow effect for primary characters with theme awareness
         if (Math.random() < 0.1) {
-          ctx.shadowColor = 'hsl(142, 100%, 55%)';
-          ctx.shadowBlur = 8;
+          const shadowColor = isDarkMode ? 'hsl(142, 100%, 55%)' : 'hsl(142, 80%, 35%)';
+          ctx.shadowColor = shadowColor;
+          ctx.shadowBlur = isDarkMode ? 8 : 6;
         } else {
           ctx.shadowBlur = 0;
         }
@@ -101,15 +127,16 @@ const DigitalRain = ({ intensity = 'light', opacity = 0.15 }: DigitalRainProps) 
     return () => {
       window.removeEventListener('resize', resizeCanvas);
     };
-  }, [intensity, opacity]);
+  }, [intensity, opacity, isDarkMode]);
 
   return (
     <canvas
       ref={canvasRef}
       className="fixed inset-0 pointer-events-none z-0"
       style={{ 
-        mixBlendMode: 'screen',
-        filter: 'contrast(1.2) brightness(0.8)'
+        mixBlendMode: isDarkMode ? 'screen' : 'multiply',
+        filter: isDarkMode ? 'contrast(1.2) brightness(0.8)' : 'contrast(1.1) brightness(1.2)',
+        opacity: isDarkMode ? 1 : 0.7
       }}
     />
   );
