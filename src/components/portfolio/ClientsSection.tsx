@@ -76,11 +76,11 @@ export const ClientsSection = ({
                 rotate: 2
               }}
             >
-              <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden flex items-center justify-center bg-background/50 backdrop-blur-sm p-4 hover:border-primary transition-colors duration-300 hover:bg-background/70">
+              <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden flex items-center justify-center bg-background/80 backdrop-blur-sm border border-primary/10 hover:border-primary/30 transition-all duration-300 hover:bg-background/90 hover:shadow-lg">
                 <OptimizedImage 
                   src={client.logo} 
                   alt={client.name}
-                  className="w-full h-full object-contain filter contrast-125 rounded-full" 
+                  className="w-20 h-20 md:w-24 md:h-24 object-contain filter contrast-125 brightness-90" 
                 />
               </div>
             </motion.div>
